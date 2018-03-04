@@ -28,3 +28,5 @@ insert into Class(4, 9);
 insert into Class(4, 10);
 insert into Class(5, 11);
 insert into Class(5, 12);
+
+-- Need to add Schools
