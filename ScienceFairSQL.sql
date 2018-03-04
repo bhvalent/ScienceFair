@@ -15,7 +15,7 @@ DROP TABLE IF EXISTS Fair, School, Category, Class, Registration, Judge, Score, 
 -- -----------------------------------------------------
 
 CREATE TABLE IF NOT EXISTS `Fair` (
-  `FairID` INT NOT NULL,
+  `FairID` INT NOT NULL AUTO_INCREMENT,
   `FairName` VARCHAR(45) NOT NULL,
   `Year` YEAR NOT NULL,
   PRIMARY KEY (`FairID`)
