@@ -73,15 +73,15 @@ CREATE TABLE IF NOT EXISTS `Registration` (
   `FName` VARCHAR(50) NOT NULL,
   `ProjTitle` VARCHAR(255) NOT NULL,
   `Age` INT NOT NULL,
-  `Gener` VARCHAR(10) NOT NULL,
+  `Gender` VARCHAR(10) NOT NULL,
   `City` VARCHAR(45) NOT NULL,
   `State` VARCHAR(2) NOT NULL,
   `Zip` INT(5) NOT NULL,
   `AdultSponsor` VARCHAR(100) NOT NULL,
-  `FkFairID` INT NOT NULL,
-  `FkSchoolID` INT NOT NULL,
-  `FkCategoryID` INT NOT NULL,
-  `Class_ClassID` INT NOT NULL,
+  `FKFairID` INT NOT NULL,
+  `FKSchoolID` INT NOT NULL,
+  `FKCategoryID` INT NOT NULL,
+  `FKClassID` INT NOT NULL,
   `Score1` INT NULL,
   `Score2` INT NULL,
   `Total` DECIMAL(4,1) NULL,
@@ -91,22 +91,22 @@ CREATE TABLE IF NOT EXISTS `Registration` (
   `Rank` INT NULL,
   PRIMARY KEY (`RegistrationID`),
   CONSTRAINT `fk_Registration_Fair`
-    FOREIGN KEY (`FkFairID`)
+    FOREIGN KEY (`FKFairID`)
     REFERENCES `Fair` (`FairID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Registration_School1`
-    FOREIGN KEY (`FkSchoolID`)
+    FOREIGN KEY (`FKSchoolID`)
     REFERENCES `School` (`SchoolID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Registration_Category1`
-    FOREIGN KEY (`FkCategoryID`)
+    FOREIGN KEY (`FKCategoryID`)
     REFERENCES `Category` (`CategoryID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Registration_Class1`
-    FOREIGN KEY (`Class_ClassID`)
+    FOREIGN KEY (`FKClassID`)
     REFERENCES `Class` (`ClassID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION
