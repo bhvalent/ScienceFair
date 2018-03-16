@@ -1,10 +1,16 @@
+<?php 
+	require_once("session.php");
+?>
+
 <DOCTYPE! html>
 <html lang="en">
 
 <?php 
 	require_once("included_functions.php");
 	$mysqli = db_connection();
-	//new_header("Home")	
+	if (($output = message()) !== null) {
+		echo $output;
+	}	
  ?>
  	
  	 <head>
@@ -59,7 +65,7 @@
 		echo "<tbody>";
 		while ($row = $result->fetch_assoc()) {
 			echo "<tr>";
-			echo "<td class='text-center'><a href='#'>".$row['FairName']."</a></td>";
+			echo "<td class='text-center'><a href='FairHome.php?id=".urlencode($row['FairID'])."'>".$row['FairName']."</a></td>";
 			//echo "<td class='text-center'>".$row['FairName']."</td>";
 			echo "<td class='text-center'>".$row['Year']."</td>";
 			echo "</tr>";
