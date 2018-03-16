@@ -3,7 +3,7 @@
 
 <?php 
 	require_once("included_functions.php");
-	$mysql = db_connection();
+	$mysqli = db_connection();
 	//new_header("Home")	
  ?>
  	
@@ -39,7 +39,39 @@
 
 <?php 
 
-	$query = "Select * from Fair";
+	$query = "Select * from Fair order by Year DESC";
+	$result = $mysqli->query($query);
+	if ($result && $result->num_rows > 0) {
+		echo "<div class='container'>";
+		echo "<head><h2>&nbsp</h2></head>";
+		echo "<div class='row justify-content-center'";
+		//echo "<center>";
+		echo "<head>";
+		echo "<h3>Fairs</h3>";
+		echo "</head>";
+		echo "</div>";
+
+		//echo "<div class='table-responsive'";
+		echo "<table class='table table-bordered table-hover'>";
+		echo "<thead class='thead-dark'>";
+		echo "<tr><th scope='col'>Name</th><th scope='col'>Year</th></tr>";
+		echo "</thead>";
+		echo "<tbody>";
+		while ($row = $result->fetch_assoc()) {
+			echo "<tr>";
+			echo "<td class='text-center'><a href='#'>".$row['FairName']."</a></td>";
+			//echo "<td class='text-center'>".$row['FairName']."</td>";
+			echo "<td class='text-center'>".$row['Year']."</td>";
+			echo "</tr>";
+		}
+		echo "</tbody>";
+		echo "</table>";
+		//echo "</div>";
+
+		//echo "</center>";
+		
+		echo "</div>";
+	}
 
 ?>
 
