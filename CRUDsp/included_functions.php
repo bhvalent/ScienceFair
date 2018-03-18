@@ -1,5 +1,5 @@
 <?php	
-	function new_header($name="Default", $urlLink="") {
+	function new_header($name="Default", $FairID=0) {
 		echo '<head>';
 		echo '<meta charset="utf-8">';
 		echo '<meta name="viewport" content="width=device-width, initial-scale=1">';
@@ -26,9 +26,10 @@
 				Students
 				</button>';
 		echo '<div class="dropdown-menu">';
-		echo '<a class="dropdown-item" href="#">Action</a>';
-    	echo '<a class="dropdown-item" href="#">Another action</a>';
-    	echo '<a class="dropdown-item" href="#">Something else here</a>';
+		echo '<a class="dropdown-item" href="readStudents.php?id='.$FairID.'&type=1">By Name</a>';
+    	echo '<a class="dropdown-item" href="readStudents.php?id='.$FairID.'&type=2">By School</a>';
+    	echo '<a class="dropdown-item" href="readStudents.php?id='.$FairID.'&type=3">By Category</a>';
+    	echo '<a class="dropdown-item" href="readStudents.php?id='.$FairID.'&type=4">By Class</a>';
     	echo '</div>';
 		echo '</div>';
 					
