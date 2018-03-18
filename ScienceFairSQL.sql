@@ -129,24 +129,6 @@ CREATE TABLE IF NOT EXISTS `Judge` (
 
 
 -- -----------------------------------------------------
--- Table `Score`
--- -----------------------------------------------------
-
-CREATE TABLE IF NOT EXISTS `Score` (
-  `ScoreID` INT NOT NULL AUTO_INCREMENT,
-  `Score1` INT NULL,
-  `Score2` INT NULL,
-  `Total` DECIMAL(2) NULL,
-  `StandDev1` DECIMAL(5) NULL,
-  `StandDev2` DECIMAL(5) NULL,
-  `Average` DECIMAL(7) NULL,
-  `Rank` INT NULL,
-  PRIMARY KEY (`ScoreID`)
-);
--- ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
 -- Table `SetJudge`
 -- -----------------------------------------------------
 
