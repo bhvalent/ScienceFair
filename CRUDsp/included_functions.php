@@ -23,7 +23,7 @@
 					
 		echo '<div class="btn-group">';
 		echo '<button type="button" class="btn btn-outline-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				Registrants
+				Students
 				</button>';
 		echo '<div class="dropdown-menu">';
 		echo '<a class="dropdown-item" href="#">Action</a>';
