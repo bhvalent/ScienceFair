@@ -93,6 +93,85 @@
 		
 				echo "</div>";
 			}
+		} elseif ($type === "2") {
+
+			$query = "Select SName from School";
+			$result = $mysqli->query($query);
+			$array = array();
+			if ($result && $result->num_rows > 0) {
+				while ($row = $result->fetch_assoc()) {
+					array_push($array, $row['SName']);
+				}
+				
+				echo "<div class='container-fluid'";
+				for ($i = 0; $i < count($array); $i++) {
+					$query = "Select RegistrationID, LName, FName, ProjTitle, Category.Description as `Category`, Age, Gender, Registration.City as `RCity`, State, Zip, Class, Grade, SName, KeyTeacher, School.City as `SCity`, Type from ";
+					$query .= "Fair inner join Registration on FairID = FKFairID ";
+					$query .= "inner join Class on FKClassID = ClassID ";
+					$query .= "inner join School on FKSchoolID = SchoolID ";
+					$query .= "inner join Category on FKCategoryID = CategoryID ";
+					$query .= "where FairID = ".$ID." and SName = '".$array[$i]."'";
+					$query .= " order by LName";
+					$result = $mysqli->query($query);
+					if ($result && $result->num_rows > 0) {
+
+						echo "<br><br>";
+						echo "<div class='row justify-content-center'";
+						echo "<head>";
+						echo "<h3>".$array[$i]."</h3>";
+						echo "</head>";
+						echo "</div>";
+
+						echo "<table class='table table-bordered table-hover'>";
+						echo "<thead class='thead-dark'>";
+						echo "<tr>";
+						echo "<th scope='col'>Last</th>";
+						echo "<th scope='col'>First</th>";
+						echo "<th scope='col'>Project Title</th>";
+						echo "<th scope='col'>Category</th>";
+						echo "<th scope='col'>Age</th>";
+						echo "<th scope='col'>Gender</th>";
+						echo "<th scope='col'>City</th>";
+						echo "<th scope='col'>State</th>";
+						echo "<th scope='col'>Zip</th>";
+						echo "<th scope='col'>Class</th>";
+						echo "<th scope='col'>Grade</th>";
+						echo "<th scope='col'>School</th>";
+						echo "<th scope='col'>KeyTeacher</th>";
+						echo "<th scope='col'>School City</th>";
+						echo "<th scope='col'>Type</th>";
+						echo "</tr>";
+						echo "</thead>";
+						echo "<tbody>";
+						while ($row = $result->fetch_assoc()) {
+							echo "<tr>";
+							echo "<td class='text-center'>".$row['LName']."</td>";
+							echo "<td class='text-center'>".$row['FName']."</td>";
+							echo "<td class='text-center'>".$row['ProjTitle']."</td>";
+							echo "<td class='text-center'>".$row['Category']."</td>";
+							echo "<td class='text-center'>".$row['Age']."</td>";
+							echo "<td class='text-center'>".$row['Gender']."</td>";
+							echo "<td class='text-center'>".$row['RCity']."</td>";
+							echo "<td class='text-center'>".$row['State']."</td>";
+							echo "<td class='text-center'>".$row['Zip']."</td>";
+							echo "<td class='text-center'>".$row['Class']."</td>";
+							echo "<td class='text-center'>".$row['Grade']."</td>";
+							echo "<td class='text-center'>".$row['SName']."</td>";
+							echo "<td class='text-center'>".$row['KeyTeacher']."</td>";
+							echo "<td class='text-center'>".$row['SCity']."</td>";
+							echo "<td class='text-center'>".$row['Type']."</td>";
+							echo "</tr>";
+						}
+						echo "</tbody>";
+						echo "</table>";
+					}
+					
+
+				}
+				echo "</div>";
+
+			}
+
 		} elseif ($type === "3") {
 
 			$query = "Select Description as `Category` from Category";
@@ -172,6 +251,85 @@
 
 			}
 			
+		} elseif ($type === "4") {
+
+			$query = "Select distinct Class from Class";
+			$result = $mysqli->query($query);
+			$array = array();
+			if ($result && $result->num_rows > 0) {
+				while ($row = $result->fetch_assoc()) {
+					array_push($array, $row['Class']);
+				}
+				
+				echo "<div class='container-fluid'";
+				for ($i = 0; $i < count($array); $i++) {
+					$query = "Select RegistrationID, LName, FName, ProjTitle, Category.Description as `Category`, Age, Gender, Registration.City as `RCity`, State, Zip, Class, Grade, SName, KeyTeacher, School.City as `SCity`, Type from ";
+					$query .= "Fair inner join Registration on FairID = FKFairID ";
+					$query .= "inner join Class on FKClassID = ClassID ";
+					$query .= "inner join School on FKSchoolID = SchoolID ";
+					$query .= "inner join Category on FKCategoryID = CategoryID ";
+					$query .= "where FairID = ".$ID." and Class = ".$array[$i];
+					$query .= " order by LName";
+					$result = $mysqli->query($query);
+					if ($result && $result->num_rows > 0) {
+
+						echo "<br><br>";
+						echo "<div class='row justify-content-center'";
+						echo "<head>";
+						echo "<h3>Class ".$array[$i]."</h3>";
+						echo "</head>";
+						echo "</div>";
+
+						echo "<table class='table table-bordered table-hover'>";
+						echo "<thead class='thead-dark'>";
+						echo "<tr>";
+						echo "<th scope='col'>Last</th>";
+						echo "<th scope='col'>First</th>";
+						echo "<th scope='col'>Project Title</th>";
+						echo "<th scope='col'>Category</th>";
+						echo "<th scope='col'>Age</th>";
+						echo "<th scope='col'>Gender</th>";
+						echo "<th scope='col'>City</th>";
+						echo "<th scope='col'>State</th>";
+						echo "<th scope='col'>Zip</th>";
+						echo "<th scope='col'>Class</th>";
+						echo "<th scope='col'>Grade</th>";
+						echo "<th scope='col'>School</th>";
+						echo "<th scope='col'>KeyTeacher</th>";
+						echo "<th scope='col'>School City</th>";
+						echo "<th scope='col'>Type</th>";
+						echo "</tr>";
+						echo "</thead>";
+						echo "<tbody>";
+						while ($row = $result->fetch_assoc()) {
+							echo "<tr>";
+							echo "<td class='text-center'>".$row['LName']."</td>";
+							echo "<td class='text-center'>".$row['FName']."</td>";
+							echo "<td class='text-center'>".$row['ProjTitle']."</td>";
+							echo "<td class='text-center'>".$row['Category']."</td>";
+							echo "<td class='text-center'>".$row['Age']."</td>";
+							echo "<td class='text-center'>".$row['Gender']."</td>";
+							echo "<td class='text-center'>".$row['RCity']."</td>";
+							echo "<td class='text-center'>".$row['State']."</td>";
+							echo "<td class='text-center'>".$row['Zip']."</td>";
+							echo "<td class='text-center'>".$row['Class']."</td>";
+							echo "<td class='text-center'>".$row['Grade']."</td>";
+							echo "<td class='text-center'>".$row['SName']."</td>";
+							echo "<td class='text-center'>".$row['KeyTeacher']."</td>";
+							echo "<td class='text-center'>".$row['SCity']."</td>";
+							echo "<td class='text-center'>".$row['Type']."</td>";
+							echo "</tr>";
+						}
+						echo "</tbody>";
+						echo "</table>";
+					}
+					
+
+				}
+				echo "</div>";
+
+			}
+
 		}
 
 	}
