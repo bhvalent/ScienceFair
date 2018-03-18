@@ -18,7 +18,7 @@
 		$result = $mysqli->query($query);
 		if ($result && $result->num_rows > 0) {
 			$row = $result->fetch_assoc();
-			new_header($row['FairName']." ".$row['Year']);
+			new_header($row['FairName']." ".$row['Year'], $ID);
 		}
 	} 
  ?>
