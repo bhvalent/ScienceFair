@@ -19,6 +19,8 @@
 		if ($result && $result->num_rows > 0) {
 			$row = $result->fetch_assoc();
 			new_header($row['FairName']." ".$row['Year'], $ID);
+			$fair_name = $row['FairName'];
+			$fair_year = $row['Year'];
 		}
 	} 
  ?>
@@ -42,6 +44,13 @@
  						echo "<a href='readStudents.php?id=".urldecode($ID)."&type=3' class='btn btn-primary'>By Category</a>";
  						echo " ";
  						echo "<a href='readStudents.php?id=".urldecode($ID)."&type=4' class='btn btn-primary'>By Class</a>";
+ 						?>
+
+ 						
+						<?php 
+						echo "<p class='card-text'></p>";
+ 						echo "<p class='card-text'>Add Student into ".$fair_name." ".$fair_year." </p>";
+ 						echo "<a href='addStudent.php?id=".urldecode($ID)."' class='btn btn-primary'>Add Student</a>";
  						?>
 
  					</div>
