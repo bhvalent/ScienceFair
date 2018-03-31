@@ -23,7 +23,7 @@
 		}
 
 		if ($type === "1") {
-			$query = "Select RegistrationID, LName, FName, ProjTitle, Category.Description as `Category`, Age, Gender, Registration.City as `RCity`, State, Zip, Class, Grade, SName, KeyTeacher, School.City as `SCity`, Type from ";
+			$query = "Select RegistrationID, LName, FName, ProjTitle, Category.Description as `Category`, Age, Gender, Registration.City as `RCity`, State, Zip, AdultSponsor, Class, Grade, SName, KeyTeacher, School.City as `SCity`, Type from ";
 			$query .= "Fair inner join Registration on FairID = FKFairID ";
 			$query .= "inner join Class on FKClassID = ClassID ";
 			$query .= "inner join School on FKSchoolID = SchoolID ";
@@ -36,15 +36,14 @@
 				
 
 				echo "<div class='container-fluid'>";
-				//echo "<head><h2>&nbsp</h2></head>";
 				echo "<br><br>";
 				echo "<div class='row justify-content-center'";
-				//echo "<center>";
 				echo "<head>";
 				echo "<h3>Students</h3>";
 				echo "</head>";
 				echo "</div>";
 
+				echo "<div class='table-responsive'>";
 				echo "<table class='table table-bordered table-hover'>";
 				echo "<thead class='thead-dark'>";
 				echo "<tr>";
@@ -57,12 +56,15 @@
 				echo "<th scope='col'>City</th>";
 				echo "<th scope='col'>State</th>";
 				echo "<th scope='col'>Zip</th>";
+				echo "<th scope='col'>Adult Sponsor</th>";
 				echo "<th scope='col'>Class</th>";
 				echo "<th scope='col'>Grade</th>";
 				echo "<th scope='col'>School</th>";
 				echo "<th scope='col'>KeyTeacher</th>";
 				echo "<th scope='col'>School City</th>";
 				echo "<th scope='col'>Type</th>";
+				echo "<th scope='col'></th>";
+				echo "<th scope='col'></th>";
 				echo "</tr>";
 				echo "</thead>";
 				echo "<tbody>";
@@ -77,19 +79,21 @@
 					echo "<td class='text-center'>".$row['RCity']."</td>";
 					echo "<td class='text-center'>".$row['State']."</td>";
 					echo "<td class='text-center'>".$row['Zip']."</td>";
+					echo "<td class='text-center'>".$row['AdultSponsor']."</td>";
 					echo "<td class='text-center'>".$row['Class']."</td>";
 					echo "<td class='text-center'>".$row['Grade']."</td>";
 					echo "<td class='text-center'>".$row['SName']."</td>";
 					echo "<td class='text-center'>".$row['KeyTeacher']."</td>";
 					echo "<td class='text-center'>".$row['SCity']."</td>";
 					echo "<td class='text-center'>".$row['Type']."</td>";
+					echo "<td class='text-center'><a href='editStudent.php?sid=".urldecode($_GET['RegistrationID'])."' class='btn btn-outline-warning'>Edit</a></td>";
+					echo "<td class='text-center'><a href='deleteStudent.php?sid=".urldecode($_GET['RegistrationID'])."' class='btn btn-outline-danger'>Delete</a></td>";
 					echo "</tr>";
 				}		
 				echo "</tbody>";
 				echo "</table>";
-				//echo "</div>";
+				echo "</div>";
 
-				//echo "</center>";
 		
 				echo "</div>";
 			}
@@ -105,7 +109,7 @@
 				
 				echo "<div class='container-fluid'";
 				for ($i = 0; $i < count($array); $i++) {
-					$query = "Select RegistrationID, LName, FName, ProjTitle, Category.Description as `Category`, Age, Gender, Registration.City as `RCity`, State, Zip, Class, Grade, SName, KeyTeacher, School.City as `SCity`, Type from ";
+					$query = "Select RegistrationID, LName, FName, ProjTitle, Category.Description as `Category`, Age, Gender, Registration.City as `RCity`, State, Zip, AdultSponsor, Class, Grade, SName, KeyTeacher, School.City as `SCity`, Type from ";
 					$query .= "Fair inner join Registration on FairID = FKFairID ";
 					$query .= "inner join Class on FKClassID = ClassID ";
 					$query .= "inner join School on FKSchoolID = SchoolID ";
@@ -122,6 +126,7 @@
 						echo "</head>";
 						echo "</div>";
 
+						echo "<div class='table-responsive'>";
 						echo "<table class='table table-bordered table-hover'>";
 						echo "<thead class='thead-dark'>";
 						echo "<tr>";
@@ -134,12 +139,15 @@
 						echo "<th scope='col'>City</th>";
 						echo "<th scope='col'>State</th>";
 						echo "<th scope='col'>Zip</th>";
+						echo "<th scope='col'>Adult Sponsor</th>";
 						echo "<th scope='col'>Class</th>";
 						echo "<th scope='col'>Grade</th>";
 						echo "<th scope='col'>School</th>";
 						echo "<th scope='col'>KeyTeacher</th>";
 						echo "<th scope='col'>School City</th>";
 						echo "<th scope='col'>Type</th>";
+						echo "<th scope='col'></th>";
+						echo "<th scope='col'></th>";
 						echo "</tr>";
 						echo "</thead>";
 						echo "<tbody>";
@@ -154,16 +162,20 @@
 							echo "<td class='text-center'>".$row['RCity']."</td>";
 							echo "<td class='text-center'>".$row['State']."</td>";
 							echo "<td class='text-center'>".$row['Zip']."</td>";
+							echo "<td class='text-center'>".$row['AdultSponsor']."</td>";
 							echo "<td class='text-center'>".$row['Class']."</td>";
 							echo "<td class='text-center'>".$row['Grade']."</td>";
 							echo "<td class='text-center'>".$row['SName']."</td>";
 							echo "<td class='text-center'>".$row['KeyTeacher']."</td>";
 							echo "<td class='text-center'>".$row['SCity']."</td>";
 							echo "<td class='text-center'>".$row['Type']."</td>";
+							echo "<td class='text-center'><a href='editStudent.php?sid=".urldecode($_GET['RegistrationID'])."' class='btn btn-outline-warning'>Edit</a></td>";
+							echo "<td class='text-center'><a href='deleteStudent.php?sid=".urldecode($_GET['RegistrationID'])."' class='btn btn-outline-danger'>Delete</a></td>";
 							echo "</tr>";
 						}
 						echo "</tbody>";
 						echo "</table>";
+						echo "</div>";
 					}
 					
 
@@ -184,7 +196,7 @@
 				
 				echo "<div class='container-fluid'";
 				for ($i = 0; $i < count($array); $i++) {
-					$query = "Select RegistrationID, LName, FName, ProjTitle, Category.Description as `Category`, Age, Gender, Registration.City as `RCity`, State, Zip, Class, Grade, SName, KeyTeacher, School.City as `SCity`, Type from ";
+					$query = "Select RegistrationID, LName, FName, ProjTitle, Category.Description as `Category`, Age, Gender, Registration.City as `RCity`, State, Zip, AdultSponsor, Class, Grade, SName, KeyTeacher, School.City as `SCity`, Type from ";
 					$query .= "Fair inner join Registration on FairID = FKFairID ";
 					$query .= "inner join Class on FKClassID = ClassID ";
 					$query .= "inner join School on FKSchoolID = SchoolID ";
@@ -201,6 +213,7 @@
 						echo "</head>";
 						echo "</div>";
 
+						echo "<div class='table-responsive'>";
 						echo "<table class='table table-bordered table-hover'>";
 						echo "<thead class='thead-dark'>";
 						echo "<tr>";
@@ -213,12 +226,15 @@
 						echo "<th scope='col'>City</th>";
 						echo "<th scope='col'>State</th>";
 						echo "<th scope='col'>Zip</th>";
+						echo "<th scope='col'>Adult Sponsor</th>";
 						echo "<th scope='col'>Class</th>";
 						echo "<th scope='col'>Grade</th>";
 						echo "<th scope='col'>School</th>";
 						echo "<th scope='col'>KeyTeacher</th>";
 						echo "<th scope='col'>School City</th>";
 						echo "<th scope='col'>Type</th>";
+						echo "<th scope='col'></th>";
+						echo "<th scope='col'></th>";
 						echo "</tr>";
 						echo "</thead>";
 						echo "<tbody>";
@@ -233,16 +249,20 @@
 							echo "<td class='text-center'>".$row['RCity']."</td>";
 							echo "<td class='text-center'>".$row['State']."</td>";
 							echo "<td class='text-center'>".$row['Zip']."</td>";
+							echo "<td class='text-center'>".$row['AdultSponsor']."</td>";
 							echo "<td class='text-center'>".$row['Class']."</td>";
 							echo "<td class='text-center'>".$row['Grade']."</td>";
 							echo "<td class='text-center'>".$row['SName']."</td>";
 							echo "<td class='text-center'>".$row['KeyTeacher']."</td>";
 							echo "<td class='text-center'>".$row['SCity']."</td>";
 							echo "<td class='text-center'>".$row['Type']."</td>";
+							echo "<td class='text-center'><a href='editStudent.php?sid=".urldecode($_GET['RegistrationID'])."' class='btn btn-outline-warning'>Edit</a></td>";
+							echo "<td class='text-center'><a href='deleteStudent.php?sid=".urldecode($_GET['RegistrationID'])."' class='btn btn-outline-danger'>Delete</a></td>";
 							echo "</tr>";
 						}
 						echo "</tbody>";
 						echo "</table>";
+						echo "</div>";
 					}
 					
 
@@ -263,7 +283,7 @@
 				
 				echo "<div class='container-fluid'";
 				for ($i = 0; $i < count($array); $i++) {
-					$query = "Select RegistrationID, LName, FName, ProjTitle, Category.Description as `Category`, Age, Gender, Registration.City as `RCity`, State, Zip, Class, Grade, SName, KeyTeacher, School.City as `SCity`, Type from ";
+					$query = "Select RegistrationID, LName, FName, ProjTitle, Category.Description as `Category`, Age, Gender, Registration.City as `RCity`, State, Zip, AdultSponsor, Class, Grade, SName, KeyTeacher, School.City as `SCity`, Type from ";
 					$query .= "Fair inner join Registration on FairID = FKFairID ";
 					$query .= "inner join Class on FKClassID = ClassID ";
 					$query .= "inner join School on FKSchoolID = SchoolID ";
@@ -280,6 +300,7 @@
 						echo "</head>";
 						echo "</div>";
 
+						echo "<div class='table-responsive'>";
 						echo "<table class='table table-bordered table-hover'>";
 						echo "<thead class='thead-dark'>";
 						echo "<tr>";
@@ -292,12 +313,15 @@
 						echo "<th scope='col'>City</th>";
 						echo "<th scope='col'>State</th>";
 						echo "<th scope='col'>Zip</th>";
+						echo "<th scope='col'>Adult Sponsor</th>";
 						echo "<th scope='col'>Class</th>";
 						echo "<th scope='col'>Grade</th>";
 						echo "<th scope='col'>School</th>";
 						echo "<th scope='col'>KeyTeacher</th>";
 						echo "<th scope='col'>School City</th>";
 						echo "<th scope='col'>Type</th>";
+						echo "<th scope='col'></th>";
+						echo "<th scope='col'></th>";
 						echo "</tr>";
 						echo "</thead>";
 						echo "<tbody>";
@@ -312,16 +336,20 @@
 							echo "<td class='text-center'>".$row['RCity']."</td>";
 							echo "<td class='text-center'>".$row['State']."</td>";
 							echo "<td class='text-center'>".$row['Zip']."</td>";
+							echo "<td class='text-center'>".$row['AdultSponsor']."</td>";
 							echo "<td class='text-center'>".$row['Class']."</td>";
 							echo "<td class='text-center'>".$row['Grade']."</td>";
 							echo "<td class='text-center'>".$row['SName']."</td>";
 							echo "<td class='text-center'>".$row['KeyTeacher']."</td>";
 							echo "<td class='text-center'>".$row['SCity']."</td>";
 							echo "<td class='text-center'>".$row['Type']."</td>";
+							echo "<td class='text-center'><a href='editStudent.php?sid=".urldecode($_GET['RegistrationID'])."' class='btn btn-outline-warning'>Edit</a></td>";
+							echo "<td class='text-center'><a href='deleteStudent.php?sid=".urldecode($_GET['RegistrationID'])."' class='btn btn-outline-danger'>Delete</a></td>";
 							echo "</tr>";
 						}
 						echo "</tbody>";
 						echo "</table>";
+						echo "</div>";
 					}
 					
 
