@@ -15,27 +15,28 @@
 	if (isset($_POST["submit"])) {
 	  	if ( (isset($_POST["projTitle"]) && $_POST["projTitle"] !== "") && (isset($_POST["fname"]) && $_POST["fname"] !== "") && (isset($_POST["lname"]) && $_POST["lname"] !== "") && (isset($_POST["age"]) && $_POST["age"] !== "") && (isset($_POST["genderRadioOptions"]) && $_POST["genderRadioOptions"] !== "") && (isset($_POST["city"]) && $_POST["city"] !== "") && (isset($_POST["state"]) && $_POST["state"] !== "") && (isset($_POST["zip"]) && $_POST["zip"] !== "") && (isset($_POST["school"]) && $_POST["school"] !== "") && (isset($_POST["adultSponsor"]) && $_POST["adultSponsor"] !== "") ) {
 
-        	//echo "<h2>Recieved all the information</h2>";
-        	$query = "Insert into Registration ";
-        	$query .= "(LName, FName, ProjTitle, Age, Gender, City, State, Zip, AdultSponsor, FKFairID, FKSchoolID, FKCategoryID, FKClassID) ";
-       		$query .= "VALUES(";
-        	$query .= "'".$_POST['lname']."', ";
-        	$query .= "'".$_POST['fname']."', ";
-        	$query .= "'".$_POST['projTitle']."', ";
-        	$query .= $_POST['age'].", ";
-        	$query .= "'".$_POST['genderRadioOptions']."', ";
-        	$query .= "'".$_POST['city']."', ";
-        	$query .= "'".$_POST['state']."', ";
-        	$query .= $_POST['zip'].", ";
-        	$query .= "'".$_POST['adultSponsor']."', ";
-        	$query .= $ID.", ";
-        	$query .= $_POST['school'].", ";
-        	$query .= $_POST['category'].", ";
-        	$query .= $_POST['class'].")";
+	  		$ID = $_GET['id'];
+	  		$SID = $_GET['sid'];
+
+
+        	$query = "Update Registration set ";
+        	$query .= "LName = '".$_POST['lname']."', ";
+        	$query .= "FName = '".$_POST['fname']."', ";
+        	$query .= "ProjTitle = '".$_POST['projTitle']."', ";
+        	$query .= "Age = ".$_POST['age'].", ";
+        	$query .= "Gender = '".$_POST['genderRadioOptions']."', ";
+        	$query .= "City = '".$_POST['city']."', ";
+        	$query .= "State = '".$_POST['state']."', ";
+        	$query .= "Zip = ".$_POST['zip'].", ";
+        	$query .= "AdultSponsor = '".$_POST['adultSponsor']."', ";
+        	$query .= "FKSchoolID = ".$_POST['school'].", ";
+        	$query .= "FKCategoryID = ".$_POST['category'].", ";
+        	$query .= "FKClassID = ".$_POST['class']." ";
+        	$query .= "where RegistrationID = ".$SID;
 
         	$result = $mysqli->query($query);
 
-        	if($result) {
+        	if($result && $mysqli->affected_rows === 1) {
 
           		$_SESSION["message"] = $_POST["fname"]." ".$_POST["lname"]." has been updated";
           		header("Location: FairHome.php?id=".$ID);
@@ -241,13 +242,13 @@
           			exit;
 				}
 			} else {
-				$_SESSION["message"] = "Error! ".$FairName." could not be found.";
+				$_SESSION["message"] = "Error! Fair could not be found.";
           		header("Location: SFindex.php");
           		exit;
 			}	
 
 		} else {
-			$_SESSION["message"] = "Error! Variables not set in address";
+			$_SESSION["message"] = "Error! Variables not set";
           	header("Location: SFindex.php");
           	exit;
 		}
