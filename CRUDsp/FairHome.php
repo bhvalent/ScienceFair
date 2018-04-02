@@ -57,7 +57,7 @@
  				</div>
  			</div>
  		</div>
- 		<br>
+ 		<br />
  		<!-- Need to edit to fit with judges -->
  		<div class='row justify-content-center'>
  			<div class='col-6'>
@@ -71,7 +71,24 @@
  				</div>
  			</div>
  		</div>
+ 		<br />
+ 		<div class='row justify-content-center'>
+ 			<div class='col-6'>
+ 				<div class='card text-center'>
+ 					<div class='card-body'>
+ 						<h3 class='card-title'>Other</h3>
+ 						<?php
+ 						echo "<a href='readSchools.php?id=".$ID."' class='btn btn-primary'>View Schools</a>";
+ 						echo " ";
+ 						echo "<a href='readCategories.php' class='btn btn-primary'>View Categories</a>";
+ 						?>
+ 					</div>
+ 				</div>
+ 			</div>
+ 		</div>
+
  	</div>
+ 	<br /><br /><br />
  </body>
 
  </html>
