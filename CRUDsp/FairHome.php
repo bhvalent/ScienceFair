@@ -80,7 +80,7 @@
  						<?php
  						echo "<a href='readSchools.php?id=".$ID."' class='btn btn-primary'>View Schools</a>";
  						echo " ";
- 						echo "<a href='readCategories.php' class='btn btn-primary'>View Categories</a>";
+ 						echo "<a href='readCategories.php?id=".$ID."' class='btn btn-primary'>View Categories</a>";
  						?>
  					</div>
  				</div>
