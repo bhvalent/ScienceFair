@@ -61,6 +61,13 @@
 				echo "</table>";
 				echo "</div>";
 
+				echo "<div class='container'>";
+				echo "<br /><br />";
+		
+				echo "<a href='addSchool.php?id=".urlencode($ID)."' class='btn btn-primary btn-block'>Add School</a>";
+		
+				echo "</div>";
+
 
 			} else {
 				$_SESSION["message"] = "Error! Schools were not found.";
