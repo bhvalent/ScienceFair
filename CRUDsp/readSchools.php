@@ -53,7 +53,7 @@
 					echo "<td class='text-center'>".$row['KeyTeacher']."</td>";
 					echo "<td class='text-center'>".$row['City']."</td>";
 					echo "<td class='text-center'>".$row['Type']."</td>";
-					echo "<td class='text-center'><a href='editSchool.php?sid=".urlencode($_GET['SchoolID'])."' class='btn btn-outline-warning'>Edit</a></td>";
+					echo "<td class='text-center'><a href='editSchool.php?id=".urlencode($ID)."&sid=".urlencode($row['SchoolID'])."' class='btn btn-outline-warning'>Edit</a></td>";
 					echo "</tr>";
 				}
 
@@ -88,4 +88,5 @@
         exit;
 	}
 ?>
+<br /><br /><br />
 </html>
