@@ -51,32 +51,44 @@
 		echo "<div class='container'>";
 		echo "<head><h2>&nbsp</h2></head>";
 		echo "<div class='row justify-content-center'";
-		//echo "<center>";
+		
 		echo "<head>";
-		echo "<h3>Fairs</h3>";
+		echo "<h2>Fairs</h2>";
 		echo "</head>";
 		echo "</div>";
 
-		//echo "<div class='table-responsive'";
+		echo "<br /><br />";
+		echo "<div class='table-responsive'>";
 		echo "<table class='table table-bordered table-hover'>";
 		echo "<thead class='thead-dark'>";
-		echo "<tr><th scope='col'>Name</th><th scope='col'>Year</th></tr>";
+		echo "<tr>";
+		echo "<th scope='col'>Name</th>";
+		echo "<th scope='col'>Year</th>";
+		echo "<th scope='col'></th>";
+		echo "</tr>";
 		echo "</thead>";
 		echo "<tbody>";
 		while ($row = $result->fetch_assoc()) {
 			echo "<tr>";
 			echo "<td class='text-center'><a href='FairHome.php?id=".urlencode($row['FairID'])."'>".$row['FairName']."</a></td>";
-			//echo "<td class='text-center'>".$row['FairName']."</td>";
 			echo "<td class='text-center'>".$row['Year']."</td>";
+			echo "<td class='text-center'><a href='editFair.php?id=".$row['FairID']."' class='btn btn-outline-warning'>Edit</a></td>";
 			echo "</tr>";
 		}
 		echo "</tbody>";
 		echo "</table>";
-		//echo "</div>";
+		echo "</div>";
 
-		//echo "</center>";
+		echo "</div>";
+
+		echo "<div class='container'>";
+		echo "<br /><br />";
+		
+		echo "<a href='addFair.php' class='btn btn-primary btn-block'>Add Fair</a>";
 		
 		echo "</div>";
+		
+		
 	}
 
 ?>
