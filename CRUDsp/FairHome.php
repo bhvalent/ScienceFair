@@ -37,20 +37,20 @@
  						<p class='card-text'>View Students by Name, School, Category, or Class</p>
 
  						<?php
- 						echo "<a href='readStudents.php?id=".urldecode($ID)."&type=1' class='btn btn-primary'>By Name</a>";
+ 						echo "<a href='readStudents.php?id=".urlencode($ID)."&type=1' class='btn btn-primary'>By Name</a>";
  						echo " ";
- 						echo "<a href='readStudents.php?id=".urldecode($ID)."&type=2' class='btn btn-primary'>By School</a>";
+ 						echo "<a href='readStudents.php?id=".urlencode($ID)."&type=2' class='btn btn-primary'>By School</a>";
  						echo " ";
- 						echo "<a href='readStudents.php?id=".urldecode($ID)."&type=3' class='btn btn-primary'>By Category</a>";
+ 						echo "<a href='readStudents.php?id=".urlencode($ID)."&type=3' class='btn btn-primary'>By Category</a>";
  						echo " ";
- 						echo "<a href='readStudents.php?id=".urldecode($ID)."&type=4' class='btn btn-primary'>By Class</a>";
+ 						echo "<a href='readStudents.php?id=".urlencode($ID)."&type=4' class='btn btn-primary'>By Class</a>";
  						?>
 
  						
 						<?php 
 						echo "<p class='card-text'></p>";
  						echo "<p class='card-text'>Add Student into ".$fair_name." ".$fair_year." </p>";
- 						echo "<a href='addStudent.php?id=".urldecode($ID)."' class='btn btn-primary'>Add Student</a>";
+ 						echo "<a href='addStudent.php?id=".urlencode($ID)."' class='btn btn-primary'>Add Student</a>";
  						?>
 
  					</div>
