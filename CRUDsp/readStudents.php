@@ -86,7 +86,7 @@
 					echo "<td class='text-center'>".$row['KeyTeacher']."</td>";
 					echo "<td class='text-center'>".$row['SCity']."</td>";
 					echo "<td class='text-center'>".$row['Type']."</td>";
-					echo "<td class='text-center'><a href='editStudent.php?sid=".urldecode($_GET['RegistrationID'])."' class='btn btn-outline-warning'>Edit</a></td>";
+					echo "<td class='text-center'><a href='editStudent.php?id=".urlencode($ID)."&sid=".urlencode($row['RegistrationID'])."' class='btn btn-outline-warning'>Edit</a></td>";
 					echo "<td class='text-center'><a href='deleteStudent.php?sid=".urldecode($_GET['RegistrationID'])."' class='btn btn-outline-danger'>Delete</a></td>";
 					echo "</tr>";
 				}		
