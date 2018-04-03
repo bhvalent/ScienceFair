@@ -34,6 +34,7 @@
 				echo "</head>";
 				echo "</div>";
 
+				echo "<br /><br />";
 				echo "<div class='table-responsive'>";
 				echo "<table class='table table-bordered table-hover'>";
 				echo "<thead class='thead-dark'>";
