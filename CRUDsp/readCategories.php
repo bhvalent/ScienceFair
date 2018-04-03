@@ -22,7 +22,7 @@
 			new_header($row['FairName']." ".$row['Year'], $ID);
 
 
-			$query = "select * from Category";
+			$query = "select * from Category order by CategoryID";
 			$result = $mysqli->query($query);
 			if ($result && $result->num_rows > 0) {
 
@@ -41,6 +41,7 @@
 				echo "<table class='table table-bordered table-hover'>";
 				echo "<thead class='thead-dark'>";
 				echo "<tr>";
+				echo "<th scope='col'>Category ID</th>";
 				echo "<th scope='col'>Description</th>";
 				echo "<th scope='col'></th>";
 				echo "</tr>";
@@ -49,6 +50,7 @@
 
 				while ($row = $result->fetch_assoc()) {
 					echo "<tr>";
+					echo "<td class='text-center'>".$row['CategoryID']."</td>";
 					echo "<td class='text-center'>".$row['Description']."</td>";
 					echo "<td class='text-center'><a href='editCategory.php?id=".urlencode($ID)."&cid=".urlencode($row['CategoryID'])."' class='btn btn-outline-warning'>Edit</a></td>";
 					echo "</tr>";
