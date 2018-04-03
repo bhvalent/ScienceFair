@@ -51,12 +51,11 @@
     				
 		echo '<div class="btn-group">';
 		echo '<button type="button" class="btn btn-outline-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				Categories
+				Other
 				</button>';
 		echo '<div class="dropdown-menu">';
-		echo '<a class="dropdown-item" href="#">Action</a>';
-    	echo '<a class="dropdown-item" href="#">Another action</a>';
-    	echo '<a class="dropdown-item" href="#">Something else here</a>';
+		echo '<a class="dropdown-item" href="readSchools.php?id='.$FairID.'">View Schools</a>';
+    	echo '<a class="dropdown-item" href="readCategories.php?id='.$FairID.'">View Categories</a>';
     	echo '</div>';
 		echo '</div>';
 					
@@ -80,7 +79,8 @@
 		echo '<nav class="navbar navbar-dark" style="background-color: #003366">';
 		echo '<div class="container-fluid">';
 		echo '<div class="navbar-header">';
-		echo '<span class="navbar-brand mb-0 h1">'.$name.'</span>';
+		//echo '<span class="navbar-brand mb-0 h1">'.$name.'</span>';
+		echo '<a class="navbar-brand" href="FairHome.php?id='.urlencode($FairID).'">'.$name.'</a>';
 		echo '</div>';
 				
 		echo '</div>';
