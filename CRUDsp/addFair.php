@@ -24,7 +24,7 @@
 	<nav class="navbar navbar-light" role="navigation">
 		 <div class="container-fluid">
 		 <div class="navbar-header">
-		 	<a class="navbar-brand" href="SFindex.php">MSEF Region 7 Science and Engineering Fairs at the University of Mississippi</a>
+		 	<a class="navbar-brand" href="SFindex.php">UM Pre College Programs</a>
 		 </div>
     	
 		 </div>
@@ -78,7 +78,9 @@
 		echo "<br /><br />";
 		echo "<div class='row justify-content-center'";
 		echo "<head>";
-		echo "<h3>Add Fair:</h3>";
+		//echo "<h3>Add Fair:</h3>";
+		echo "<h3 class='d-none d-md-block'>Add Fair:</h3>";
+        echo "<h5 class='d-sm-none'>Add Fair:</h5>";
 		echo "</head>";
 		echo "</div>";
 		echo "<br /><br />";
