@@ -66,12 +66,17 @@
 				new_header($row['FairName']." ".$row['Year'], $ID);
 				$fairNameYear = $row['FairName']." ".$row['Year'];
 			
-      			echo "<br /><br />";
+      	echo "<br /><br />";
+
+        
 				echo "<div class='row justify-content-center'";
 				echo "<head>";
-				echo "<h3>Add Student: <i>".$fairNameYear."</i></h3>";
-				echo "</head>";
+				echo "<h3 class='d-none d-md-block'>Edit Student: <i>".$fairNameYear."</i></h3>";
+        echo "<h5 class='d-sm-none'>Edit Student: <i>".$fairNameYear."</i></h5>";
+        echo "</head>";
 				echo "</div>";
+        
+
 				echo "<br /><br />";
 				echo "<div class='container'>";
 
