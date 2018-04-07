@@ -15,7 +15,7 @@
 		echo '<nav class="navbar navbar-light" role="navigation">';
 		echo '<div class="container-fluid">';
 		echo '<div class="navbar-header">';
-		echo '<a class="navbar-brand" href="SFindex.php">MSEF Region 7 Science and Engineering Fairs at the University of Mississippi</a>';
+		echo '<a class="navbar-brand" href="SFindex.php">UM Pre College Programs</a>';
 		echo '</div>';
 			
 		//<!--<div class="btn-toolbar">-->
