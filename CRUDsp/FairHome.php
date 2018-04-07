@@ -30,7 +30,7 @@
  	<div class='container'>
  		<br>
  		<div class='row justify-content-center'>
- 			<div class='col-6'>
+ 			<div class='col-xs-12 col-sm-12 col-md-9 col-lg-6'>
  				<div class='card text-center'>
  					<div class='card-body'>
  						<h3 class='card-title'>Students</h3>
@@ -60,7 +60,7 @@
  		<br />
  		<!-- Need to edit to fit with judges -->
  		<div class='row justify-content-center'>
- 			<div class='col-6'>
+ 			<div class='col-xs-12 col-sm-12 col-md-9 col-lg-6'>
  				<div class='card text-center'>
  					<div class='card-body'>
  						<h3 class='card-title'>Judges</h3>
@@ -73,7 +73,7 @@
  		</div>
  		<br />
  		<div class='row justify-content-center'>
- 			<div class='col-6'>
+ 			<div class='col-xs-12 col-sm-12 col-md-9 col-lg-6'>
  				<div class='card text-center'>
  					<div class='card-body'>
  						<h3 class='card-title'>Other</h3>
