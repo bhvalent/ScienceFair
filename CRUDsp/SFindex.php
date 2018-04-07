@@ -31,7 +31,11 @@
 	<nav class="navbar navbar-light" role="navigation">
 		 <div class="container-fluid">
 		 <div class="navbar-header">
-		 	<a class="navbar-brand" href="SFindex.php">MSEF Region 7 Science and Engineering Fairs at the University of Mississippi</a>
+		
+		 	<a class="navbar-brand" href="SFindex.php">UM Pre College Programs</a>
+
+		 	<!-- Science and Engineering Fairs at the University of Mississippi -->
+		
 		 </div>
     	
 		 </div>
@@ -71,9 +75,11 @@
 		echo "</div>";
 
 		echo "<br /><br />";
+		echo "<div class='row justify-content-center'";
+		echo "<div class='col-xs-12 col-sm-12 col-md-8 col-lg-6'>";
 		echo "<div class='table-responsive'>";
 		echo "<table class='table table-bordered table-hover'>";
-		echo "<thead class='thead-dark'>";
+		echo "<thead class='thead-dark text-center'>";
 		echo "<tr>";
 		echo "<th scope='col'>Name</th>";
 		echo "<th scope='col'>Year</th>";
@@ -91,7 +97,8 @@
 		echo "</tbody>";
 		echo "</table>";
 		echo "</div>";
-
+		echo "</div>";
+		echo "</div>";
 		echo "</div>";
 
 		echo "<div class='container'>";
@@ -106,6 +113,6 @@
 
 ?>
 
-	
+<br /><br /><br />
 
  </html>
