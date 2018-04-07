@@ -58,7 +58,7 @@
 				echo "<div class='container'>";
  				echo "<br /><br />";
  				echo "<div class='row justify-content-center'>";
- 				echo "<div class='col-8'>";
+ 				echo "<div class='col-xs-12 col-sm-12 col-md-9 col-lg-6'>";
  				echo "<div class='card text-center'>";
  				echo "<div class='card-body'>";
  				echo "<h3 class='card-title'><b>WARNING</b></h3>";
