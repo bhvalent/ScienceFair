@@ -20,7 +20,7 @@
 			
 		//<!--<div class="btn-toolbar">-->
 					
-					
+		echo '<div class="col-xs-12 col-sm-12 col-md-9 col-lg-6">';			
 		echo '<div class="btn-group">';
 		echo '<button type="button" class="btn btn-outline-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				Students
@@ -32,10 +32,9 @@
     	echo '<a class="dropdown-item" href="readStudents.php?id='.$FairID.'&type=4">By Class</a>';
     	echo '</div>';
 		echo '</div>';
-					
-
 		
-					
+		echo ' ';		
+
 		echo '<div class="btn-group">';
 		echo '<button type="button" class="btn btn-outline-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				Judges
@@ -46,8 +45,8 @@
     	echo '<a class="dropdown-item" href="#">Something else here</a>';
     	echo '</div>';
 		echo '</div>';
-					
-
+			
+		echo ' ';
     				
 		echo '<div class="btn-group">';
 		echo '<button type="button" class="btn btn-outline-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -59,8 +58,8 @@
     	echo '</div>';
 		echo '</div>';
 					
-
-    				
+		echo ' ';
+    			
 		echo '<div class="btn-group">';
 		echo '<button type="button" class="btn btn-outline-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				Scores
@@ -70,6 +69,7 @@
     	echo '<a class="dropdown-item" href="#">Another action</a>';
     	echo '<a class="dropdown-item" href="#">Something else here</a>';
     	echo '</div>';
+		echo '</div>';
 		echo '</div>';
 					
     	//<!--</div>-->
