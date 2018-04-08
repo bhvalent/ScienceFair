@@ -89,6 +89,7 @@
 		  		echo "<label>School:</label>";
 	  			echo "<select class='form-control' id='type' name='type'>";
 	  			
+          echo "<option>Choose Option</option>";
 	  			echo "<option value='Public'>Public</option>";
 	  			echo "<option value='Private'>Private</option>";
 	  			echo "<option value='Homeschool'>Homeschool</option>";
