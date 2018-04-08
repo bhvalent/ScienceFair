@@ -24,7 +24,7 @@
 	<nav class="navbar navbar-light" role="navigation">
 		 <div class="container-fluid">
 		 <div class="navbar-header">
-		 	<a class="navbar-brand" href="SFindex.php">MSEF Region 7 Science and Engineering Fairs at the University of Mississippi</a>
+		 	<a class="navbar-brand" href="SFindex.php">UM Pre College Programs</a>
 		 </div>
     	
 		 </div>
@@ -88,7 +88,9 @@
 				echo "<br /><br />";
 				echo "<div class='row justify-content-center'";
 				echo "<head>";
-				echo "<h3>Add Fair:</h3>";
+				//echo "<h3>Edit Fair:</h3>";
+				echo "<h3 class='d-none d-md-block'>Edit Fair:</h3>";
+        		echo "<h5 class='d-sm-none'>Edit Fair:</h5>";
 				echo "</head>";
 				echo "</div>";
 				echo "<br /><br />";
@@ -127,7 +129,7 @@
 	}
 
 ?>
-
+	<br /><br /><br />
 
 	<!-- Bootstrap4 scripts (jquery and popper are CDN because not downloaded) -->
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
