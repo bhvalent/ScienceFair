@@ -36,7 +36,8 @@
 				echo "</head>";
 				echo "</div>";
 
-				
+				echo "<div class='row justify-content-center'>";
+				echo "<div class='col-xs-12 col-sm-10 col-md-10 col-lg-8'>";
 				echo "<div class='table-responsive'>";
 				echo "<table class='table table-bordered table-hover'>";
 				echo "<thead class='thead-dark text-center'>";
@@ -63,12 +64,14 @@
 				echo "</tbody>";
 				echo "</table>";
 				echo "</div>";
+				echo "</div>";
+				echo "</div>";
 
 				echo "<div class='container'>";
 				echo "<br /><br />";
-		
-				echo "<a href='addSchool.php?id=".urlencode($ID)."' class='btn btn-primary btn-block'>Add School</a>";
-		
+				echo "<div class='row justify-content-center'>";
+				echo "<a href='addSchool.php?id=".urlencode($ID)."' class='btn btn-primary'>Add School</a>";
+				echo "</div>";
 				echo "</div>";
 
 
