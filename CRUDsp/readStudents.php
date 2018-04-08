@@ -22,7 +22,7 @@
 			new_header($row['FairName']." ".$row['Year'], $ID);
 
 			if ($type === "1") {
-				$query = "Select RegistrationID, LName, FName, ProjTitle, Category.Description as `Category`, Age, Gender, Registration.City as `RCity`, State, Zip, AdultSponsor, Class, Grade, SName, KeyTeacher, School.City as `SCity`, Type from ";
+				$query = "Select RegistrationID, LName, FName, ProjTitle, Continuation, NumYears as `Years of Work`, Category.Description as `Category`, Age, Gender, Registration.City as `RCity`, State, Zip, AdultSponsor, WheelchairAccess, Class, Grade, SName, KeyTeacher, School.City as `SCity`, Type from ";
 				$query .= "Fair inner join Registration on FairID = FKFairID ";
 				$query .= "inner join Class on FKClassID = ClassID ";
 				$query .= "inner join School on FKSchoolID = SchoolID ";
@@ -46,11 +46,13 @@
 
 					echo "<div class='table-responsive'>";
 					echo "<table class='table table-bordered table-hover'>";
-					echo "<thead class='thead-dark'>";
+					echo "<thead class='thead-dark text-center'>";
 					echo "<tr>";
 					echo "<th scope='col'>Last</th>";
 					echo "<th scope='col'>First</th>";
 					echo "<th scope='col'>Project Title</th>";
+					echo "<th scope='col'>Continuation</th>";
+					echo "<th scope='col'>Years of Work</th>";
 					echo "<th scope='col'>Category</th>";
 					echo "<th scope='col'>Age</th>";
 					echo "<th scope='col'>Gender</th>";
@@ -58,6 +60,7 @@
 					echo "<th scope='col'>State</th>";
 					echo "<th scope='col'>Zip</th>";
 					echo "<th scope='col'>Adult Sponsor</th>";
+					echo "<th scope='col'>Wheelchair Access</th>";
 					echo "<th scope='col'>Class</th>";
 					echo "<th scope='col'>Grade</th>";
 					echo "<th scope='col'>School</th>";
@@ -74,6 +77,8 @@
 						echo "<td class='text-center'>".$row['LName']."</td>";
 						echo "<td class='text-center'>".$row['FName']."</td>";
 						echo "<td class='text-center'>".$row['ProjTitle']."</td>";
+						echo "<td class='text-center'>".$row['Continuation']."</td>";
+						echo "<td class='text-center'>".$row['Years of Work']."</td>";
 						echo "<td class='text-center'>".$row['Category']."</td>";
 						echo "<td class='text-center'>".$row['Age']."</td>";
 						echo "<td class='text-center'>".$row['Gender']."</td>";
@@ -81,6 +86,7 @@
 						echo "<td class='text-center'>".$row['State']."</td>";
 						echo "<td class='text-center'>".$row['Zip']."</td>";
 						echo "<td class='text-center'>".$row['AdultSponsor']."</td>";
+						echo "<td class='text-center'>".$row['WheelchairAccess']."</td>";
 						echo "<td class='text-center'>".$row['Class']."</td>";
 						echo "<td class='text-center'>".$row['Grade']."</td>";
 						echo "<td class='text-center'>".$row['SName']."</td>";
@@ -114,7 +120,7 @@
 					
 					echo "<div class='container-fluid'";
 					for ($i = 0; $i < count($array); $i++) {
-						$query = "Select RegistrationID, LName, FName, ProjTitle, Category.Description as `Category`, Age, Gender, Registration.City as `RCity`, State, Zip, AdultSponsor, Class, Grade, SName, KeyTeacher, School.City as `SCity`, Type from ";
+						$query = "Select RegistrationID, LName, FName, ProjTitle, Continuation, NumYears as `Years of Work`, Category.Description as `Category`, Age, Gender, Registration.City as `RCity`, State, Zip, AdultSponsor, WheelchairAccess, Class, Grade, SName, KeyTeacher, School.City as `SCity`, Type from ";
 						$query .= "Fair inner join Registration on FairID = FKFairID ";
 						$query .= "inner join Class on FKClassID = ClassID ";
 						$query .= "inner join School on FKSchoolID = SchoolID ";
@@ -135,11 +141,13 @@
 
 							echo "<div class='table-responsive'>";
 							echo "<table class='table table-bordered table-hover'>";
-							echo "<thead class='thead-dark'>";
+							echo "<thead class='thead-dark text-center'>";
 							echo "<tr>";
 							echo "<th scope='col'>Last</th>";
 							echo "<th scope='col'>First</th>";
 							echo "<th scope='col'>Project Title</th>";
+							echo "<th scope='col'>Continuation</th>";
+							echo "<th scope='col'>Years of Work</th>";
 							echo "<th scope='col'>Category</th>";
 							echo "<th scope='col'>Age</th>";
 							echo "<th scope='col'>Gender</th>";
@@ -147,6 +155,7 @@
 							echo "<th scope='col'>State</th>";
 							echo "<th scope='col'>Zip</th>";
 							echo "<th scope='col'>Adult Sponsor</th>";
+							echo "<th scope='col'>Wheelchair Access</th>";
 							echo "<th scope='col'>Class</th>";
 							echo "<th scope='col'>Grade</th>";
 							echo "<th scope='col'>School</th>";
@@ -163,6 +172,8 @@
 								echo "<td class='text-center'>".$row['LName']."</td>";
 								echo "<td class='text-center'>".$row['FName']."</td>";
 								echo "<td class='text-center'>".$row['ProjTitle']."</td>";
+								echo "<td class='text-center'>".$row['Continuation']."</td>";
+								echo "<td class='text-center'>".$row['Years of Work']."</td>";
 								echo "<td class='text-center'>".$row['Category']."</td>";
 								echo "<td class='text-center'>".$row['Age']."</td>";
 								echo "<td class='text-center'>".$row['Gender']."</td>";
@@ -170,6 +181,7 @@
 								echo "<td class='text-center'>".$row['State']."</td>";
 								echo "<td class='text-center'>".$row['Zip']."</td>";
 								echo "<td class='text-center'>".$row['AdultSponsor']."</td>";
+								echo "<td class='text-center'>".$row['WheelchairAccess']."</td>";
 								echo "<td class='text-center'>".$row['Class']."</td>";
 								echo "<td class='text-center'>".$row['Grade']."</td>";
 								echo "<td class='text-center'>".$row['SName']."</td>";
@@ -207,7 +219,7 @@
 					
 					echo "<div class='container-fluid'";
 					for ($i = 0; $i < count($array); $i++) {
-						$query = "Select RegistrationID, LName, FName, ProjTitle, Category.Description as `Category`, Age, Gender, Registration.City as `RCity`, State, Zip, AdultSponsor, Class, Grade, SName, KeyTeacher, School.City as `SCity`, Type from ";
+						$query = "Select RegistrationID, LName, FName, ProjTitle, Continuation, NumYears as `Years of Work`, Category.Description as `Category`, Age, Gender, Registration.City as `RCity`, State, Zip, AdultSponsor, WheelchairAccess, Class, Grade, SName, KeyTeacher, School.City as `SCity`, Type from ";
 						$query .= "Fair inner join Registration on FairID = FKFairID ";
 						$query .= "inner join Class on FKClassID = ClassID ";
 						$query .= "inner join School on FKSchoolID = SchoolID ";
@@ -228,11 +240,13 @@
 
 							echo "<div class='table-responsive'>";
 							echo "<table class='table table-bordered table-hover'>";
-							echo "<thead class='thead-dark'>";
+							echo "<thead class='thead-dark text-center'>";
 							echo "<tr>";
 							echo "<th scope='col'>Last</th>";
 							echo "<th scope='col'>First</th>";
 							echo "<th scope='col'>Project Title</th>";
+							echo "<th scope='col'>Continuation</th>";
+							echo "<th scope='col'>Years of Work</th>";
 							echo "<th scope='col'>Category</th>";
 							echo "<th scope='col'>Age</th>";
 							echo "<th scope='col'>Gender</th>";
@@ -240,6 +254,7 @@
 							echo "<th scope='col'>State</th>";
 							echo "<th scope='col'>Zip</th>";
 							echo "<th scope='col'>Adult Sponsor</th>";
+							echo "<th scope='col'>Wheelchair Access</th>";
 							echo "<th scope='col'>Class</th>";
 							echo "<th scope='col'>Grade</th>";
 							echo "<th scope='col'>School</th>";
@@ -256,6 +271,8 @@
 								echo "<td class='text-center'>".$row['LName']."</td>";
 								echo "<td class='text-center'>".$row['FName']."</td>";
 								echo "<td class='text-center'>".$row['ProjTitle']."</td>";
+								echo "<td class='text-center'>".$row['Continuation']."</td>";
+								echo "<td class='text-center'>".$row['Years of Work']."</td>";
 								echo "<td class='text-center'>".$row['Category']."</td>";
 								echo "<td class='text-center'>".$row['Age']."</td>";
 								echo "<td class='text-center'>".$row['Gender']."</td>";
@@ -263,6 +280,7 @@
 								echo "<td class='text-center'>".$row['State']."</td>";
 								echo "<td class='text-center'>".$row['Zip']."</td>";
 								echo "<td class='text-center'>".$row['AdultSponsor']."</td>";
+								echo "<td class='text-center'>".$row['WheelchairAccess']."</td>";
 								echo "<td class='text-center'>".$row['Class']."</td>";
 								echo "<td class='text-center'>".$row['Grade']."</td>";
 								echo "<td class='text-center'>".$row['SName']."</td>";
@@ -300,7 +318,7 @@
 					
 					echo "<div class='container-fluid'";
 					for ($i = 0; $i < count($array); $i++) {
-						$query = "Select RegistrationID, LName, FName, ProjTitle, Category.Description as `Category`, Age, Gender, Registration.City as `RCity`, State, Zip, AdultSponsor, Class, Grade, SName, KeyTeacher, School.City as `SCity`, Type from ";
+						$query = "Select RegistrationID, LName, FName, ProjTitle, Continuation, NumYears as `Years of Work`, Category.Description as `Category`, Age, Gender, Registration.City as `RCity`, State, Zip, AdultSponsor, WheelchairAccess, Class, Grade, SName, KeyTeacher, School.City as `SCity`, Type from ";
 						$query .= "Fair inner join Registration on FairID = FKFairID ";
 						$query .= "inner join Class on FKClassID = ClassID ";
 						$query .= "inner join School on FKSchoolID = SchoolID ";
@@ -321,11 +339,13 @@
 
 							echo "<div class='table-responsive'>";
 							echo "<table class='table table-bordered table-hover'>";
-							echo "<thead class='thead-dark'>";
+							echo "<thead class='thead-dark text-center'>";
 							echo "<tr>";
 							echo "<th scope='col'>Last</th>";
 							echo "<th scope='col'>First</th>";
 							echo "<th scope='col'>Project Title</th>";
+							echo "<th scope='col'>Continuation</th>";
+							echo "<th scope='col'>Years of Work</th>";
 							echo "<th scope='col'>Category</th>";
 							echo "<th scope='col'>Age</th>";
 							echo "<th scope='col'>Gender</th>";
@@ -333,6 +353,7 @@
 							echo "<th scope='col'>State</th>";
 							echo "<th scope='col'>Zip</th>";
 							echo "<th scope='col'>Adult Sponsor</th>";
+							echo "<th scope='col'>Wheelchair Access</th>";
 							echo "<th scope='col'>Class</th>";
 							echo "<th scope='col'>Grade</th>";
 							echo "<th scope='col'>School</th>";
@@ -349,6 +370,8 @@
 								echo "<td class='text-center'>".$row['LName']."</td>";
 								echo "<td class='text-center'>".$row['FName']."</td>";
 								echo "<td class='text-center'>".$row['ProjTitle']."</td>";
+								echo "<td class='text-center'>".$row['Continuation']."</td>";
+								echo "<td class='text-center'>".$row['Years of Work']."</td>";
 								echo "<td class='text-center'>".$row['Category']."</td>";
 								echo "<td class='text-center'>".$row['Age']."</td>";
 								echo "<td class='text-center'>".$row['Gender']."</td>";
@@ -356,6 +379,7 @@
 								echo "<td class='text-center'>".$row['State']."</td>";
 								echo "<td class='text-center'>".$row['Zip']."</td>";
 								echo "<td class='text-center'>".$row['AdultSponsor']."</td>";
+								echo "<td class='text-center'>".$row['WheelchairAccess']."</td>";
 								echo "<td class='text-center'>".$row['Class']."</td>";
 								echo "<td class='text-center'>".$row['Grade']."</td>";
 								echo "<td class='text-center'>".$row['SName']."</td>";
