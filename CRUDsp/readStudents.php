@@ -314,8 +314,8 @@
 							echo "<div class='row justify-content-center'";
 							echo "<head>";
 							//echo "<h3>Class ".$array[$i]."</h3>";
-							echo "<h3 class='d-none d-md-block'>".$array[$i]."</h3>";
-        					echo "<h5 class='d-sm-none'>".$array[$i]."</h5>";
+							echo "<h3 class='d-none d-md-block'>Class ".$array[$i]."</h3>";
+        					echo "<h5 class='d-sm-none'>Class ".$array[$i]."</h5>";
 							echo "</head>";
 							echo "</div>";
 
