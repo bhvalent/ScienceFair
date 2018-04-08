@@ -30,14 +30,16 @@
 				echo "<br><br>";
 				echo "<div class='row justify-content-center'";
 				echo "<head>";
-				echo "<h3>Schools</h3>";
+				//echo "<h3>Schools</h3>";
+				echo "<h3 class='d-none d-md-block'>Schools</h3>";
+        		echo "<h5 class='d-sm-none'>Schools</h5>";
 				echo "</head>";
 				echo "</div>";
 
-				echo "<br /><br />";
+				
 				echo "<div class='table-responsive'>";
 				echo "<table class='table table-bordered table-hover'>";
-				echo "<thead class='thead-dark'>";
+				echo "<thead class='thead-dark text-center'>";
 				echo "<tr>";
 				echo "<th scope='col'>Name</th>";
 				echo "<th scope='col'>Key Teacher</th>";
