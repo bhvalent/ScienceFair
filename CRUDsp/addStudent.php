@@ -73,12 +73,20 @@
 			          echo "<head>";
 			          echo "<h3 class='d-none d-md-block'>Add Student: <i>".$fairNameYear."</i></h3>";
                 echo "<h5 class='d-md-none'>Add Student: <i>".$fairNameYear."</i></h5>";
+
+                echo "<script type='text/javascript'>";
+
+                //echo "function formValidation() { var title = document.addForm.projTitle;if (title == '') {window.alert( 'Please provide Project Title!' );projTitle.focus();return false;}}";
+
+                echo "</script>";
+
 			          echo "</head>";
 			          echo "</div>";
 			          echo "<br /><br />";
 			          echo "<div class='container'>";
-      
-			          echo "<form method='POST' action='addStudent.php?id=".$ID."'>";
+                
+                // onsubmit='return formValidation();'
+			          echo "<form name='addform' method='POST' action='addStudent.php?id=".$ID."'>";
 		
 			          // Project title
 			          echo "<div class='form-row'>";
@@ -150,6 +158,7 @@
   				          echo "<div class='form-group col'>";
   				          echo "<label>School:</label>";
   				          echo "<select class='form-control' id='school' name='school'>";
+                    echo "<option>Choose Option</option>";
   				          while ($row = $result->fetch_assoc()) {
   					            echo "<option value='".$row['SchoolID']."'>".$row['SName']."</option>";
   				          }
@@ -170,6 +179,7 @@
                     echo "<div class='form-group col'>";
                     echo "<label>Category:</label>";
                     echo "<select class='form-control' id='category' name='category'>";
+                    echo "<option>Choose Option</option>";
                     while ($row = $result->fetch_assoc()) {
                         echo "<option value='".$row['CategoryID']."'>".$row['Description']."</option>";
                     }
@@ -190,6 +200,7 @@
                     echo "<div class='form-group col'>";
                     echo "<label>Class and Grade:</label>";
                     echo "<select class='form-control' id='class' name='class'>";
+                    echo "<option>Choose Option</option>";
                     while ($row = $result->fetch_assoc()) {
                         echo "<option value='".$row['ClassID']."'>Class ".$row['Class'].", Grade ".$row['Grade']."</option>";
                     }
