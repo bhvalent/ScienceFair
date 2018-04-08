@@ -80,7 +80,7 @@
 		echo "<head>";
 		//echo "<h3>Add Fair:</h3>";
 		echo "<h3 class='d-none d-md-block'>Add Fair:</h3>";
-        echo "<h5 class='d-sm-none'>Add Fair:</h5>";
+        echo "<h5 class='d-md-none'>Add Fair:</h5>";
 		echo "</head>";
 		echo "</div>";
 		echo "<br /><br />";
