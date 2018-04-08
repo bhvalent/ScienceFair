@@ -38,7 +38,7 @@
 
 				
 				echo "<div class='row justify-content-center'>";
-				echo "<div class='col-6'";
+				echo "<div class='col-xs-12 col-sm-12 col-md-8 col-lg-6'>";
 				echo "<div class='table-responsive'>";
 				echo "<table class='table table-bordered table-hover'>";
 				echo "<thead class='thead-dark text-center'>";
