@@ -62,7 +62,9 @@
               	echo "<br /><br />";
         				echo "<div class='row justify-content-center'";
         				echo "<head>";
-        				echo "<h3>Edit School:</h3>";
+        				//echo "<h3>Edit School:</h3>";
+                echo "<h3 class='d-none d-md-block'>Edit School:</h3>";
+                echo "<h5 class='d-sm-none'>Edit School:</h5>";
         				echo "</head>";
         				echo "</div>";
         				echo "<br /><br />";
