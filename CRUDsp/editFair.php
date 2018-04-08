@@ -90,7 +90,7 @@
 				echo "<head>";
 				//echo "<h3>Edit Fair:</h3>";
 				echo "<h3 class='d-none d-md-block'>Edit Fair:</h3>";
-        		echo "<h5 class='d-sm-none'>Edit Fair:</h5>";
+        		echo "<h5 class='d-md-none'>Edit Fair:</h5>";
 				echo "</head>";
 				echo "</div>";
 				echo "<br /><br />";
