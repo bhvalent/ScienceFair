@@ -61,7 +61,7 @@
 				echo "<head>";
 				//echo "<h3>Add School:</h3>";
         echo "<h3 class='d-none d-md-block'>Add School:</h3>";
-        echo "<h5 class='d-sm-none'>Add School:</h5>";
+        echo "<h5 class='d-md-none'>Add School:</h5>";
 				echo "</head>";
 				echo "</div>";
 				echo "<br /><br />";
