@@ -18,70 +18,76 @@ INSERT INTO School (SName, KeyTeacher, City, Type) VALUES('Lafayette Elementary'
 -- add Registrants/Students
 
 -- Region 7 Upper Fair
-INSERT INTO Registration (LName, FName, ProjTitle, Age, Gender, City, State, Zip, FKFairID, FKSchoolID, FKCategoryID, FKClassID)
-VALUES('Valentine', 'Bennett', 'Computer Stuff', 19, 'Male', 'Oxford', 'MS', 38655, 1, 1, 1100, 12);
+INSERT INTO Registration (LName, FName, ProjTitle, Continuation, NumYears, Age, Gender, City, State, Zip, AdultSponsor, FKFairID, FKSchoolID, FKCategoryID, FKClassID)
+VALUES('Valentine', 'Bennett', 'Computer Stuff', 'no', 0, 19, 'Male', 'Oxford', 'MS', 38655, 'Someone0', 1, 1, 1100, 12);
 
-INSERT INTO Registration (LName, FName, ProjTitle, Age, Gender, City, State, Zip, FKFairID, FKSchoolID, FKCategoryID, FKClassID)
-VALUES('Willis', 'Hannah', 'Puppies', 18, 'Female', 'Oxford', 'MS', 38655, 1, 1, 600, 12);
+INSERT INTO TeamMember (LName, FName, Age, Gender, City, State, Zip, FKRegistrationID) 
+VALUES('Smart', 'Someone', 19, 'Male', 'Oxford', 'MS', 38655, 1);
+INSERT INTO TeamMember (LName, FName, Age, Gender, City, State, Zip, FKRegistrationID) 
+VALUES('ReallySmart', 'Someone', 19, 'Female', 'Oxford', 'MS', 38655, 1);
 
-INSERT INTO Registration (LName, FName, ProjTitle, Age, Gender, City, State, Zip, FKFairID, FKSchoolID, FKCategoryID, FKClassID)
-VALUES('Caron', 'Josh', 'Marketing', 18, 'Male', 'Oxford', 'MS', 38655, 1, 2, 100, 12);
 
-INSERT INTO Registration (LName, FName, ProjTitle, Age, Gender, City, State, Zip, FKFairID, FKSchoolID, FKCategoryID, FKClassID)
-VALUES('Stanford', 'Matthew', 'Plants', 18, 'Male', 'Oxford', 'MS', 38655, 1, 2, 1300, 12);
+INSERT INTO Registration (LName, FName, ProjTitle, Continuation, NumYears, Age, Gender, City, State, Zip, AdultSponsor, FKFairID, FKSchoolID, FKCategoryID, FKClassID)
+VALUES('Willis', 'Hannah', 'Puppies', 'no', 0, 18, 'Female', 'Oxford', 'MS', 38655, 'Someone1', 1, 1, 600, 12);
 
-INSERT INTO Registration (LName, FName, ProjTitle, Age, Gender, City, State, Zip, FKFairID, FKSchoolID, FKCategoryID, FKClassID)
-VALUES('Luthy', 'Ryan', 'Better Computer Stuff', 17, 'Male', 'Oxford', 'MS', 38655, 1, 2, 1100, 11);
+INSERT INTO Registration (LName, FName, ProjTitle, Continuation, NumYears, Age, Gender, City, State, Zip, AdultSponsor, FKFairID, FKSchoolID, FKCategoryID, FKClassID)
+VALUES('Caron', 'Josh', 'Marketing', 'no', 0, 18, 'Male', 'Oxford', 'MS', 38655, 'Someone2', 1, 2, 100, 12);
 
-INSERT INTO Registration (LName, FName, ProjTitle, Age, Gender, City, State, Zip, FKFairID, FKSchoolID, FKCategoryID, FKClassID)
-VALUES('Dodd', 'Benton', 'Psychology', 17, 'Male', 'Oxford', 'MS', 38655, 1, 2, 100, 11);
+INSERT INTO Registration (LName, FName, ProjTitle, Continuation, NumYears, Age, Gender, City, State, Zip, AdultSponsor, FKFairID, FKSchoolID, FKCategoryID, FKClassID)
+VALUES('Stanford', 'Matthew', 'Plants', 'no', 0, 18, 'Male', 'Oxford', 'MS', 38655, 'Someone3', 1, 2, 1300, 12);
 
-INSERT INTO Registration (LName, FName, ProjTitle, Age, Gender, City, State, Zip, FKFairID, FKSchoolID, FKCategoryID, FKClassID)
-VALUES('Peckham', 'Turner', 'Stuff with Medicine', 16, 'Male', 'Oxford', 'MS', 38655, 1, 1, 700, 10);
+INSERT INTO Registration (LName, FName, ProjTitle, Continuation, NumYears, Age, Gender, City, State, Zip, AdultSponsor, WheelchairAccess, FKFairID, FKSchoolID, FKCategoryID, FKClassID)
+VALUES('Luthy', 'Ryan', 'Better Computer Stuff', 'no', 0, 17, 'Male', 'Oxford', 'MS', 38655, 'Someone4', 'yes', 1, 2, 1100, 11);
 
-INSERT INTO Registration (LName, FName, ProjTitle, Age, Gender, City, State, Zip, FKFairID, FKSchoolID, FKCategoryID, FKClassID)
-VALUES('Jones', 'Isaac', 'More Psychology', 16, 'Male', 'Oxford', 'MS', 38655, 1, 2, 100, 10);
+INSERT INTO Registration (LName, FName, ProjTitle, Continuation, NumYears, Age, Gender, City, State, Zip, AdultSponsor, FKFairID, FKSchoolID, FKCategoryID, FKClassID)
+VALUES('Dodd', 'Benton', 'Psychology', 'no', 0, 17, 'Male', 'Oxford', 'MS', 38655, 'Someone5', 1, 2, 100, 11);
 
-INSERT INTO Registration (LName, FName, ProjTitle, Age, Gender, City, State, Zip, FKFairID, FKSchoolID, FKCategoryID, FKClassID)
-VALUES('Hardy', 'Hunter', 'Blah Blah', 15, 'Male', 'Oxford', 'MS', 38655, 1, 2, 100, 9);
+INSERT INTO Registration (LName, FName, ProjTitle, Continuation, NumYears, Age, Gender, City, State, Zip, AdultSponsor, FKFairID, FKSchoolID, FKCategoryID, FKClassID)
+VALUES('Peckham', 'Turner', 'Stuff with Medicine', 'yes', 2, 16, 'Male', 'Oxford', 'MS', 38655, 'Someone6', 1, 1, 700, 10);
 
-INSERT INTO Registration (LName, FName, ProjTitle, Age, Gender, City, State, Zip, FKFairID, FKSchoolID, FKCategoryID, FKClassID)
-VALUES('Harper', 'Hannah', 'Something', 13, 'Female', 'Oxford', 'MS', 38655, 1, 3, 1000, 8);
+INSERT INTO Registration (LName, FName, ProjTitle, Continuation, NumYears, Age, Gender, City, State, Zip, AdultSponsor, FKFairID, FKSchoolID, FKCategoryID, FKClassID)
+VALUES('Jones', 'Isaac', 'More Psychology', 'yes', 1, 16, 'Male', 'Oxford', 'MS', 38655, 'Someone7', 1, 2, 100, 10);
 
-INSERT INTO Registration (LName, FName, ProjTitle, Age, Gender, City, State, Zip, FKFairID, FKSchoolID, FKCategoryID, FKClassID)
-VALUES('Harper', 'Jack', 'More Something', 12, 'Male', 'Oxford', 'MS', 38655, 1, 3, 1000, 7);
+INSERT INTO Registration (LName, FName, ProjTitle, Continuation, NumYears, Age, Gender, City, State, Zip, AdultSponsor, FKFairID, FKSchoolID, FKCategoryID, FKClassID)
+VALUES('Hardy', 'Hunter', 'Blah Blah', 'no', 0, 15, 'Male', 'Oxford', 'MS', 38655, 'Someone8', 1, 2, 100, 9);
+
+INSERT INTO Registration (LName, FName, ProjTitle, Continuation, NumYears, Age, Gender, City, State, Zip, AdultSponsor, FKFairID, FKSchoolID, FKCategoryID, FKClassID)
+VALUES('Harper', 'Hannah', 'Something', 'no', 0, 13, 'Female', 'Oxford', 'MS', 38655, 'Someone9', 1, 3, 1000, 8);
+
+INSERT INTO Registration (LName, FName, ProjTitle, Continuation, NumYears, Age, Gender, City, State, Zip, AdultSponsor, FKFairID, FKSchoolID, FKCategoryID, FKClassID)
+VALUES('Harper', 'Jack', 'More Something', 'no', 0, 12, 'Male', 'Oxford', 'MS', 38655, 'Someone10', 1, 3, 1000, 7);
 
 
 -- Region 7 Lower Fair
-INSERT INTO Registration (LName, FName, ProjTitle, Age, Gender, City, State, Zip, FKFairID, FKSchoolID, FKCategoryID, FKClassID)
-VALUES('Bob', 'Billy', 'Bugs', 9, 'Male', 'Oxford', 'MS', 38655, 2, 6, 600, 3);
+INSERT INTO Registration (LName, FName, ProjTitle, Continuation, NumYears, Age, Gender, City, State, Zip, AdultSponsor, FKFairID, FKSchoolID, FKCategoryID, FKClassID)
+VALUES('Bob', 'Billy', 'Bugs', 'yes', 2, 9, 'Male', 'Oxford', 'MS', 38655, 'Someone0', 2, 6, 600, 3);
 
-INSERT INTO Registration (LName, FName, ProjTitle, Age, Gender, City, State, Zip, FKFairID, FKSchoolID, FKCategoryID, FKClassID)
-VALUES('Doe', 'John', 'Dirt', 8, 'Male', 'Oxford', 'MS', 38655, 2, 7, 500, 2);
+INSERT INTO Registration (LName, FName, ProjTitle, Continuation, NumYears, Age, Gender, City, State, Zip, AdultSponsor, FKFairID, FKSchoolID, FKCategoryID, FKClassID)
+VALUES('Doe', 'John', 'Dirt', 'no', 0, 8, 'Male', 'Oxford', 'MS', 38655, 'Someone1', 2, 7, 500, 2);
 
-INSERT INTO Registration (LName, FName, ProjTitle, Age, Gender, City, State, Zip, FKFairID, FKSchoolID, FKCategoryID, FKClassID)
-VALUES('Doe', 'Jane', 'Flowers', 7, 'Female', 'Oxford', 'MS', 38655, 2, 7, 1300, 1);
+INSERT INTO Registration (LName, FName, ProjTitle, Continuation, NumYears, Age, Gender, City, State, Zip, AdultSponsor, FKFairID, FKSchoolID, FKCategoryID, FKClassID)
+VALUES('Doe', 'Jane', 'Flowers', 'no', 0, 7, 'Female', 'Oxford', 'MS', 38655, 'Someone2', 2, 7, 1300, 1);
 
-INSERT INTO Registration (LName, FName, ProjTitle, Age, Gender, City, State, Zip, FKFairID, FKSchoolID, FKCategoryID, FKClassID)
-VALUES('Manning', 'Eli', 'Football', 7, 'Male', 'Oxford', 'MS', 38655, 2, 6, 900, 1);
+INSERT INTO Registration (LName, FName, ProjTitle, Continuation, NumYears, Age, Gender, City, State, Zip, AdultSponsor, FKFairID, FKSchoolID, FKCategoryID, FKClassID)
+VALUES('Manning', 'Eli', 'Football', 'no', 0, 7, 'Male', 'Oxford', 'MS', 38655, 'Someone3', 2, 6, 900, 1);
 
-INSERT INTO Registration (LName, FName, ProjTitle, Age, Gender, City, State, Zip, FKFairID, FKSchoolID, FKCategoryID, FKClassID)
-VALUES('Manning', 'Peyton', 'More Football', 9, 'Male', 'Oxford', 'MS', 38655, 2, 6, 900, 3);
+INSERT INTO Registration (LName, FName, ProjTitle, Continuation, NumYears, Age, Gender, City, State, Zip, AdultSponsor, FKFairID, FKSchoolID, FKCategoryID, FKClassID)
+VALUES('Manning', 'Peyton', 'More Football', 'yes', 2, 9, 'Male', 'Oxford', 'MS', 38655, 'Someone4', 2, 6, 900, 3);
 
-INSERT INTO Registration (LName, FName, ProjTitle, Age, Gender, City, State, Zip, FKFairID, FKSchoolID, FKCategoryID, FKClassID)
-VALUES('Turing', 'Alan', 'Computers can think', 8, 'Male', 'Oxford', 'MS', 38655, 2, 7, 1200, 2);
+INSERT INTO Registration (LName, FName, ProjTitle, Continuation, NumYears, Age, Gender, City, State, Zip, AdultSponsor, FKFairID, FKSchoolID, FKCategoryID, FKClassID)
+VALUES('Turing', 'Alan', 'Computers can think', 'no', 0, 8, 'Male', 'Oxford', 'MS', 38655, 'Someone5', 2, 7, 1200, 2);
 
-INSERT INTO Registration (LName, FName, ProjTitle, Age, Gender, City, State, Zip, FKFairID, FKSchoolID, FKCategoryID, FKClassID)
-VALUES('Keller', 'Timothy', 'Life', 11, 'Male', 'Oxford', 'MS', 38655, 2, 7, 100, 5);
+INSERT INTO Registration (LName, FName, ProjTitle, Continuation, NumYears, Age, Gender, City, State, Zip, AdultSponsor, FKFairID, FKSchoolID, FKCategoryID, FKClassID)
+VALUES('Keller', 'Timothy', 'Life', 'yes', 4, 11, 'Male', 'Oxford', 'MS', 38655, 'Someone6', 2, 7, 100, 5);
 
-INSERT INTO Registration (LName, FName, ProjTitle, Age, Gender, City, State, Zip, FKFairID, FKSchoolID, FKCategoryID, FKClassID)
-VALUES('Asato', 'Mateus', 'Guitar', 12, 'Male', 'Oxford', 'MS', 38655, 2, 6, 900, 6);
+INSERT INTO Registration (LName, FName, ProjTitle, Continuation, NumYears, Age, Gender, City, State, Zip, AdultSponsor, FKFairID, FKSchoolID, FKCategoryID, FKClassID)
+VALUES('Asato', 'Mateus', 'Guitar', 'yes', 5, 12, 'Male', 'Oxford', 'MS', 38655, 'Someone7', 2, 6, 900, 6);
 
-INSERT INTO Registration (LName, FName, ProjTitle, Age, Gender, City, State, Zip, FKFairID, FKSchoolID, FKCategoryID, FKClassID)
-VALUES('Trucks', 'Derek', 'Slide Guitar', 12, 'Male', 'Oxford', 'MS', 38655, 2, 7, 900, 6);
+INSERT INTO Registration (LName, FName, ProjTitle, Continuation, NumYears, Age, Gender, City, State, Zip, AdultSponsor, FKFairID, FKSchoolID, FKCategoryID, FKClassID)
+VALUES('Trucks', 'Derek', 'Slide Guitar', 'no', 0, 12, 'Male', 'Oxford', 'MS', 38655, 'Someone8', 2, 7, 900, 6);
 
-INSERT INTO Registration (LName, FName, ProjTitle, Age, Gender, City, State, Zip, FKFairID, FKSchoolID, FKCategoryID, FKClassID)
-VALUES('Mayer', 'John', 'Rythm Guitar', 7, 'Male', 'Oxford', 'MS', 38655, 2, 6, 900, 1);
+INSERT INTO Registration (LName, FName, ProjTitle, Continuation, NumYears, Age, Gender, City, State, Zip, AdultSponsor, FKFairID, FKSchoolID, FKCategoryID, FKClassID)
+VALUES('Mayer', 'John', 'Rythm Guitar', 'no', 0, 7, 'Male', 'Oxford', 'MS', 38655, 'Someone9', 2, 6, 900, 1);
 
 
 
