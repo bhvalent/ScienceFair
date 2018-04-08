@@ -75,8 +75,8 @@
 		echo "</div>";
 
 		echo "<br /><br />";
-		echo "<div class='row justify-content-center'";
-		echo "<div class='col-xs-12 col-sm-12 col-md-8 col-lg-6'>";
+		echo "<div class='row justify-content-center'>";
+		echo "<div class='col-xs-12 col-sm-10 col-md-8 col-lg-6'>";
 		echo "<div class='table-responsive'>";
 		echo "<table class='table table-bordered table-hover'>";
 		echo "<thead class='thead-dark text-center'>";
@@ -103,9 +103,9 @@
 
 		echo "<div class='container'>";
 		echo "<br /><br />";
-		
-		echo "<a href='addFair.php' class='btn btn-primary btn-block'>Add Fair</a>";
-		
+		echo "<div class='row justify-content-center'>";
+		echo "<a href='addFair.php' class='btn btn-primary'>Add Fair</a>";
+		echo "</div>";
 		echo "</div>";
 		
 		
