@@ -56,7 +56,9 @@
                 echo "<br /><br />";
                 echo "<div class='row justify-content-center'";
                 echo "<head>";
-                echo "<h3>Edit Category:</h3>";
+                //echo "<h3>Edit Category:</h3>";
+                echo "<h3 class='d-none d-md-block'>Edit Category:</h3>";
+                echo "<h5 class='d-md-none'>Edit Category:</h5>";
                 echo "</head>";
                 echo "</div>";
                 echo "<br /><br />";
