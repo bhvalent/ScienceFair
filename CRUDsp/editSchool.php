@@ -99,6 +99,7 @@
                     echo "<div class='form-group col'>";
                     echo "<label>School:</label>";
                     echo "<select class='form-control' id='type' name='type'>";
+                    echo "<option>Choose Option</option>";
                     
                     if ($row['Type'] === "Public") {
                         echo "<option value='Public'>Public (Current Type)</option>";
