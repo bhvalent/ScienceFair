@@ -57,7 +57,9 @@
   	            echo "<br /><br />";
   				      echo "<div class='row justify-content-center'";
   				      echo "<head>";
-  				      echo "<h3>Add Category:</h3>";
+  				      //echo "<h3>Add Category:</h3>";
+                echo "<h3 class='d-none d-md-block'>Add Category:</h3>";
+                echo "<h5 class='d-md-none'>Add Category:</h5>";
   				      echo "</head>";
   				      echo "</div>";
   				      echo "<br /><br />";
@@ -98,4 +100,7 @@
 
       	
 
-      }
+    }
+?>
+<br /><br /><br />
+</html>
