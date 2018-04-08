@@ -40,7 +40,7 @@
 					echo "<head>";
 					//echo "<h3>Students</h3>";
 					echo "<h3 class='d-none d-md-block'>Students</h3>";
-        			echo "<h5 class='d-sm-none'>Students</h5>";
+        			echo "<h5 class='d-md-none'>Students</h5>";
 					echo "</head>";
 					echo "</div>";
 
@@ -129,7 +129,7 @@
 							echo "<head>";
 							//echo "<h3>".$array[$i]."</h3>";
 							echo "<h3 class='d-none d-md-block'>".$array[$i]."</h3>";
-        					echo "<h5 class='d-sm-none'>".$array[$i]."</h5>";
+        					echo "<h5 class='d-md-none'>".$array[$i]."</h5>";
 							echo "</head>";
 							echo "</div>";
 
@@ -222,7 +222,7 @@
 							echo "<head>";
 							//echo "<h3>".$array[$i]."</h3>";
 							echo "<h3 class='d-none d-md-block'>".$array[$i]."</h3>";
-        					echo "<h5 class='d-sm-none'>".$array[$i]."</h5>";
+        					echo "<h5 class='d-md-none'>".$array[$i]."</h5>";
 							echo "</head>";
 							echo "</div>";
 
@@ -315,7 +315,7 @@
 							echo "<head>";
 							//echo "<h3>Class ".$array[$i]."</h3>";
 							echo "<h3 class='d-none d-md-block'>Class ".$array[$i]."</h3>";
-        					echo "<h5 class='d-sm-none'>Class ".$array[$i]."</h5>";
+        					echo "<h5 class='d-md-none'>Class ".$array[$i]."</h5>";
 							echo "</head>";
 							echo "</div>";
 
