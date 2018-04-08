@@ -171,6 +171,7 @@
   						echo "<div class='form-group col'>";
   						echo "<label>School:</label>";
   						echo "<select class='form-control' id='school' name='school'>";
+              echo "<option>Choose Option</option>";
   						while ($row2 = $result2->fetch_assoc()) {
   							if ($row2['SchoolID'] === $row['FKSchoolID']) {
   								echo "<option value='".$row2['SchoolID']."'>".$row2['SName']." (Current School)</option>";
@@ -196,6 +197,7 @@
           				echo "<div class='form-group col'>";
           				echo "<label>Category:</label>";
           				echo "<select class='form-control' id='category' name='category'>";
+                  echo "<option>Choose Option</option>";
           				while ($row2 = $result2->fetch_assoc()) {
           					if ($row2['CategoryID'] === $row['FKCategoryID']) {
           						echo "<option value='".$row2['CategoryID']."'>".$row2['Description']." (Current Category)</option>";
@@ -221,6 +223,7 @@
           				echo "<div class='form-group col'>";
           				echo "<label>Class and Grade:</label>";
           				echo "<select class='form-control' id='class' name='class'>";
+                  echo "<option>Choose Option</option>";
           				while ($row2 = $result2->fetch_assoc()) {
           					if ($row2['ClassID'] === $row['FKClassID']) {
           						echo "<option value='".$row2['ClassID']."'>Class ".$row2['Class'].", Grade ".$row2['Grade']." (Current Class and Grade)</option>";
