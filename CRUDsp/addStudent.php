@@ -72,7 +72,7 @@
 			          echo "<div class='row justify-content-center'";
 			          echo "<head>";
 			          echo "<h3 class='d-none d-md-block'>Add Student: <i>".$fairNameYear."</i></h3>";
-                echo "<h5 class='d-sm-none'>Add Student: <i>".$fairNameYear."</i></h5>";
+                echo "<h5 class='d-md-none'>Add Student: <i>".$fairNameYear."</i></h5>";
 			          echo "</head>";
 			          echo "</div>";
 			          echo "<br /><br />";
