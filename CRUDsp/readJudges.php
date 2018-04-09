@@ -65,7 +65,7 @@
 						echo "<td class='text-center'>".$row['FName']."</td>";
 						echo "<td class='text-center'>".$row['Email']."</td>";
 						echo "<td class='text-center'>".$row['Category']."</td>";
-						echo "<td class='text-center'><a href='editJudge.php?id=".urlencode($ID)."&jsid=".urlencode($row['JudgeSetID'])."' class='btn btn-outline-warning'>Edit</a></td>";
+						echo "<td class='text-center'><a href='editJudge.php?id=".urlencode($ID)."&sjid=".urlencode($row['JudgeSetID'])."' class='btn btn-outline-warning'>Edit</a></td>";
 						//echo "<td class='text-center'><a href='deleteStudent.php?id=".urlencode($ID)."&sid=".urlencode($row['RegistrationID'])."' class='btn btn-outline-danger'>Delete</a></td>";
 						echo "</tr>";
 					}		
@@ -134,7 +134,7 @@
 								echo "<td class='text-center'>".$row['FName']."</td>";
 								echo "<td class='text-center'>".$row['Email']."</td>";
 								echo "<td class='text-center'>".$row['Category']."</td>";
-								echo "<td class='text-center'><a href='editJudge.php?id=".urlencode($ID)."&jsid=".urlencode($row['JudgeSetID'])."' class='btn btn-outline-warning'>Edit</a></td>";
+								echo "<td class='text-center'><a href='editJudge.php?id=".urlencode($ID)."&sjid=".urlencode($row['JudgeSetID'])."' class='btn btn-outline-warning'>Edit</a></td>";
 								//echo "<td class='text-center'><a href='deleteStudent.php?id=".urlencode($ID)."&sid=".urlencode($row['RegistrationID'])."' class='btn btn-outline-danger'>Delete</a></td>";
 								echo "</tr>";
 							}
