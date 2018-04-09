@@ -65,8 +65,11 @@
  					<div class='card-body'>
  						<h3 class='card-title'>Judges</h3>
  						<p class='card-text'>View Judges by Name, School, or Category</p>
- 						<a href='#' class='btn btn-primary'>By Name</a>
- 						<a href='#' class='btn btn-primary'>By Category</a>
+ 						<?php 
+ 						echo "<a href='readJudges.php?id=".urlencode($ID)."&type=1' class='btn btn-primary'>By Name</a>";
+ 						echo " ";
+ 						echo "<a href='readJudges.php?id=".urlencode($ID)."&type=2' class='btn btn-primary'>By Category</a>";
+ 						?>
  					</div>
  				</div>
  			</div>
