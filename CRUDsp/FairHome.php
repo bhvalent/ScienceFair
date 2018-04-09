@@ -69,6 +69,10 @@
  						echo "<a href='readJudges.php?id=".urlencode($ID)."&type=1' class='btn btn-primary'>By Name</a>";
  						echo " ";
  						echo "<a href='readJudges.php?id=".urlencode($ID)."&type=2' class='btn btn-primary'>By Category</a>";
+
+ 						echo "<p class='card-text'></p>";
+ 						echo "<p class='card-text'>Add Judge into ".$fair_name." ".$fair_year." </p>";
+ 						echo "<a href='addJudge.php?id=".urlencode($ID)."' class='btn btn-primary'>Add Judge</a>";
  						?>
  					</div>
  				</div>
