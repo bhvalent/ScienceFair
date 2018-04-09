@@ -40,8 +40,8 @@
 				Judges
 				</button>';
 		echo '<div class="dropdown-menu">';
-		echo '<a class="dropdown-item" href="#">Action</a>';
-    	echo '<a class="dropdown-item" href="#">Another action</a>';
+		echo '<a class="dropdown-item" href="readJudges.php?id='.urlencode($FairID).'&type=1">By Name</a>';
+    	echo '<a class="dropdown-item" href="readJudges.php?id='.urlencode($FairID).'&type=2">Category</a>';
     	echo '<a class="dropdown-item" href="#">Something else here</a>';
     	echo '</div>';
 		echo '</div>';
