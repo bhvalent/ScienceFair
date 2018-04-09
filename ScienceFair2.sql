@@ -42,7 +42,7 @@ CREATE TABLE Judge (
 CREATE TABLE JudgeRegistrant (
     FKSetJudgeID int NOT NULL,
     FKRegistrationID int NOT NULL,
-    SetNumber int NOT NULL,
+    SetNumber int NULL,
     CONSTRAINT JudgeRegistrant_pk PRIMARY KEY (FKSetJudgeID,FKRegistrationID)
 );
 
