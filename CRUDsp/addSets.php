@@ -24,7 +24,7 @@
 			$result = $mysqli->query($query);
 			if ($result) {
 				$_SESSION["message"] = "Set has been added.";
-	            header("Location: SFindex.php");
+	            header("Location: addSets.php?id=".$ID."&cid=".$CID);
 	            exit;
 			} else {
 				$_SESSION["message"] = "Error! Set could not be added.";
@@ -67,10 +67,9 @@
 				echo "<div class='container-fluid'>";
 				echo "<br /><br />";
 				echo "<div class='row'>";
+
+				echo "<div class='col-4 text-center'>";
 				if ($result) {
-					
-					
-					echo "<div class='col-4 text-center'>";
 					
 
 					echo "<head>";
@@ -107,6 +106,54 @@
 	            	header("Location: SFindex.php");
 	            	exit;
 				}
+
+				echo "<br /><br /><br />";
+
+				$query = "Select FairID, SetJudgeID, LName, FName, Description, SetNumber ";
+				$query .= "from JudgeRegistrant ";
+				$query .= "inner join SetJudge on FKSetJudgeID = SetJudgeID ";
+				$query .= "inner join Judge on FKJudgeID = JudgeID ";
+				$query .= "inner join Category on FKCategoryID = CategoryID ";
+				$query .= "inner join Fair on FKFairID = FairID ";
+				$query .= "where FairID = ".$ID." and CategoryID = ".$CID." order by LName";
+
+				$result = $mysqli->query($query);
+				if ($result) {
+
+					echo "<head>";
+					echo "<h3 class='d-none d-md-block'>Judges with Sets</h3>";
+		            echo "<h5 class='d-md-none'>Judges with Sets</h5>";
+		            echo "</head>";
+
+		            echo "<div class='table-responsive'>";
+					echo "<table class='table table-bordered table-hover'>";
+					echo "<thead class='thead-dark text-center'>";
+					echo "<tr>";
+					echo "<th scope='col'>Last Name</th>";
+					echo "<th scope='col'>First Name</th>";
+					echo "<th scope='col'>Category</th>";
+					echo "<th scope='col'>Set Number</th>";
+					echo "</tr>";
+					echo "</thead>";
+					echo "<tbody>";
+					while ($row = $result->fetch_assoc()) {
+						echo "<tr>";
+						echo "<td class='text-center'>".$row['LName']."</td>";
+						echo "<td class='text-center'>".$row['FName']."</td>";
+						echo "<td class='text-center'>".$row['Description']."</td>";
+						echo "<td class='text-center'>".$row['SetNumber']."</td>";
+						echo "</tr>";
+					}
+					echo "</tbody>";
+					echo "</table>";
+					echo "</div>";
+
+				} else {
+					$_SESSION["message"] = "Error! Judges could not be found.";
+	            	header("Location: SFindex.php");
+	            	exit;
+				}
+
 				echo "</div>";
 				
 
@@ -206,10 +253,12 @@
 				$query .= "where FairID = ".$ID." and CategoryID = ".$CID." order by LName and Class";
 				
 				$result = $mysqli->query($query);
-				
+
+
+				echo "<div class='col-4 text-center'>";
 				if ($result) {
 					
-					echo "<div class='col-4 text-center'>";
+					
 					echo "<head>";
 					echo "<h3 class='d-none d-md-block'>Students</h3>";
 		            echo "<h5 class='d-md-none'>Students</h5>";
@@ -246,6 +295,56 @@
 	            	header("Location: SFindex.php");
 	            	exit;
 				}
+
+				echo "<br /><br /><br />";
+
+
+				$query = "Select Distinct FairID, RegistrationID, LName, FName, Class, Description, SetNumber from JudgeRegistrant ";
+				$query .= "inner join Registration on FKRegistrationID = RegistrationID ";
+				$query .= "inner join Category on FKCategoryID = CategoryID ";
+				$query .= "inner join Fair on FKFairID = FairID ";
+				$query .= "inner join Class on FKClassID = ClassID ";
+				$query .= "where FairID = ".$ID." and CategoryID = ".$CID." order by LName";
+
+				$result = $mysqli->query($query);
+
+				if ($result) {
+
+					echo "<head>";
+					echo "<h3 class='d-none d-md-block'>Students with Sets</h3>";
+		            echo "<h5 class='d-md-none'>Students with Sets</h5>";
+		            echo "</head>";
+
+		            echo "<div class='table-responsive'>";
+					echo "<table class='table table-bordered table-hover'>";
+					echo "<thead class='thead-dark text-center'>";
+					echo "<tr>";
+					echo "<th scope='col'>Last Name</th>";
+					echo "<th scope='col'>First Name</th>";
+					echo "<th scope='col'>Class</th>";
+					echo "<th scope='col'>Category</th>";
+					echo "<th scope='col'>Set Number</th>";
+					echo "</tr>";
+					echo "</thead>";
+					echo "<tbody>";
+					while ($row = $result->fetch_assoc()) {
+						echo "<tr>";
+						echo "<td class='text-center'>".$row['LName']."</td>";
+						echo "<td class='text-center'>".$row['FName']."</td>";
+						echo "<td class='text-center'>".$row['Class']."</td>";
+						echo "<td class='text-center'>".$row['Description']."</td>";
+						echo "<td class='text-center'>".$row['SetNumber']."</td>";
+						echo "</tr>";
+					}
+					echo "</tbody>";
+					echo "</table>";
+					echo "</div>";
+
+				} else {
+
+				}
+
+
 
 				echo "</div>";
 				echo "</div>";
