@@ -105,7 +105,7 @@
 						if ($result && $result->num_rows > 0) {
 
 							echo "<br><br>";
-							echo "<div class='row justify-content-center'";
+							echo "<div class='row justify-content-center'>";
 							echo "<head>";
 							//echo "<h3>".$array[$i]."</h3>";
 							echo "<h3 class='d-none d-md-block'>".$array[$i]."</h3>";
