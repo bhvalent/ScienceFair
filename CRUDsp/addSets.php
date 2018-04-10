@@ -28,7 +28,7 @@
 	            exit;
 			} else {
 				$_SESSION["message"] = "Error! Set could not be added.";
-	            header("Location: SFindex.php");
+	            header("Location: FairHome.php?id=".$ID);
 	            exit;
 			}
 
@@ -103,7 +103,7 @@
 					
 				} else {
 					$_SESSION["message"] = "Error! Judges could not be found.";
-	            	header("Location: SFindex.php");
+	            	header("Location: FairHome.php?id=".$ID);
 	            	exit;
 				}
 
@@ -150,7 +150,7 @@
 
 				} else {
 					$_SESSION["message"] = "Error! Judges could not be found.";
-	            	header("Location: SFindex.php");
+	            	header("Location: FairHome.php?id=".$ID);
 	            	exit;
 				}
 
@@ -292,18 +292,23 @@
 					
 				} else {
 					$_SESSION["message"] = "Error! Students could not be found.";
-	            	header("Location: SFindex.php");
+	            	header("Location: FairHome.php?id=".$ID);
 	            	exit;
 				}
 
 				echo "<br /><br /><br />";
 
 
-				$query = "Select Distinct FairID, RegistrationID, LName, FName, Class, Description, SetNumber from JudgeRegistrant ";
+				$query = "Select FairID, RegistrationID, Registration.LName as `LName`, ";
+				$query .= "Registration.FName as `FName`, Class, Description, SetNumber, ";
+				$query .= "CONCAT(Judge.FName, ' ', Judge.LName) as `JudgeName` ";
+				$query .= "from JudgeRegistrant ";
 				$query .= "inner join Registration on FKRegistrationID = RegistrationID ";
 				$query .= "inner join Category on FKCategoryID = CategoryID ";
 				$query .= "inner join Fair on FKFairID = FairID ";
 				$query .= "inner join Class on FKClassID = ClassID ";
+				$query .= "inner join SetJudge on FKSetJudgeID = SetJudgeID ";
+				$query .= "inner join Judge on FKJudgeID = JudgeID ";
 				$query .= "where FairID = ".$ID." and CategoryID = ".$CID." order by LName";
 
 				$result = $mysqli->query($query);
@@ -324,6 +329,7 @@
 					echo "<th scope='col'>Class</th>";
 					echo "<th scope='col'>Category</th>";
 					echo "<th scope='col'>Set Number</th>";
+					echo "<th scope='col'>Judge</th>";
 					echo "</tr>";
 					echo "</thead>";
 					echo "<tbody>";
@@ -334,6 +340,7 @@
 						echo "<td class='text-center'>".$row['Class']."</td>";
 						echo "<td class='text-center'>".$row['Description']."</td>";
 						echo "<td class='text-center'>".$row['SetNumber']."</td>";
+						echo "<td class='text-center'>".$row['JudgeName']."</td>";
 						echo "</tr>";
 					}
 					echo "</tbody>";
@@ -341,7 +348,9 @@
 					echo "</div>";
 
 				} else {
-
+					$_SESSION["message"] = "Error! Students could not be found.";
+	            	header("Location: FairHome.php?id=".$ID);
+	            	exit;
 				}
 
 
