@@ -73,6 +73,9 @@
  						echo "<p class='card-text'></p>";
  						echo "<p class='card-text'>Add Judge into ".$fair_name." ".$fair_year." </p>";
  						echo "<a href='addJudge.php?id=".urlencode($ID)."' class='btn btn-primary'>Add Judge</a>";
+ 						echo "<p class='card-text'></p>";
+ 						echo "<p class='card-text'>View Sets by Category</p>";
+ 						echo "<a href='readCategorySets.php?id=".urlencode($ID)."' class='btn btn-primary'>View Sets</a>";
  						?>
  					</div>
  				</div>
