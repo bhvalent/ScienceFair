@@ -42,7 +42,7 @@
 		echo '<div class="dropdown-menu">';
 		echo '<a class="dropdown-item" href="readJudges.php?id='.urlencode($FairID).'&type=1">By Name</a>';
     	echo '<a class="dropdown-item" href="readJudges.php?id='.urlencode($FairID).'&type=2">Category</a>';
-    	echo '<a class="dropdown-item" href="#">Something else here</a>';
+    	echo '<a class="dropdown-item" href="readCategorySets.php?id='.urlencode($FairID).'">View Sets</a>';
     	echo '</div>';
 		echo '</div>';
 			
