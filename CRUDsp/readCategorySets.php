@@ -34,7 +34,7 @@
 					array_push($array2, $row['CategoryID']);
 				}
 				
-				echo "<div class='container-fluid'";
+				echo "<div class='container-fluid'>";
 				for ($i = 0; $i < count($array); $i++) {
 
 
@@ -71,7 +71,7 @@
 						while ($row = $result->fetch_assoc()) {
 							echo "<tr>";
 							echo "<td class='text-center'>".$row['SetNumber']."</td>";
-							echo "<td class='text-center'><a href='readSetDetails.php?id=".urlencode($ID)."&snum=".urlencode($row['SetNumber'])."' class='btn btn-primary'>View Set</a></td>";
+							echo "<td class='text-center'><a href='readSetDetails.php?id=".urlencode($ID)."&snum=".urlencode($row['SetNumber'])."&cid=".$array2[$i]."' class='btn btn-primary'>View Set</a></td>";
 							echo "</tr>";
 						}
 						echo "</tbody>";
@@ -85,7 +85,7 @@
 					echo "<br /><br />";
 					//echo "<span class='border-bottom border-danger'>";
 					echo "<div class='row justify-content-center'>";
-					echo "<a href='addSets.php?id=".urlencode($ID)."&cid=".$array2[$i]."' class='btn btn-primary'>Add Category</a>";
+					echo "<a href='addSets.php?id=".urlencode($ID)."&cid=".$array2[$i]."' class='btn btn-primary'>Add Set</a>";
 					echo "</div>";
 					//echo "</span>";
 					echo "</div>";
