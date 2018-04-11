@@ -71,7 +71,7 @@
 						while ($row = $result->fetch_assoc()) {
 							echo "<tr>";
 							echo "<td class='text-center'>".$row['SetNumber']."</td>";
-							echo "<td class='text-center'><a href='readSets.php?id=".urlencode($ID)."&snum=".urlencode($row['SetNumber'])."' class='btn btn-primary'>View Set</a></td>";
+							echo "<td class='text-center'><a href='readSetDetails.php?id=".urlencode($ID)."&snum=".urlencode($row['SetNumber'])."' class='btn btn-primary'>View Set</a></td>";
 							echo "</tr>";
 						}
 						echo "</tbody>";
