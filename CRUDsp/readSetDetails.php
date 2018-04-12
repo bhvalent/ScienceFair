@@ -108,7 +108,7 @@
 							echo "<td class='text-center'>".$row['RegistrationID']."</td>";
 							echo "<td class='text-center'>".$row['FName']." ".$row['LName']."</td>";
 							echo "<td class='text-center'>".$row['ProjTitle']."</td>";
-							echo "<td class='text-center'><a href='editSetInfo.php?id=".urlencode($ID)."&snum=".urlencode($row['SetNumber'])."&cid=".$CID."&sjid=".$sjid[$i]."' class='btn btn-outline-warning'>Edit</a></td>";
+							echo "<td class='text-center'><a href='editSetInfo.php?id=".urlencode($ID)."&cid=".$CID."&sjid=".$sjid[$i]."&rid=".$row['RegistrationID']."&snum=".$SNUM."' class='btn btn-outline-warning'>Edit</a></td>";
 							echo "<td class='text-center'><a href='deleteSetInfo.php?id=".urlencode($ID)."&snum=".urlencode($row['SetNumber'])."&cid=".$CID."&sjid=".$sjid[$i]."' class='btn btn-outline-danger'>Delete</a></td>";
 							echo "</tr>";
 						}
