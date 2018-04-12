@@ -109,7 +109,7 @@
 
 				echo "<br /><br /><br />";
 
-				$query = "Select FairID, SetJudgeID, LName, FName, Description, SetNumber ";
+				$query = "Select distinct FairID, SetJudgeID, LName, FName, Description, SetNumber ";
 				$query .= "from JudgeRegistrant ";
 				$query .= "inner join SetJudge on FKSetJudgeID = SetJudgeID ";
 				$query .= "inner join Judge on FKJudgeID = JudgeID ";
