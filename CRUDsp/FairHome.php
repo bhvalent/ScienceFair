@@ -64,7 +64,7 @@
  				<div class='card text-center'>
  					<div class='card-body'>
  						<h3 class='card-title'>Judges</h3>
- 						<p class='card-text'>View Judges by Name, School, or Category</p>
+ 						<p class='card-text'>View Judges by Name or Category</p>
  						<?php 
  						echo "<a href='readJudges.php?id=".urlencode($ID)."&type=1' class='btn btn-primary'>By Name</a>";
  						echo " ";
@@ -96,8 +96,30 @@
  				</div>
  			</div>
  		</div>
+ 		<br />
+ 		<div class='row justify-content-center'>
+ 			<div class='col-xs-12 col-sm-12 col-md-9 col-lg-6'>
+ 				<div class='card text-center'>
+ 					<div class='card-body'>
+ 						<h3 class='card-title'>Scores</h3>
+ 						<p class='card-text'>View Scores by Name or Class</p>
+ 						<?php 
+ 						echo "<a href='#' class='btn btn-primary'>By Name blah</a>";
+ 						echo " ";
+ 						echo "<a href='#' class='btn btn-primary'>By Class blah</a>";
 
- 	</div>
+ 						echo "<p class='card-text'></p>";
+ 						echo "<p class='card-text'>Add Scores</p>";
+ 						echo "<a href='#' class='btn btn-primary'>Add Judge</a>";
+ 						echo "<p class='card-text'></p>";
+ 						echo "<p class='card-text'>Edit Scores</p>";
+ 						echo "<a href='#' class='btn btn-primary'>View Sets</a>";
+ 						?>
+ 					</div>
+ 				</div>
+ 			</div>
+ 		</div>
+ 	</div>	
  	<br /><br /><br />
  </body>
 
