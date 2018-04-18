@@ -21,7 +21,7 @@
 			new_header($row['FairName']." ".$row['Year'], $ID);
 
 
-			$query = "Select distinct SetJudgeID, LName, FName, Description as `Category`, SetNumber from JudgeRegistrant ";
+			$query = "Select distinct SetJudgeID, LName, FName, CategoryID, Description, SetNumber from JudgeRegistrant ";
 			$query .= "inner join SetJudge on FKSetJudgeID = SetJudgeID ";
 			$query .= "inner join Judge on FKJudgeID = JudgeID ";
 			$query .= "inner join Category on FKCategoryID = CategoryID ";
@@ -44,7 +44,7 @@
 				echo "</div>";
 
 				echo "<div class='row justify-content-center'>";
-				echo "<div class='col-xs-12 col-sm-12 col-md-10 col-lg-8'>";
+				echo "<div class='col-xs-12 col-sm-12 col-md-11 col-lg-8'>";
 				echo "<div class='table-responsive'>";
 				echo "<table class='table table-bordered table-hover'>";
 				echo "<thead class='thead-dark text-center'>";
@@ -52,6 +52,7 @@
 				echo "<th scope='col'>Last</th>";
 				echo "<th scope='col'>First</th>";
 				echo "<th scope='col'>Category</th>";
+				echo "<th scope='col'>Description</th>";
 				echo "<th scope='col'>Set Number</th>";
 				echo "<th scope='col'></th>";
 				echo "</tr>";
@@ -61,7 +62,8 @@
 					echo "<tr>";
 					echo "<td class='text-center'>".$row['LName']."</td>";
 					echo "<td class='text-center'>".$row['FName']."</td>";
-					echo "<td class='text-center'>".$row['Category']."</td>";
+					echo "<td class='text-center'>".$row['CategoryID']."</td>";
+					echo "<td class='text-center'>".$row['Description']."</td>";
 					echo "<td class='text-center'>".$row['SetNumber']."</td>";
 					echo "<td class='text-center'><a href='#' class='btn btn-outline-primary'>Add Scores</a></td>";
 					echo "</tr>";
