@@ -52,12 +52,21 @@
 				echo "</head>";
 				echo "</div>";
 
+
 				echo "<div class='row justify-content-center'>";
-				echo "<p><b>Category: </b>&emsp;".$row['CategoryID']."&emsp;&emsp;&emsp;&emsp;<b>Name: </b>&emsp;".$row['JudgeName']."</p>";
+				echo "<p><b>Name: </b>&emsp;".$row['JudgeName']."</p>";
+    			echo "</div>";
+
+				echo "<div class='row justify-content-center'>";
+				echo "<p><b>Set Number: </b>&emsp;".$row['SetNumber']."</p>";
+    			echo "</div>";
+
+				echo "<div class='row justify-content-center'>";
+				echo "<p><b>Category: </b>&emsp;".$row['CategoryID']."</p>";
     			echo "</div>";
 
     			echo "<div class='row justify-content-center'>";
-				echo "<p>&emsp;&emsp;<b>Description: </b>&emsp;".$row['Description']."&emsp;&emsp;&emsp;&emsp;<b>Set Number: </b>&emsp;".$row['SetNumber']."</p>";
+				echo "<p><b>Description: </b>&emsp;".$row['Description']."</p>";
     			echo "</div>";
 
 				
@@ -96,7 +105,7 @@
 						echo "<td class='text-center'>".$row2['ProjTitle']."</td>";
 						echo "<td class='text-center'>".$row2['Score1']."</td>";
 						echo "<td class='text-center'>".$row2['Score2']."</td>";
-						echo "<td class='text-center'><a href='#' class='btn btn-outline-primary'>Add Score</a></td>";
+						echo "<td class='text-center'><a href='addScore.php?id=".$ID."&rid=".$row2['RegistrationID']."&sjid=".$SJID."&snum=".$SNUM."' class='btn btn-outline-primary'>Add Score</a></td>";
 						echo "</tr>";
 					}		
 					echo "</tbody>";
