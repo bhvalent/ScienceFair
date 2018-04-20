@@ -30,7 +30,7 @@
  	<div class='container'>
  		<br>
  		<div class='row justify-content-center'>
- 			<div class='col-xs-12 col-sm-12 col-md-9 col-lg-6'>
+ 			<div class='col-xs-12 col-sm-12 col-md-9 col-lg-8'>
  				<div class='card text-center'>
  					<div class='card-body'>
  						<h3 class='card-title'>Students</h3>
@@ -60,7 +60,7 @@
  		<br />
  		<!-- Need to edit to fit with judges -->
  		<div class='row justify-content-center'>
- 			<div class='col-xs-12 col-sm-12 col-md-9 col-lg-6'>
+ 			<div class='col-xs-12 col-sm-12 col-md-9 col-lg-8'>
  				<div class='card text-center'>
  					<div class='card-body'>
  						<h3 class='card-title'>Judges</h3>
@@ -83,7 +83,7 @@
  		</div>
  		<br />
  		<div class='row justify-content-center'>
- 			<div class='col-xs-12 col-sm-12 col-md-9 col-lg-6'>
+ 			<div class='col-xs-12 col-sm-12 col-md-9 col-lg-8'>
  				<div class='card text-center'>
  					<div class='card-body'>
  						<h3 class='card-title'>Other</h3>
@@ -98,7 +98,7 @@
  		</div>
  		<br />
  		<div class='row justify-content-center'>
- 			<div class='col-xs-12 col-sm-12 col-md-9 col-lg-6'>
+ 			<div class='col-xs-12 col-sm-12 col-md-9 col-lg-8'>
  				<div class='card text-center'>
  					<div class='card-body'>
  						<h3 class='card-title'>Scores</h3>
@@ -109,11 +109,9 @@
  						echo "<a href='#' class='btn btn-primary'>By Class blah</a>";
 
  						echo "<p class='card-text'></p>";
- 						echo "<p class='card-text'>Add Scores</p>";
- 						echo "<a href='#' class='btn btn-primary'>Add Judge</a>";
+ 						echo "<p class='card-text'>Add and Edit scores on Score Cards</p>";
+ 						echo "<a href='readScoreCards.php?id=".$ID."' class='btn btn-primary'>View Score Cards</a>";
  						echo "<p class='card-text'></p>";
- 						echo "<p class='card-text'>Edit Scores</p>";
- 						echo "<a href='#' class='btn btn-primary'>View Sets</a>";
  						?>
  					</div>
  				</div>
