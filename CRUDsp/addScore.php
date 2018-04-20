@@ -79,7 +79,7 @@
                     exit;
                 }
             } else {
-                $_SESSION["message"] = "Error! Both Score are already set!";
+                $_SESSION["message"] = "Error! Could not find student!";
                 header("Location: readScoreCardDetails.php?id=".$ID."&sjid=".$_GET['sjid']."&snum=".$_GET['snum']);
                 exit;
             }
@@ -117,18 +117,40 @@
                     echo "<h5 class='d-md-none'>Add Score:</h5>";
                     echo "</head>";
                     echo "</div>";
+                    echo "<br />";
+                    // echo "<div class='container'>";
+                    // echo "<div class='row justify-content-center'>";
+                    // echo "<div class='col-xs-12 col-sm-12 col-md-8 col-lg-6'>";
+                    // echo "<p><b>Name: </b>&emsp;".$row['FName']." ".$row['LName']."</p>";
+                    // echo "<p><b>Project Title: </b>&emsp;".$row['ProjTitle']."</p>";
+                    // echo "<p><b>Project Number: </b>&emsp;".$row['RegistrationID']."</p>";
+                    // echo "<p><b>Class: </b>&emsp;".$row['Class']."</p>";
+                    // echo "</div>";
+                    // echo "</div>";
+                    // echo "</div>";
+
                     echo "<div class='row justify-content-center'>";
-                    echo "<div class='col-xs-12 col-sm-12 col-md-8 col-lg-6'>";
                     echo "<p><b>Name: </b>&emsp;".$row['FName']." ".$row['LName']."</p>";
+                    echo "</div>";
+
+                    echo "<div class='row justify-content-center'>";
                     echo "<p><b>Project Title: </b>&emsp;".$row['ProjTitle']."</p>";
+                    echo "</div>";
+
+                    echo "<div class='row justify-content-center'>";
                     echo "<p><b>Project Number: </b>&emsp;".$row['RegistrationID']."</p>";
+                    echo "</div>";
+
+                    echo "<div class='row justify-content-center'>";
                     echo "<p><b>Class: </b>&emsp;".$row['Class']."</p>";
                     echo "</div>";
-                    echo "</div>";
                     
-                    echo "<br /><br />";
+                    //echo "<br /><br />";
 
                     echo "<div class='container'>";
+                    echo "<div class='row justify-content-center'>";
+                    echo "<div class='col-xs-12 col-sm-12 col-md-8 col-lg-6'>";
+
                     echo "<form method='POST' action='addScore.php?id=".$ID."&rid=".$RID."&sjid=".$_GET['sjid']."&snum=".$_GET['snum']."'>";
 
                     echo "<div class='form-row'>";
@@ -147,6 +169,9 @@
                     echo "<br />";
                     echo "<button type='submit' name='submit' class='btn btn-primary btn-block'>Submit</button>";
                     echo "</form>";
+
+                    echo "</div>";
+                    echo "</div>";
                     echo "</div>";
 
                 } else {
