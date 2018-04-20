@@ -51,7 +51,7 @@
     			echo "<h5 class='d-md-none'>Judge's Score Card</h5>";
 				echo "</head>";
 				echo "</div>";
-
+				echo "<br />";
 
 				echo "<div class='row justify-content-center'>";
 				echo "<p><b>Name: </b>&emsp;".$row['JudgeName']."</p>";
@@ -82,7 +82,7 @@
 				$result2 = $mysqli->query($query2);
 				if ($result2 && $result2->num_rows > 0) {
 					echo "<div class='row justify-content-center'>";
-					echo "<div class='col-xs-12 col-sm-12 col-md-10 col-lg-8'>";
+					echo "<div class='col-xs-12 col-sm-12 col-md-12 col-lg-10'>";
 					echo "<div class='table-responsive'>";
 					echo "<table class='table table-bordered table-hover'>";
 					echo "<thead class='thead-dark text-center'>";
