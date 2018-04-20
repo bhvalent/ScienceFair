@@ -65,7 +65,7 @@
 					echo "<td class='text-center'>".$row['CategoryID']."</td>";
 					echo "<td class='text-center'>".$row['Description']."</td>";
 					echo "<td class='text-center'>".$row['SetNumber']."</td>";
-					echo "<td class='text-center'><a href='readScoreCardDetails.php?id=".$ID."&sjid=".$row['SetJudgeID']."&snum=".$row['SetNumber']."' class='btn btn-outline-primary'>Add Scores</a></td>";
+					echo "<td class='text-center'><a href='readScoreCardDetails.php?id=".$ID."&sjid=".$row['SetJudgeID']."&snum=".$row['SetNumber']."' class='btn btn-outline-primary'>View</a></td>";
 					echo "</tr>";
 				}		
 				echo "</tbody>";
