@@ -92,7 +92,9 @@
 					echo "<th scope='col'>Name</th>";
 					echo "<th scope='col'>Project Title</th>";
 					echo "<th scope='col'>Score 1</th>";
+					echo "<th scope='col'></th>";
 					echo "<th scope='col'>Score 2</th>";
+					echo "<th scope='col'></th>";
 					echo "<th scope='col'></th>";
 					echo "</tr>";
 					echo "</thead>";
@@ -104,8 +106,10 @@
 						echo "<td class='text-center'>".$row2['StudentName']."</td>";
 						echo "<td class='text-center'>".$row2['ProjTitle']."</td>";
 						echo "<td class='text-center'>".$row2['Score1']."</td>";
+						echo "<td class='text-center'><a href='editScore.php?id=".$ID."&rid=".$row2 ['RegistrationID']."&sjid=".$SJID."&snum=".$SNUM."&type=1' class='btn btn-outline-warning'>Edit</a></td>";
 						echo "<td class='text-center'>".$row2['Score2']."</td>";
-						echo "<td class='text-center'><a href='addScore.php?id=".$ID."&rid=".$row2['RegistrationID']."&sjid=".$SJID."&snum=".$SNUM."' class='btn btn-outline-primary'>Add Score</a></td>";
+						echo "<td class='text-center'><a href='editScore.php?id=".$ID."&rid=".$row2 ['RegistrationID']."&sjid=".$SJID."&snum=".$SNUM."&type=2' class='btn btn-outline-warning'>Edit</a></td>";
+						echo "<td class='text-center'><a href='addScore.php?id=".$ID."&rid=".$row2 ['RegistrationID']."&sjid=".$SJID."&snum=".$SNUM."' class='btn btn-outline-primary'>Add Score</a></td>";
 						echo "</tr>";
 					}		
 					echo "</tbody>";
