@@ -21,9 +21,9 @@ INSERT INTO School (SName, KeyTeacher, City, Type) VALUES('Lafayette Elementary'
 INSERT INTO Registration (LName, FName, ProjTitle, Continuation, NumYears, Age, Gender, City, State, Zip, AdultSponsor, WheelchairAccess, FKFairID, FKSchoolID, FKCategoryID, FKClassID, Score1, Score2, Total)
 VALUES('Valentine', 'Bennett', 'Computer Stuff', 'no', 0, 19, 'Male', 'Oxford', 'MS', 38655, 'Someone0', 'no', 1, 1, 1100, 12, 90, 92, 91.0);
 
-INSERT INTO TeamMember (LName, FName, Continuation, NumYears, Age, Gender, City, State, Zip, WheelchairAccess, FKClassID, FKRegistrationID) 
+INSERT INTO TeamMembers (LName, FName, Continuation, NumYears, Age, Gender, City, State, Zip, WheelchairAccess, FKClassID, FKRegistrationID) 
 VALUES('Smart', 'Someone', 'no', 0, 19, 'Male', 'Oxford', 'MS', 38655, 'no', 12, 1);
-INSERT INTO TeamMember (LName, FName, Continuation, NumYears, Age, Gender, City, State, Zip, WheelchairAccess, FKClassID, FKRegistrationID) 
+INSERT INTO TeamMembers (LName, FName, Continuation, NumYears, Age, Gender, City, State, Zip, WheelchairAccess, FKClassID, FKRegistrationID) 
 VALUES('ReallySmart', 'Someone', 'no', 0, 19, 'Female', 'Oxford', 'MS', 38655, 'no', 11, 1);
 
 
