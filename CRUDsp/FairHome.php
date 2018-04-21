@@ -58,7 +58,6 @@
  			</div>
  		</div>
  		<br />
- 		<!-- Need to edit to fit with judges -->
  		<div class='row justify-content-center'>
  			<div class='col-xs-12 col-sm-12 col-md-9 col-lg-8'>
  				<div class='card text-center'>
@@ -82,6 +81,29 @@
  			</div>
  		</div>
  		<br />
+ 		<!-- Need to edit to fit with judges -->
+ 		
+ 		<div class='row justify-content-center'>
+ 			<div class='col-xs-12 col-sm-12 col-md-9 col-lg-8'>
+ 				<div class='card text-center'>
+ 					<div class='card-body'>
+ 						<h3 class='card-title'>Scores</h3>
+ 						<p class='card-text'>View Scores by Category or Class</p>
+ 						<?php 
+ 						echo "<a href='readScores.php?id=".$ID."&type=1' class='btn btn-primary'>By Category</a>";
+ 						echo " ";
+ 						echo "<a href='readScores.php?id=".$ID."&type=2' class='btn btn-primary'>By Class</a>";
+
+ 						echo "<p class='card-text'></p>";
+ 						echo "<p class='card-text'>Add and Edit scores on Score Cards</p>";
+ 						echo "<a href='readScoreCards.php?id=".$ID."' class='btn btn-primary'>View Score Cards</a>";
+ 						echo "<p class='card-text'></p>";
+ 						?>
+ 					</div>
+ 				</div>
+ 			</div>
+ 		</div>
+ 		<br />
  		<div class='row justify-content-center'>
  			<div class='col-xs-12 col-sm-12 col-md-9 col-lg-8'>
  				<div class='card text-center'>
@@ -96,27 +118,7 @@
  				</div>
  			</div>
  		</div>
- 		<br />
- 		<div class='row justify-content-center'>
- 			<div class='col-xs-12 col-sm-12 col-md-9 col-lg-8'>
- 				<div class='card text-center'>
- 					<div class='card-body'>
- 						<h3 class='card-title'>Scores</h3>
- 						<p class='card-text'>View Scores by Name or Class</p>
- 						<?php 
- 						echo "<a href='#' class='btn btn-primary'>By Name blah</a>";
- 						echo " ";
- 						echo "<a href='#' class='btn btn-primary'>By Class blah</a>";
-
- 						echo "<p class='card-text'></p>";
- 						echo "<p class='card-text'>Add and Edit scores on Score Cards</p>";
- 						echo "<a href='readScoreCards.php?id=".$ID."' class='btn btn-primary'>View Score Cards</a>";
- 						echo "<p class='card-text'></p>";
- 						?>
- 					</div>
- 				</div>
- 			</div>
- 		</div>
+ 		
  	</div>	
  	<br /><br /><br />
  </body>
