@@ -72,7 +72,7 @@
 				
 
 
-				$query2 = "Select Class, RegistrationID, CONCAT(Registration.FName, ' ', Registration.LName) as `StudentName`, ProjTitle, Score1, Score2 ";
+				$query2 = "Select Class, RegistrationID, CONCAT(Registration.FName, ' ', Registration.LName) as `StudentName`, ProjTitle, Score1, Score2, Total ";
 				$query2 .= "from JudgeRegistrant ";
 				$query2 .= "inner join Registration on FKRegistrationID = RegistrationID ";
 				$query2 .= "inner join Class on FKClassID = ClassID ";
@@ -82,7 +82,7 @@
 				$result2 = $mysqli->query($query2);
 				if ($result2 && $result2->num_rows > 0) {
 					echo "<div class='row justify-content-center'>";
-					echo "<div class='col-xs-12 col-sm-12 col-md-12 col-lg-10'>";
+					echo "<div class='col-xs-12 col-sm-12 col-md-12 col-lg-11'>";
 					echo "<div class='table-responsive'>";
 					echo "<table class='table table-bordered table-hover'>";
 					echo "<thead class='thead-dark text-center'>";
@@ -95,6 +95,7 @@
 					echo "<th scope='col'></th>";
 					echo "<th scope='col'>Score 2</th>";
 					echo "<th scope='col'></th>";
+					echo "<th scope='col'>Total</th>";
 					echo "<th scope='col'></th>";
 					echo "</tr>";
 					echo "</thead>";
@@ -109,6 +110,7 @@
 						echo "<td class='text-center'><a href='editScore.php?id=".$ID."&rid=".$row2 ['RegistrationID']."&sjid=".$SJID."&snum=".$SNUM."&type=1' class='btn btn-outline-warning'>Edit</a></td>";
 						echo "<td class='text-center'>".$row2['Score2']."</td>";
 						echo "<td class='text-center'><a href='editScore.php?id=".$ID."&rid=".$row2 ['RegistrationID']."&sjid=".$SJID."&snum=".$SNUM."&type=2' class='btn btn-outline-warning'>Edit</a></td>";
+						echo "<td class='text-center'>".$row2['Total']."</td>";
 						echo "<td class='text-center'><a href='addScore.php?id=".$ID."&rid=".$row2 ['RegistrationID']."&sjid=".$SJID."&snum=".$SNUM."' class='btn btn-outline-primary'>Add Score</a></td>";
 						echo "</tr>";
 					}		
