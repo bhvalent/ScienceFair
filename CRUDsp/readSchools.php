@@ -22,7 +22,7 @@
 			new_header($row['FairName']." ".$row['Year'], $ID);
 
 
-			$query = "select * from School";
+			$query = "select * from School order by SName";
 			$result = $mysqli->query($query);
 			if ($result && $result->num_rows > 0) {
 
