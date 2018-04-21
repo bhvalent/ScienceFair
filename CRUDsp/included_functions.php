@@ -30,6 +30,7 @@
     	echo '<a class="dropdown-item" href="readStudents.php?id='.$FairID.'&type=2">By School</a>';
     	echo '<a class="dropdown-item" href="readStudents.php?id='.$FairID.'&type=3">By Category</a>';
     	echo '<a class="dropdown-item" href="readStudents.php?id='.$FairID.'&type=4">By Class</a>';
+    	echo '<a class="dropdown-item" href="addStudent.php?id='.$FairID.'">Add Student</a>';
     	echo '</div>';
 		echo '</div>';
 		
@@ -41,13 +42,27 @@
 				</button>';
 		echo '<div class="dropdown-menu">';
 		echo '<a class="dropdown-item" href="readJudges.php?id='.urlencode($FairID).'&type=1">By Name</a>';
-    	echo '<a class="dropdown-item" href="readJudges.php?id='.urlencode($FairID).'&type=2">Category</a>';
+    	echo '<a class="dropdown-item" href="readJudges.php?id='.urlencode($FairID).'&type=2">By Category</a>';
+    	echo '<a class="dropdown-item" href="addJudge.php?id='.urlencode($FairID).'">Add Judge</a>';
     	echo '<a class="dropdown-item" href="readCategorySets.php?id='.urlencode($FairID).'">View Sets</a>';
     	echo '</div>';
 		echo '</div>';
 			
 		echo ' ';
     				
+		echo '<div class="btn-group">';
+		echo '<button type="button" class="btn btn-outline-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				Scores
+				</button>';
+		echo '<div class="dropdown-menu">';
+		echo '<a class="dropdown-item" href="readScores.php?id='.$FairID.'&type=1">By Category</a>';
+    	echo '<a class="dropdown-item" href="readScores.php?id='.$FairID.'&type=2">By Class</a>';
+    	echo '<a class="dropdown-item" href="readScoreCards.php?id='.$FairID.'">Score Cards</a>';
+    	echo '</div>';
+		echo '</div>';
+					
+		echo ' ';
+
 		echo '<div class="btn-group">';
 		echo '<button type="button" class="btn btn-outline-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				Other
@@ -57,19 +72,7 @@
     	echo '<a class="dropdown-item" href="readCategories.php?id='.$FairID.'">View Categories</a>';
     	echo '</div>';
 		echo '</div>';
-					
-		echo ' ';
-    			
-		echo '<div class="btn-group">';
-		echo '<button type="button" class="btn btn-outline-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				Scores
-				</button>';
-		echo '<div class="dropdown-menu">';
-		echo '<a class="dropdown-item" href="#">Action</a>';
-    	echo '<a class="dropdown-item" href="#">Another action</a>';
-    	echo '<a class="dropdown-item" href="#">Something else here</a>';
-    	echo '</div>';
-		echo '</div>';
+
 		echo '</div>';
 					
     	//<!--</div>-->
