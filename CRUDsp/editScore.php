@@ -18,15 +18,25 @@
     		$RID = $_GET['rid'];
             $ID = $_GET['id'];
 
-            $query = "Select LName, FName, Score1, Score2 from Registration where RegistrationID = ".$RID;
+            $query = "Select LName, FName, Score1, Score2, Total from Registration where RegistrationID = ".$RID;
             $result = $mysqli->query($query);
             if ($result && $result->num_rows > 0) {
                 $row = $result->fetch_assoc();
                 if ($_GET['type'] === '1') {
 
-                    $query = "Update Registration ";
-                    $query .= "set Score1 = ".$_POST['score']." ";
-                    $query .= "where RegistrationID = ".$RID;
+                    if ($row['Score2'] !== null) {
+                        $total = ($row['Score2'] + $_POST['score']) / 2;
+
+                        $query = "Update Registration ";
+                        $query .= "set Score1 = ".$_POST['score'].", ";
+                        $query .= "Total = ".$total." ";
+                        $query .= "where RegistrationID = ".$RID;
+                    } else {
+                        $query = "Update Registration ";
+                        $query .= "set Score1 = ".$_POST['score']." ";
+                        $query .= "where RegistrationID = ".$RID;
+                    }
+                    
 
                     $result = $mysqli->query($query);
                     if ($result) {
@@ -41,10 +51,20 @@
 
                 } else {
 
-                    $query = "Update Registration ";
-                    $query .= "set Score2 = ".$_POST['score']." ";
-                    $query .= "where RegistrationID = ".$RID;
+                    if ($row['Score1'] !== null) {
+                        $total = ($row['Score1'] + $_POST['score']) / 2;
 
+                        $query = "Update Registration ";
+                        $query .= "set Score2 = ".$_POST['score'].", ";
+                        $query .= "Total = ".$total." ";
+                        $query .= "where RegistrationID = ".$RID;
+                    } else {
+                        $query = "Update Registration ";
+                        $query .= "set Score2 = ".$_POST['score']." ";
+                        $query .= "where RegistrationID = ".$RID;
+                    }
+
+        
                     $result = $mysqli->query($query);
                     if ($result) {
                         $_SESSION["message"] = "Score Updated";
