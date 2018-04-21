@@ -24,7 +24,7 @@
 			
 			
 
-			$query = "Select CategoryID, Description from Category";
+			$query = "Select distinct CategoryID, Description from SetJudge inner join Category on FKCategoryID = CategoryID where FKFairID = ".$ID." order by Description";
 			$result = $mysqli->query($query);
 			$array = array();
 			$array2 = array();
@@ -38,7 +38,7 @@
 				for ($i = 0; $i < count($array); $i++) {
 
 
-					$query = "select distinct SetNumber, Description from JudgeRegistrant inner join SetJudge on FKSetJudgeID = SetJudgeID inner join Category on FKCategoryID = CategoryID inner join Fair on FKFairID = FairID where Description = '".$array[$i]."' and FairID = 1";
+					$query = "select distinct SetNumber, Description from JudgeRegistrant inner join SetJudge on FKSetJudgeID = SetJudgeID inner join Category on FKCategoryID = CategoryID inner join Fair on FKFairID = FairID where Description = '".$array[$i]."' and FairID = ".$ID;
 
 					$result = $mysqli->query($query);
 
@@ -52,7 +52,11 @@
 					echo "</head>";
 					echo "</div>";
 
+
 					if ($result && $result->num_rows > 0) {
+						
+
+
 
 							
 
@@ -79,6 +83,12 @@
 						echo "</div>";
 						echo "</div>";
 						echo "</div>";
+
+
+
+
+
+						
 					} 
 						
 					echo "<div class='container'>";
