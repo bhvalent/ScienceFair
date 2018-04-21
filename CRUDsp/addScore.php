@@ -41,8 +41,11 @@
 
                 } elseif ($row['Score1'] !== null && $row['Score2'] === null) {
 
+                    $total = $row['Score1'] + $_POST['score'] / 2;
+
                     $query = "Update Registration ";
-                    $query .= "set Score2 = ".$_POST['score']." ";
+                    $query .= "set Score2 = ".$_POST['score'].", ";
+                    $query .= "Total = ".$total." ";
                     $query .= "where RegistrationID = ".$RID;
 
                     $result = $mysqli->query($query);
@@ -58,8 +61,11 @@
 
                 } elseif ($row['Score1'] === null && $row['Score2'] !== null) {
 
+                    $total = ($row['Score2'] + $_POST['score']) / 2;
+
                     $query = "Update Registration ";
-                    $query .= "set Score1 = ".$_POST['score']." ";
+                    $query .= "set Score1 = ".$_POST['score'].", ";
+                    $query .= "Total = ".$total." ";
                     $query .= "where RegistrationID = ".$RID;
 
                     $result = $mysqli->query($query);
@@ -118,16 +124,7 @@
                     echo "</head>";
                     echo "</div>";
                     echo "<br />";
-                    // echo "<div class='container'>";
-                    // echo "<div class='row justify-content-center'>";
-                    // echo "<div class='col-xs-12 col-sm-12 col-md-8 col-lg-6'>";
-                    // echo "<p><b>Name: </b>&emsp;".$row['FName']." ".$row['LName']."</p>";
-                    // echo "<p><b>Project Title: </b>&emsp;".$row['ProjTitle']."</p>";
-                    // echo "<p><b>Project Number: </b>&emsp;".$row['RegistrationID']."</p>";
-                    // echo "<p><b>Class: </b>&emsp;".$row['Class']."</p>";
-                    // echo "</div>";
-                    // echo "</div>";
-                    // echo "</div>";
+                
 
                     echo "<div class='row justify-content-center'>";
                     echo "<p><b>Name: </b>&emsp;".$row['FName']." ".$row['LName']."</p>";
