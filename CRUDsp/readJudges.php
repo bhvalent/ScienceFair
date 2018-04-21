@@ -84,7 +84,7 @@
 				}
 			} elseif ($type === "2") {
 
-				$query = "Select Description from Category";
+				$query = "Select Description from Category order by Description";
 				$result = $mysqli->query($query);
 				$array = array();
 				if ($result && $result->num_rows > 0) {
