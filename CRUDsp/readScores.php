@@ -11,7 +11,7 @@
 	if (($output = message()) !== null) {
 		echo $output;
 	}
-	if (isset($_GET['id']) && $_GET['id'] != "" && isset($_GET['type']) && $_GET['type'] != "") {
+	if ((isset($_GET['id']) && $_GET['id'] !== "") && (isset($_GET['type']) && $_GET['type'] !== "")) {
 		$ID = $_GET['id'];
 		$type = $_GET['type'];
 		$query1 = "Select * from Fair where FairID = ".$ID;
@@ -32,7 +32,16 @@
 						array_push($catArray, $row['Description']);
 					}
 
-					
+					// Rank button
+					echo "<br /><br />";
+					echo "<div class='row justify-content-center' align='center'>";
+					echo "<div class='col-xs-12 col-sm-12 col-md-9 col-lg-6'>";
+					echo "<p><b>Rank Students</b></p>";
+					echo "<p></p>";
+					echo "<a href='rank.php?id=".$ID."' class='btn btn-success btn-block'>Rank</a>";
+					echo "</div>";
+					echo "</div>";
+					echo "<br /><br /><br /><br /><br /><br />";
 					
 					echo "<div class='container-fluid'";
 					for ($i = 0; $i < count($catArray); $i++) {
