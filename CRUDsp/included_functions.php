@@ -26,10 +26,10 @@
 				Students
 				</button>';
 		echo '<div class="dropdown-menu">';
-		echo '<a class="dropdown-item" href="readStudents.php?id='.$FairID.'&type=1">By Name</a>';
-    	echo '<a class="dropdown-item" href="readStudents.php?id='.$FairID.'&type=2">By School</a>';
-    	echo '<a class="dropdown-item" href="readStudents.php?id='.$FairID.'&type=3">By Category</a>';
-    	echo '<a class="dropdown-item" href="readStudents.php?id='.$FairID.'&type=4">By Class</a>';
+		echo '<a class="dropdown-item" href="readProjectsName.php?id='.$FairID.'">By Name</a>';
+    	echo '<a class="dropdown-item" href="readProjectsSchool.php?id='.$FairID.'">By School</a>';
+    	echo '<a class="dropdown-item" href="readProjectsCategory.php?id='.$FairID.'">By Category</a>';
+    	echo '<a class="dropdown-item" href="readProjectsClass.php?id='.$FairID.'">By Class</a>';
     	echo '<a class="dropdown-item" href="addStudent.php?id='.$FairID.'">Add Student</a>';
     	echo '</div>';
 		echo '</div>';
