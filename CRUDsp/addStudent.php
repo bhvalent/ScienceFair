@@ -111,7 +111,7 @@
                 echo "<div class='container'>";
         
                 
-                echo "<form method='POST' action='practiceForm.php?id=".$ID."'>";
+                echo "<form method='POST' action='addStudent.php?id=".$ID."'>";
 
                 
 
