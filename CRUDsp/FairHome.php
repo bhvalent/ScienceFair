@@ -37,13 +37,13 @@
  						<p class='card-text'>View Students by Name, School, Category, or Class</p>
 
  						<?php
- 						echo "<a href='readStudents.php?id=".urlencode($ID)."&type=1' class='btn btn-primary'>By Name</a>";
+ 						echo "<a href='readProjectsName.php?id=".$ID."' class='btn btn-primary'>By Name</a>";
  						echo " ";
- 						echo "<a href='readStudents.php?id=".urlencode($ID)."&type=2' class='btn btn-primary'>By School</a>";
+ 						echo "<a href='readProjectsSchool.php?id=".urlencode($ID)."' class='btn btn-primary'>By School</a>";
  						echo " ";
- 						echo "<a href='readStudents.php?id=".urlencode($ID)."&type=3' class='btn btn-primary'>By Category</a>";
+ 						echo "<a href='readProjectsCategory.php?id=".urlencode($ID)."' class='btn btn-primary'>By Category</a>";
  						echo " ";
- 						echo "<a href='readStudents.php?id=".urlencode($ID)."&type=4' class='btn btn-primary'>By Class</a>";
+ 						echo "<a href='readProjectsClass.php?id=".urlencode($ID)."' class='btn btn-primary'>By Class</a>";
  						?>
 
  						
