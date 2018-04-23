@@ -221,7 +221,7 @@
 									}
 
 
-									$query1 = "Select LName, FName, Continuation, NumYears as `Years of Work`, ";
+									$query1 = "Select TeamMemberID, LName, FName, Continuation, NumYears as `Years of Work`, ";
 									$query1 .= "Age, Gender, City, State, Zip, WheelchairAccess, Grade ";
 									$query1 .= "from TeamMembers ";
 									$query1 .= "inner join Class on FKClassID = ClassID ";
@@ -250,7 +250,7 @@
 											echo "<td class='text-center'>".$KeyTeacher."</td>";
 											echo "<td class='text-center'>".$SCity."</td>";
 											echo "<td class='text-center'>".$Type."</td>";
-											echo "<td class='text-center'><a href='editStudent.php?id=".urlencode($ID)."&sid=".urlencode($row['RegistrationID'])."' class='btn btn-outline-warning'>Edit</a></td>";
+											echo "<td class='text-center'><a href='editTeamMember.php?id=".urlencode($ID)."&tmid=".urlencode($row['TeamMemberID'])."' class='btn btn-outline-warning'>Edit</a></td>";
 											echo "<td class='text-center'><a href='deleteStudent.php?id=".urlencode($ID)."&sid=".urlencode($row['RegistrationID'])."' class='btn btn-outline-danger'>Delete</a></td>";
 											echo "</tr>";
 										}
