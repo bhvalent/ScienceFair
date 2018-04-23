@@ -16,6 +16,20 @@
 		
 		if ($_GET['del'] === "1") {
 
+			$query = "select TeamMemberID from TeamMembers where FKRegistrationID = ".$_GET['sid'];
+			$result = $mysqli->query($query);
+			if ($result && $result->num_rows > 0) {
+				while ($row = $result->fetch_assoc()) {
+					$query = "Delete from TeamMembers where TeamMemberID = ".$row['TeamMemberID'];
+					$result2 = $mysqli->query($query);
+					if (!$result2) {
+						$_SESSION["message"] = "Student could not be deleted";
+						header("Location: FairHome.php?id=".$ID);
+						exit;
+					}
+				}
+			} 
+
 			$query = "Delete from Registration where RegistrationID = ".$_GET['sid'];
 			$result = $mysqli->query($query);
 			if ($result && $mysqli->affected_rows === 1) {
@@ -63,7 +77,15 @@
  				echo "<div class='card-body'>";
  				echo "<h3 class='card-title'><b>WARNING</b></h3>";
  				echo "<p class='card-text'>Are you sure you want to delete ".$row['FName']." ".$row['LName']." from ".$FairName."?</p>";
+ 				echo "<br />";
 
+ 				$query = "Select * from TeamMembers where FKRegistrationID = ".$_GET['sid'];
+ 				$result1 = $mysqli->query($query);
+ 				if ($result1 && $result1->num_rows > 0) {
+ 					$rowCount = $result1->num_rows;
+ 					echo "<p class='card-text'>You will also delete ".$rowCount." Team Member(s) if you choose to.</p>";
+ 				}
+ 				echo "<br />";
  						
  				echo "<a href='deleteStudent.php?id=".urldecode($ID)."&sid=".$_GET['sid']."&del=1' class='btn btn-outline-danger btn-block'>Yes</a>";
  				echo "<br /><br />";
