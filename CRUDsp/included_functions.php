@@ -23,10 +23,10 @@
 		echo '<div class="col-xs-12 col-sm-12 col-md-9 col-lg-6">';			
 		echo '<div class="btn-group">';
 		echo '<button type="button" class="btn btn-outline-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				Students
+				Projects
 				</button>';
 		echo '<div class="dropdown-menu">';
-		echo '<a class="dropdown-item" href="readProjectsName.php?id='.$FairID.'">By Name</a>';
+		echo '<a class="dropdown-item" href="readProjectsName.php?id='.$FairID.'">By Student</a>';
     	echo '<a class="dropdown-item" href="readProjectsSchool.php?id='.$FairID.'">By School</a>';
     	echo '<a class="dropdown-item" href="readProjectsCategory.php?id='.$FairID.'">By Category</a>';
     	echo '<a class="dropdown-item" href="readProjectsClass.php?id='.$FairID.'">By Class</a>';
