@@ -33,8 +33,8 @@
  			<div class='col-xs-12 col-sm-12 col-md-9 col-lg-8'>
  				<div class='card text-center'>
  					<div class='card-body'>
- 						<h3 class='card-title'>Students</h3>
- 						<p class='card-text'>View Students by Name, School, Category, or Class</p>
+ 						<h3 class='card-title'>Projects</h3>
+ 						<p class='card-text'>View Projects by Student, School, Category, or Class</p>
 
  						<?php
  						echo "<a href='readProjectsName.php?id=".$ID."' class='btn btn-primary'>By Name</a>";
