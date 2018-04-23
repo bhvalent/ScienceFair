@@ -37,7 +37,7 @@
             if($result) {
 
                 $_SESSION["message"] = $_POST["fname"]." ".$_POST["lname"]." has been added";
-                header("Location: FairHome.php?id=".$ID);
+                header("Location: addMoreTM.php?id=".$ID."&rid=".$RID);
                 exit;
 
             } else {
