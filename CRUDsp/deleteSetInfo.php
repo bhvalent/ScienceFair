@@ -53,6 +53,24 @@
 			new_header($row['FairName']." ".$row['Year'], $ID);
 			$FairName = $row['FairName']." ".$row['Year'];
 
+
+			$query = "Select CONCAT(FName, ' ', LName) as `Name` from TeamMembers where FKRegistrationID = ".$_GET['rid'];
+
+            $result = $mysqli->query($query);
+            $tMems = "";
+            if ($result && $result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    if ($tMems === "") {
+                        $tMems = $row['Name'];
+                    } else {
+                        $tMems .= ", ".$row['Name']; 
+                    }
+                }
+            }
+
+
+
+
 			$query = "select concat(Judge.FName, ' ', Judge.LName) as `JudgeName`, ";
 			$query .= "FKSetJudgeID, concat(Registration.FName, ' ', Registration.LName) as `StudentName`, ";
 			$query .= "FKRegistrationID, SetNumber from JudgeRegistrant ";
@@ -73,8 +91,11 @@
  				echo "<div class='card text-center'>";
  				echo "<div class='card-body'>";
  				echo "<h3 class='card-title'><b>WARNING</b></h3>";
- 				echo "<p class='card-text'>Are you sure you want to delete ".$row['StudentName']." from ".$row['JudgeName']."'s set?</p>";
-
+ 				if ($tMems !== "") {
+ 					echo "<p class='card-text'>Are you sure you want to delete ".$row['StudentName'].", ".$tMems." from ".$row['JudgeName']."'s set?</p>";
+ 				} else {
+ 					echo "<p class='card-text'>Are you sure you want to delete ".$row['StudentName']." from ".$row['JudgeName']."'s set?</p>";
+ 				}
  						
  				echo "<a href='deleteSetInfo.php?sjid=".urldecode($_GET['sjid'])."&rid=".$_GET['rid']."&id=".$ID."&cid=".$CID."&snum=".$_GET['snum']."&del=1' class='btn btn-outline-danger btn-block'>Yes</a>";
  				echo "<br /><br />";
