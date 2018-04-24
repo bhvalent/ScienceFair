@@ -69,8 +69,40 @@
 				echo "<p><b>Description: </b>&emsp;".$row['Description']."</p>";
     			echo "</div>";
 
-				
+				// added here ////////////
+    			$query = "Select distinct TeamMembers.FKRegistrationID from TeamMembers ";
+    			$query .= "inner join Registration on TeamMembers.FKRegistrationID = RegistrationID ";
+    			$query .= "inner join JudgeRegistrant on JudgeRegistrant.FKRegistrationID = RegistrationID ";
+    			$query .= "inner join SetJudge on FKSetJudgeID = SetJudgeID ";
+    			$query .= "where FKSetJudgeID = ".$SJID." and SetNumber = ".$SNUM;
 
+    			$onTeam = array();
+    			$tMems = array();
+    			$result = $mysqli->query($query);
+    			if ($result && $result->num_rows > 0) {
+    				while ($row = $result->fetch_assoc()) {
+    					array_push($onTeam, $row['FKRegistrationID']);
+    				}
+
+    				for ($i = 0; $i < count($onTeam); $i++) {
+    					$query1 = "select concat(FName, ' ', LName) as `Name` ";
+    					$query1 .= "from TeamMembers where FKRegistrationID = ".$onTeam[$i];
+
+    					$result = $mysqli->query($query1);
+    					if ($result && $result->num_rows > 0) {
+    						while ($row = $result->fetch_assoc()) {
+    							if (count($tMems) <= $i) {
+    								array_push($tMems, $row['Name']);
+    							} else {
+    								$tMems[$i] .= ", ".$row['Name']; 
+    							}
+    						}
+    					}
+    				}
+
+
+    			}
+    			///////////////////////
 
 				$query2 = "Select Class, RegistrationID, CONCAT(Registration.FName, ' ', Registration.LName) as `StudentName`, ProjTitle, Score1, Score2, Total ";
 				$query2 .= "from JudgeRegistrant ";
@@ -101,18 +133,35 @@
 					echo "</thead>";
 					echo "<tbody>";
 					while ($row2 = $result2->fetch_assoc()) {
-						echo "<tr>";
-						echo "<td class='text-center'>".$row2['Class']."</td>";
-						echo "<td class='text-center'>".$row2['RegistrationID']."</td>";
-						echo "<td class='text-center'>".$row2['StudentName']."</td>";
-						echo "<td class='text-center'>".$row2['ProjTitle']."</td>";
-						echo "<td class='text-center'>".$row2['Score1']."</td>";
-						echo "<td class='text-center'><a href='editScore.php?id=".$ID."&rid=".$row2 ['RegistrationID']."&sjid=".$SJID."&snum=".$SNUM."&type=1' class='btn btn-outline-warning'>Edit</a></td>";
-						echo "<td class='text-center'>".$row2['Score2']."</td>";
-						echo "<td class='text-center'><a href='editScore.php?id=".$ID."&rid=".$row2 ['RegistrationID']."&sjid=".$SJID."&snum=".$SNUM."&type=2' class='btn btn-outline-warning'>Edit</a></td>";
-						echo "<td class='text-center'>".$row2['Total']."</td>";
-						echo "<td class='text-center'><a href='addScore.php?id=".$ID."&rid=".$row2 ['RegistrationID']."&sjid=".$SJID."&snum=".$SNUM."' class='btn btn-outline-primary'>Add Score</a></td>";
-						echo "</tr>";
+
+						if ( !(in_array($row2['RegistrationID'], $onTeam)) ) {
+							echo "<tr>";
+							echo "<td class='text-center'>".$row2['Class']."</td>";
+							echo "<td class='text-center'>".$row2['RegistrationID']."</td>";
+							echo "<td class='text-center'>".$row2['StudentName']."</td>";
+							echo "<td class='text-center'>".$row2['ProjTitle']."</td>";
+							echo "<td class='text-center'>".$row2['Score1']."</td>";
+							echo "<td class='text-center'><a href='editScore.php?id=".$ID."&rid=".$row2 ['RegistrationID']."&sjid=".$SJID."&snum=".$SNUM."&type=1' class='btn btn-outline-warning'>Edit</a></td>";
+							echo "<td class='text-center'>".$row2['Score2']."</td>";
+							echo "<td class='text-center'><a href='editScore.php?id=".$ID."&rid=".$row2 ['RegistrationID']."&sjid=".$SJID."&snum=".$SNUM."&type=2' class='btn btn-outline-warning'>Edit</a></td>";
+							echo "<td class='text-center'>".$row2['Total']."</td>";
+							echo "<td class='text-center'><a href='addScore.php?id=".$ID."&rid=".$row2 ['RegistrationID']."&sjid=".$SJID."&snum=".$SNUM."' class='btn btn-outline-primary'>Add Score</a></td>";
+							echo "</tr>";
+						} else {
+							echo "<tr>";
+							echo "<td class='text-center'>".$row2['Class']."</td>";
+							echo "<td class='text-center'>".$row2['RegistrationID']."</td>";
+							echo "<td class='text-center'>".$row2['StudentName'].", ".$tMems[array_search($row['RegistrationID'], $onTeam)]."</td>";
+							echo "<td class='text-center'>".$row2['ProjTitle']."</td>";
+							echo "<td class='text-center'>".$row2['Score1']."</td>";
+							echo "<td class='text-center'><a href='editScore.php?id=".$ID."&rid=".$row2 ['RegistrationID']."&sjid=".$SJID."&snum=".$SNUM."&type=1' class='btn btn-outline-warning'>Edit</a></td>";
+							echo "<td class='text-center'>".$row2['Score2']."</td>";
+							echo "<td class='text-center'><a href='editScore.php?id=".$ID."&rid=".$row2 ['RegistrationID']."&sjid=".$SJID."&snum=".$SNUM."&type=2' class='btn btn-outline-warning'>Edit</a></td>";
+							echo "<td class='text-center'>".$row2['Total']."</td>";
+							echo "<td class='text-center'><a href='addScore.php?id=".$ID."&rid=".$row2 ['RegistrationID']."&sjid=".$SJID."&snum=".$SNUM."' class='btn btn-outline-primary'>Add Score</a></td>";
+							echo "</tr>";
+						}
+						
 					}		
 					echo "</tbody>";
 					echo "</table>";
