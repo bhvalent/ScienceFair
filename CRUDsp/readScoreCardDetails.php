@@ -151,7 +151,7 @@
 							echo "<tr>";
 							echo "<td class='text-center'>".$row2['Class']."</td>";
 							echo "<td class='text-center'>".$row2['RegistrationID']."</td>";
-							echo "<td class='text-center'>".$row2['StudentName'].", ".$tMems[array_search($row['RegistrationID'], $onTeam)]."</td>";
+							echo "<td class='text-center'>".$row2['StudentName'].", ".$tMems[array_search($row2['RegistrationID'], $onTeam)]."</td>";
 							echo "<td class='text-center'>".$row2['ProjTitle']."</td>";
 							echo "<td class='text-center'>".$row2['Score1']."</td>";
 							echo "<td class='text-center'><a href='editScore.php?id=".$ID."&rid=".$row2 ['RegistrationID']."&sjid=".$SJID."&snum=".$SNUM."&type=1' class='btn btn-outline-warning'>Edit</a></td>";
