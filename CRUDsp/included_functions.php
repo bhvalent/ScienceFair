@@ -115,5 +115,13 @@
 		return $mysqli;
 	}
 
+	function db_connection_noMessage() {
+		require_once("../../DBScienceFair.php");
+
+		$mysqli = new mysqli(DBHOST, USERNAME, PASSWORD, DBNAME);
+
+		return $mysqli;
+	}
+
 // style="background-color: #00264d;"	
 ?>
