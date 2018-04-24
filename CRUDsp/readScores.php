@@ -70,7 +70,43 @@
 
 							for ($j = 0; $j < count($classArray); $j++) {
 
-								$query = "Select RegistrationID, concat(LName, ', ', FName) as `Name`, ProjTitle, Continuation, ";
+
+								$query = "Select distinct TeamMembers.FKRegistrationID from TeamMembers ";
+				    			$query .= "inner join Registration on TeamMembers.FKRegistrationID = RegistrationID ";
+				    			$query .= "inner join Class on TeamMembers.FKClassID = ClassID ";
+				    			$query .= "inner join Category on FKCategoryID = CategoryID ";
+				    			$query .= "where Description = '".$catArray[$i]."' and Class = ".$classArray[$j];
+
+				    			$onTeam = array();
+				    			$tMems = array();
+				    			$result = $mysqli->query($query);
+				    			if ($result && $result->num_rows > 0) {
+				    				while ($row = $result->fetch_assoc()) {
+				    					array_push($onTeam, $row['FKRegistrationID']);
+				    				}
+
+				    				for ($k = 0; $k < count($onTeam); $k++) {
+				    					$query1 = "select concat(FName, ' ', LName) as `Name` ";
+				    					$query1 .= "from TeamMembers where FKRegistrationID = ".$onTeam[$k];
+
+				    					$result = $mysqli->query($query1);
+				    					if ($result && $result->num_rows > 0) {
+				    						while ($row = $result->fetch_assoc()) {
+				    							if (count($tMems) <= $k) {
+				    								array_push($tMems, $row['Name']);
+				    							} else {
+				    								$tMems[$k] .= ", ".$row['Name']; 
+				    							}
+				    						}
+				    					}
+				    				}
+
+
+				    			}
+
+
+
+								$query = "Select RegistrationID, concat(FName, ' ', LName) as `Name`, ProjTitle, Continuation, ";
 								$query .= "NumYears, Age, Gender, AdultSponsor, Grade, SName, Score1, Score2, Total, Rank ";
 								$query .= "from Registration ";
 								$query .= "inner join Fair on FKFairID = FairID ";
@@ -113,22 +149,42 @@
 									echo "</thead>";
 									echo "<tbody>";
 									while ($row = $result->fetch_assoc()) {
-										echo "<tr>";
-										echo "<td class='text-center'>".$row['Rank']."</td>";
-										echo "<td class='text-center'>".$row['RegistrationID']."</td>";
-										echo "<td class='text-center'>".$row['Name']."</td>";
-										echo "<td class='text-center'>".$row['ProjTitle']."</td>";
-										echo "<td class='text-center'>".$row['Continuation']."</td>";
-										echo "<td class='text-center'>".$row['Years of Work']."</td>";
-										echo "<td class='text-center'>".$row['Age']."</td>";
-										echo "<td class='text-center'>".$row['Gender']."</td>";
-										echo "<td class='text-center'>".$row['AdultSponsor']."</td>";
-										echo "<td class='text-center'>".$row['Grade']."</td>";
-										echo "<td class='text-center'>".$row['SName']."</td>";
-										echo "<td class='text-center'>".$row['Score1']."</td>";
-										echo "<td class='text-center'>".$row['Score2']."</td>";
-										echo "<td class='text-center'>".$row['Total']."</td>";
-										echo "</tr>";
+
+										if ( !(in_array($row['RegistrationID'], $onTeam)) ) {
+											echo "<tr>";
+											echo "<td class='text-center'>".$row['Rank']."</td>";
+											echo "<td class='text-center'>".$row['RegistrationID']."</td>";
+											echo "<td class='text-center'>".$row['Name']."</td>";
+											echo "<td class='text-center'>".$row['ProjTitle']."</td>";
+											echo "<td class='text-center'>".$row['Continuation']."</td>";
+											echo "<td class='text-center'>".$row['Years of Work']."</td>";
+											echo "<td class='text-center'>".$row['Age']."</td>";
+											echo "<td class='text-center'>".$row['Gender']."</td>";
+											echo "<td class='text-center'>".$row['AdultSponsor']."</td>";
+											echo "<td class='text-center'>".$row['Grade']."</td>";
+											echo "<td class='text-center'>".$row['SName']."</td>";
+											echo "<td class='text-center'>".$row['Score1']."</td>";
+											echo "<td class='text-center'>".$row['Score2']."</td>";
+											echo "<td class='text-center'>".$row['Total']."</td>";
+											echo "</tr>";
+										} else {
+											echo "<tr>";
+											echo "<td class='text-center'>".$row['Rank']."</td>";
+											echo "<td class='text-center'>".$row['RegistrationID']."</td>";
+											echo "<td class='text-center'>".$row['Name'].", ".$tMems[array_search($row['RegistrationID'], $onTeam)]."</td>";
+											echo "<td class='text-center'>".$row['ProjTitle']."</td>";
+											echo "<td class='text-center'>".$row['Continuation']."</td>";
+											echo "<td class='text-center'>".$row['Years of Work']."</td>";
+											echo "<td class='text-center'>".$row['Age']."</td>";
+											echo "<td class='text-center'>".$row['Gender']."</td>";
+											echo "<td class='text-center'>".$row['AdultSponsor']."</td>";
+											echo "<td class='text-center'>".$row['Grade']."</td>";
+											echo "<td class='text-center'>".$row['SName']."</td>";
+											echo "<td class='text-center'>".$row['Score1']."</td>";
+											echo "<td class='text-center'>".$row['Score2']."</td>";
+											echo "<td class='text-center'>".$row['Total']."</td>";
+											echo "</tr>";
+										}
 									}
 									echo "</tbody>";
 									echo "</table>";
@@ -192,7 +248,43 @@
 
 							for ($j = 0; $j < count($catArray); $j++) {
 
-								$query = "Select RegistrationID, concat(LName, ', ', FName) as `Name`, ProjTitle, Continuation, ";
+
+								$query = "Select distinct TeamMembers.FKRegistrationID from TeamMembers ";
+				    			$query .= "inner join Registration on TeamMembers.FKRegistrationID = RegistrationID ";
+				    			$query .= "inner join Class on TeamMembers.FKClassID = ClassID ";
+				    			$query .= "inner join Category on FKCategoryID = CategoryID ";
+				    			$query .= "where Description = '".$catArray[$j]."' and Class = ".$classArray[$i];
+
+				    			$onTeam = array();
+				    			$tMems = array();
+				    			$result = $mysqli->query($query);
+				    			if ($result && $result->num_rows > 0) {
+				    				while ($row = $result->fetch_assoc()) {
+				    					array_push($onTeam, $row['FKRegistrationID']);
+				    				}
+
+				    				for ($k = 0; $k < count($onTeam); $k++) {
+				    					$query1 = "select concat(FName, ' ', LName) as `Name` ";
+				    					$query1 .= "from TeamMembers where FKRegistrationID = ".$onTeam[$k];
+
+				    					$result = $mysqli->query($query1);
+				    					if ($result && $result->num_rows > 0) {
+				    						while ($row = $result->fetch_assoc()) {
+				    							if (count($tMems) <= $k) {
+				    								array_push($tMems, $row['Name']);
+				    							} else {
+				    								$tMems[$k] .= ", ".$row['Name']; 
+				    							}
+				    						}
+				    					}
+				    				}
+
+
+				    			}
+
+
+
+								$query = "Select RegistrationID, concat(FName, ' ', LName) as `Name`, ProjTitle, Continuation, ";
 								$query .= "NumYears, Age, Gender, AdultSponsor, Grade, SName, Score1, Score2, Total, Rank ";
 								$query .= "from Registration ";
 								$query .= "inner join Fair on FKFairID = FairID ";
@@ -235,22 +327,42 @@
 									echo "</thead>";
 									echo "<tbody>";
 									while ($row = $result->fetch_assoc()) {
-										echo "<tr>";
-										echo "<td class='text-center'>".$row['Rank']."</td>";
-										echo "<td class='text-center'>".$row['RegistrationID']."</td>";
-										echo "<td class='text-center'>".$row['Name']."</td>";
-										echo "<td class='text-center'>".$row['ProjTitle']."</td>";
-										echo "<td class='text-center'>".$row['Continuation']."</td>";
-										echo "<td class='text-center'>".$row['Years of Work']."</td>";
-										echo "<td class='text-center'>".$row['Age']."</td>";
-										echo "<td class='text-center'>".$row['Gender']."</td>";
-										echo "<td class='text-center'>".$row['AdultSponsor']."</td>";
-										echo "<td class='text-center'>".$row['Grade']."</td>";
-										echo "<td class='text-center'>".$row['SName']."</td>";
-										echo "<td class='text-center'>".$row['Score1']."</td>";
-										echo "<td class='text-center'>".$row['Score2']."</td>";
-										echo "<td class='text-center'>".$row['Total']."</td>";
-										echo "</tr>";
+
+										if ( !(in_array($row['RegistrationID'], $onTeam)) ) {
+											echo "<tr>";
+											echo "<td class='text-center'>".$row['Rank']."</td>";
+											echo "<td class='text-center'>".$row['RegistrationID']."</td>";
+											echo "<td class='text-center'>".$row['Name']."</td>";
+											echo "<td class='text-center'>".$row['ProjTitle']."</td>";
+											echo "<td class='text-center'>".$row['Continuation']."</td>";
+											echo "<td class='text-center'>".$row['Years of Work']."</td>";
+											echo "<td class='text-center'>".$row['Age']."</td>";
+											echo "<td class='text-center'>".$row['Gender']."</td>";
+											echo "<td class='text-center'>".$row['AdultSponsor']."</td>";
+											echo "<td class='text-center'>".$row['Grade']."</td>";
+											echo "<td class='text-center'>".$row['SName']."</td>";
+											echo "<td class='text-center'>".$row['Score1']."</td>";
+											echo "<td class='text-center'>".$row['Score2']."</td>";
+											echo "<td class='text-center'>".$row['Total']."</td>";
+											echo "</tr>";
+										} else {
+											echo "<tr>";
+											echo "<td class='text-center'>".$row['Rank']."</td>";
+											echo "<td class='text-center'>".$row['RegistrationID']."</td>";
+											echo "<td class='text-center'>".$row['Name'].", ".$tMems[array_search($row['RegistrationID'], $onTeam)]."</td>";
+											echo "<td class='text-center'>".$row['ProjTitle']."</td>";
+											echo "<td class='text-center'>".$row['Continuation']."</td>";
+											echo "<td class='text-center'>".$row['Years of Work']."</td>";
+											echo "<td class='text-center'>".$row['Age']."</td>";
+											echo "<td class='text-center'>".$row['Gender']."</td>";
+											echo "<td class='text-center'>".$row['AdultSponsor']."</td>";
+											echo "<td class='text-center'>".$row['Grade']."</td>";
+											echo "<td class='text-center'>".$row['SName']."</td>";
+											echo "<td class='text-center'>".$row['Score1']."</td>";
+											echo "<td class='text-center'>".$row['Score2']."</td>";
+											echo "<td class='text-center'>".$row['Total']."</td>";
+											echo "</tr>";
+										}
 									}
 									echo "</tbody>";
 									echo "</table>";
