@@ -50,6 +50,40 @@
 				for ($i = 0; $i < count($name); $i++) {
 
 
+					$query = "Select distinct TeamMembers.FKRegistrationID from TeamMembers ";
+	    			$query .= "inner join Registration on TeamMembers.FKRegistrationID = RegistrationID ";
+	    			$query .= "inner join JudgeRegistrant on JudgeRegistrant.FKRegistrationID = RegistrationID ";
+	    			$query .= "inner join SetJudge on FKSetJudgeID = SetJudgeID ";
+	    			$query .= "where FKSetJudgeID = ".$sjid[$i]." and SetNumber = ".$SNUM;
+
+	    			$onTeam = array();
+	    			$tMems = array();
+	    			$result = $mysqli->query($query);
+	    			if ($result && $result->num_rows > 0) {
+	    				while ($row = $result->fetch_assoc()) {
+	    					array_push($onTeam, $row['FKRegistrationID']);
+	    				}
+
+	    				for ($j = 0; $j < count($onTeam); $j++) {
+	    					$query1 = "select concat(FName, ' ', LName) as `Name` ";
+	    					$query1 .= "from TeamMembers where FKRegistrationID = ".$onTeam[$j];
+
+	    					$result = $mysqli->query($query1);
+	    					if ($result && $result->num_rows > 0) {
+	    						while ($row = $result->fetch_assoc()) {
+	    							if (count($tMems) <= $j) {
+	    								array_push($tMems, $row['Name']);
+	    							} else {
+	    								$tMems[$j] .= ", ".$row['Name']; 
+	    							}
+	    						}
+	    					}
+	    				}
+
+
+	    			}
+
+
 					$query = "Select Class, RegistrationID, LName, FName, ProjTitle ";
 					$query .= "from JudgeRegistrant ";
 					$query .= "inner join Registration on FKRegistrationID = RegistrationID ";
@@ -63,12 +97,7 @@
 					echo "<br /><br />";
 
 						
-					// echo "<div class='row justify-content-center'>";
-					// echo "<head>";
-					// echo "<h3 class='d-none d-md-block'>".$name[$i]."</h3>";
-					// echo "<h5 class='d-md-none'>".$name[$i]."</h5>";
-					// echo "</head>";
-					// echo "</div>";
+					
 					
 					if ($result && $result->num_rows > 0) {
 
@@ -103,15 +132,28 @@
 						echo "</thead>";
 						echo "<tbody>";
 						while ($row = $result->fetch_assoc()) {
-							echo "<tr>";
-							echo "<td class='text-center'>".$row['Class']."</td>";
-							echo "<td class='text-center'>".$row['RegistrationID']."</td>";
-							echo "<td class='text-center'>".$row['FName']." ".$row['LName']."</td>";
-							echo "<td class='text-center'>".$row['ProjTitle']."</td>";
-							echo "<td class='text-center'><a href='editSetInfo.php?id=".urlencode($ID)."&cid=".$CID."&sjid=".$sjid[$i]."&rid=".$row['RegistrationID']."&snum=".urlencode($SNUM)."' class='btn btn-outline-warning'>Edit</a></td>";
-							
-							echo "<td class='text-center'><a href='deleteSetInfo.php?id=".urlencode($ID)."&snum=".$SNUM."&sjid=".$sjid[$i]."&rid=".$row['RegistrationID']."&cid=".$CID."' class='btn btn-outline-danger'>Delete</a></td>";
-							echo "</tr>";
+
+							if ( !(in_array($row['RegistrationID'], $onTeam)) ) {
+								echo "<tr>";
+								echo "<td class='text-center'>".$row['Class']."</td>";
+								echo "<td class='text-center'>".$row['RegistrationID']."</td>";
+								echo "<td class='text-center'>".$row['FName']." ".$row['LName']."</td>";
+								echo "<td class='text-center'>".$row['ProjTitle']."</td>";
+								echo "<td class='text-center'><a href='editSetInfo.php?id=".urlencode($ID)."&cid=".$CID."&sjid=".$sjid[$i]."&rid=".$row['RegistrationID']."&snum=".urlencode($SNUM)."' class='btn btn-outline-warning'>Edit</a></td>";
+								
+								echo "<td class='text-center'><a href='deleteSetInfo.php?id=".urlencode($ID)."&snum=".$SNUM."&sjid=".$sjid[$i]."&rid=".$row['RegistrationID']."&cid=".$CID."' class='btn btn-outline-danger'>Delete</a></td>";
+								echo "</tr>";
+							} else {
+								echo "<tr>";
+								echo "<td class='text-center'>".$row['Class']."</td>";
+								echo "<td class='text-center'>".$row['RegistrationID']."</td>";
+								echo "<td class='text-center'>".$row['FName']." ".$row['LName'].", ".$tMems[array_search($row['RegistrationID'], $onTeam)]."</td>";
+								echo "<td class='text-center'>".$row['ProjTitle']."</td>";
+								echo "<td class='text-center'><a href='editSetInfo.php?id=".urlencode($ID)."&cid=".$CID."&sjid=".$sjid[$i]."&rid=".$row['RegistrationID']."&snum=".urlencode($SNUM)."' class='btn btn-outline-warning'>Edit</a></td>";
+								
+								echo "<td class='text-center'><a href='deleteSetInfo.php?id=".urlencode($ID)."&snum=".$SNUM."&sjid=".$sjid[$i]."&rid=".$row['RegistrationID']."&cid=".$CID."' class='btn btn-outline-danger'>Delete</a></td>";
+								echo "</tr>";
+							}
 						}
 						echo "</tbody>";
 						echo "</table>";
@@ -121,20 +163,7 @@
 					} else {
 						echo "<head><h2>Could not get info</h2></head>";
 					}	
-					// echo "<div class='container'>";
-					// echo "<br /><br />";
 					
-					// echo "<div class='row justify-content-center'>";
-					// echo "<a href='addSets.php?id=".urlencode($ID)."&cid=".$array2[$i]."' class='btn btn-primary'>Add Category</a>";
-					// echo "</div>";
-					
-					// echo "</div>";
-					
-					
-					// echo "<br /><br />";
-					// echo "<hr style='width: 100%; color: black; height: 1px; background-color:black;' />";
-					// echo "<br /><br /><br /><br /><br />";
-					// echo "<hr style='width: 100%; color: black; height: 1px; background-color:black;' />";
 					
 				}
 				echo "</div>";
