@@ -110,6 +110,24 @@
                 new_header($row['FairName']." ".$row['Year'], $ID);
                 $fairNameYear = $row['FairName']." ".$row['Year'];
 
+
+
+                $query = "Select CONCAT(FName, ' ', LName) as `Name` from TeamMembers where FKRegistrationID = ".$RID;
+
+                $result = $mysqli->query($query);
+                $tMems = "";
+                if ($result && $result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+                        if ($tMems === "") {
+                            $tMems = $row['Name'];
+                        } else {
+                            $tMems .= ", ".$row['Name']; 
+                        }
+                    }
+                }
+
+
+
                 $query = "Select * from Registration inner join Class on FKClassID = ClassID where RegistrationID = ".$RID;
 
                 $result = $mysqli->query($query);
@@ -126,9 +144,15 @@
                     echo "<br />";
                 
 
-                    echo "<div class='row justify-content-center'>";
-                    echo "<p><b>Name: </b>&emsp;".$row['FName']." ".$row['LName']."</p>";
-                    echo "</div>";
+                    if ($tMems !== "") {
+                        echo "<div class='row justify-content-center'>";
+                        echo "<p><b>Name: </b>&emsp;".$row['FName']." ".$row['LName'].", ".$tMems."</p>";
+                        echo "</div>";
+                    } else {
+                        echo "<div class='row justify-content-center'>";
+                        echo "<p><b>Name: </b>&emsp;".$row['FName']." ".$row['LName']."</p>";
+                        echo "</div>";
+                    }
 
                     echo "<div class='row justify-content-center'>";
                     echo "<p><b>Project Title: </b>&emsp;".$row['ProjTitle']."</p>";
