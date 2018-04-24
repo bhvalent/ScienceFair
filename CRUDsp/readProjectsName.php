@@ -355,7 +355,7 @@
 			
 			}	
 
-			// Rank button
+			// Export button
 			echo "<br /><br />";
 			echo "<div class='row justify-content-center' align='center'>";
 			echo "<div class='col-xs-12 col-sm-12 col-md-9 col-lg-6'>";
