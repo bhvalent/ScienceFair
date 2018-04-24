@@ -15,7 +15,7 @@
 			$_SESSION["message"] = null;
 			
 			return $output;
-			//return echo "<h1>".htmlentities($_SESSION["message"])."</h1>";
+		
 		}
 		else {
 			return null;
