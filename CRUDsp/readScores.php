@@ -189,6 +189,12 @@
 									echo "</tbody>";
 									echo "</table>";
 									echo "</div>";
+
+
+
+
+									
+
 								} else {
 									$_SESSION["message"] = "Error! Unable to view Scores";
 				           			header("Location: FairHome.php?id=".$ID);
@@ -202,6 +208,22 @@
 
 					}
 					echo "</div>";
+
+					// Export button
+					echo "<br /><br />";
+					echo "<div class='row justify-content-center' align='center'>";
+					echo "<div class='col-xs-12 col-sm-12 col-md-9 col-lg-6'>";
+					echo "<p><b>Export Scores</b></p>";
+					echo "<p></p>";
+					echo "<a href='exportScoreCategory.php?id=".$ID."' class='btn btn-success btn-block'>Export</a>";
+					echo "</div>";
+					echo "</div>";
+					echo "<br /><br /><br /><br /><br /><br />";
+
+
+
+
+
 
 				} else {
 					$_SESSION["message"] = "Error! Unable to view Categories";
@@ -392,6 +414,18 @@
 
 					}
 					echo "</div>";
+
+					// Export button
+					echo "<br /><br />";
+					echo "<div class='row justify-content-center' align='center'>";
+					echo "<div class='col-xs-12 col-sm-12 col-md-9 col-lg-6'>";
+					echo "<p><b>Export Scores</b></p>";
+					echo "<p></p>";
+					echo "<a href='exportScoreClass.php?id=".$ID."' class='btn btn-success btn-block'>Export</a>";
+					echo "</div>";
+					echo "</div>";
+					echo "<br /><br /><br /><br /><br /><br />";
+
 
 				} else {
 					$_SESSION["message"] = "Error! Unable to view Classes";
