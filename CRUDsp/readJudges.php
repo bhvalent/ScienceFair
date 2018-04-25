@@ -75,6 +75,17 @@
 					echo "</div>";
 					echo "</div>";
 
+					// Export button
+					echo "<br /><br />";
+					echo "<div class='row justify-content-center' align='center'>";
+					echo "<div class='col-xs-12 col-sm-12 col-md-9 col-lg-6'>";
+					echo "<p><b>Export Judge Data</b></p>";
+					echo "<p></p>";
+					echo "<a href='exportJudgesName.php?id=".$ID."' class='btn btn-success btn-block'>Export</a>";
+					echo "</div>";
+					echo "</div>";
+					echo "<br /><br /><br /><br /><br /><br />";
+
 			
 					echo "</div>";
 				} else {
@@ -143,11 +154,26 @@
 							echo "</div>";
 							echo "</div>";
 							echo "</div>";
+
+
+							
 						}
 						
 
 					}
 					echo "</div>";
+
+
+					// Export button
+					echo "<br /><br />";
+					echo "<div class='row justify-content-center' align='center'>";
+					echo "<div class='col-xs-12 col-sm-12 col-md-9 col-lg-6'>";
+					echo "<p><b>Export Judge Data</b></p>";
+					echo "<p></p>";
+					echo "<a href='exportJudgesCategory.php?id=".$ID."' class='btn btn-success btn-block'>Export</a>";
+					echo "</div>";
+					echo "</div>";
+					echo "<br /><br /><br /><br /><br /><br />";
 
 				} else {
 					$_SESSION["message"] = "Unable to view Judges";
