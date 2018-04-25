@@ -18,7 +18,7 @@
 		$name = str_replace(" ", "", $name);
 
 		header( "Content-Type: application/vnd.ms-excel" );
-		header( "Content-disposition: attachment; filename=projectsByName".$name.".xls" );
+		header( "Content-disposition: attachment; filename=projectsBySchool".$name.".xls" );
 
 
 
@@ -188,6 +188,10 @@
 
 
 									}
+
+									echo "\n";	
+									echo "\n";
+									echo "\n";
 									
 								} else {
 									$_SESSION["message"] = "Unable to view Team Members";
@@ -201,6 +205,9 @@
 			           			exit;
 							}
 						}
+
+
+						
 
 
 					} else {
@@ -222,9 +229,7 @@
 					$result = $mysqli->query($query);
 					if ($result && $result->num_rows > 0) {
 
-						// empty line
-						echo "\n";
-
+						
 
 						// school header
 						echo "$array[$i]" . "\n";
@@ -255,13 +260,19 @@
 							
 							
 						}
+
+
+						echo "\n";	
+						echo "\n";
+						echo "\n";
 						
 					}
+
+
+					
 				}
 
-				echo "\n";	
-				echo "\n";
-				echo "\n";
+				
 
 			}
 			
