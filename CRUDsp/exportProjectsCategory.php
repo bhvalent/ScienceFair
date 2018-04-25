@@ -18,7 +18,7 @@
 		$name = str_replace(" ", "", $name);
 
 		header( "Content-Type: application/vnd.ms-excel" );
-		header( "Content-disposition: attachment; filename=projectsByName".$name.".xls" );
+		header( "Content-disposition: attachment; filename=projectsByCategory".$name.".xls" );
 
 
 
@@ -192,6 +192,10 @@
 							}
 						}
 
+						echo "\n";
+						echo "\n";
+						echo "\n";
+
 
 					} else {
 						$_SESSION["message"] = "Unable to view Students";
@@ -244,13 +248,16 @@
 							
 							
 						}
+
+
+						echo "\n";
+						echo "\n";
+						echo "\n";
 						
 					}
 				}
 
-			echo "\n";
-			echo "\n";
-			echo "\n";		
+					
 				
 
 			}
