@@ -81,6 +81,17 @@
        			header("Location: FairHome.php?id=".$ID);
        			exit;
 			}
+
+			// Export button
+			echo "<br /><br />";
+			echo "<div class='row justify-content-center' align='center'>";
+			echo "<div class='col-xs-12 col-sm-12 col-md-9 col-lg-6'>";
+			echo "<p><b>Export Score Cards</b></p>";
+			echo "<p></p>";
+			echo "<a href='exportScoreCards.php?id=".$ID."' class='btn btn-success btn-block'>Export</a>";
+			echo "</div>";
+			echo "</div>";
+			echo "<br /><br /><br /><br /><br /><br />";
 			 
 
 		} else {
