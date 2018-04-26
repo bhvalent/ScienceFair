@@ -30,7 +30,7 @@
     	echo '<a class="dropdown-item" href="readProjectsSchool.php?id='.$FairID.'">By School</a>';
     	echo '<a class="dropdown-item" href="readProjectsCategory.php?id='.$FairID.'">By Category</a>';
     	echo '<a class="dropdown-item" href="readProjectsClass.php?id='.$FairID.'">By Class</a>';
-    	echo '<a class="dropdown-item" href="addStudent.php?id='.$FairID.'">Add Student</a>';
+    	echo '<a class="dropdown-item" href="addStudent.php?id='.$FairID.'">Add Project</a>';
     	echo '</div>';
 		echo '</div>';
 		
