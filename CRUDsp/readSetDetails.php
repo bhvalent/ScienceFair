@@ -169,6 +169,17 @@
 				echo "</div>";
 				echo "</div>";
 
+				// Export button
+				echo "<br /><br />";
+				echo "<div class='row justify-content-center' align='center'>";
+				echo "<div class='col-xs-12 col-sm-12 col-md-9 col-lg-6'>";
+				echo "<p><b>Export Judge Score Cards</b></p>";
+				echo "<p></p>";
+				echo "<a href='exportPDFJudgeScoreCard.php?id=".$ID."&snum=".$SNUM."&cid=".$CID."' class='btn btn-success btn-block'>Export</a>";
+				echo "</div>";
+				echo "</div>";
+				echo "<br /><br /><br /><br /><br /><br />";
+
 			} else {
 				$_SESSION["message"] = "Unable to view Set Info";
        			header("Location: FairHome.php?id=".$ID);
