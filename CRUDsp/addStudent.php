@@ -13,7 +13,7 @@
     }
     if (isset($_POST['submit'])) {
     
-        if ( (isset($_POST["projTitle"]) && $_POST["projTitle"] !== "") && (isset($_POST["fname"]) && $_POST["fname"] !== "") && (isset($_POST["lname"]) && $_POST["lname"] !== "") && (isset($_POST["age"]) && $_POST["age"] !== "") && (isset($_POST["genderRadioOptions"]) && $_POST["genderRadioOptions"] !== "") && (isset($_POST["city"]) && $_POST["city"] !== "") && (isset($_POST["state"]) && $_POST["state"] !== "") && (isset($_POST["zip"]) && $_POST["zip"] !== "") && (isset($_POST["school"]) && $_POST["school"] !== "") && (isset($_POST["adultSponsor"]) && $_POST["adultSponsor"] !== "") && (isset($_POST["class"]) && $_POST["class"] !== "") ) {
+        if ( (isset($_POST["projTitle"]) && $_POST["projTitle"] !== "") && (isset($_POST["fname"]) && $_POST["fname"] !== "") && (isset($_POST["lname"]) && $_POST["lname"] !== "") && (isset($_POST["age"]) && $_POST["age"] !== "") && (isset($_POST["genderRadioOptions"]) && $_POST["genderRadioOptions"] !== "") && (isset($_POST["city"]) && $_POST["city"] !== "") && (isset($_POST["state"]) && $_POST["state"] !== "") && (isset($_POST["zip"]) && $_POST["zip"] !== "") && (isset($_POST["school"]) && $_POST["school"] !== "") && (isset($_POST["adultSponsor"]) && $_POST["adultSponsor"] !== "") && (isset($_POST["class"]) && $_POST["class"] !== "") && (isset($_POST["continuation"]) && $_POST["continuation"] !== "") && (isset($_POST["work"]) && $_POST["work"] !== "") && (isset($_POST["wheelchair"]) && $_POST["wheelchair"] !== "") ) {
 
             $ID = $_GET['id'];
 
@@ -22,13 +22,16 @@
 
                 
             $query = "Insert into Registration ";
-            $query .= "(LName, FName, ProjTitle, Age, Gender, City, State, Zip, AdultSponsor, FKFairID, FKSchoolID, FKCategoryID, FKClassID) ";
+            $query .= "(LName, FName, ProjTitle, Age, Gender, Continuation, NumYears, WheelchairAccess, City, State, Zip, AdultSponsor, FKFairID, FKSchoolID, FKCategoryID, FKClassID) ";
             $query .= "VALUES(";
             $query .= "'".$_POST['lname']."', ";
             $query .= "'".$_POST['fname']."', ";
             $query .= "'".$_POST['projTitle']."', ";
             $query .= $_POST['age'].", ";
             $query .= "'".$_POST['genderRadioOptions']."', ";
+            $query .= "'".$_POST['continuation']."', ";
+            $query .= $_POST['work'].", ";
+            $query .= "'".$_POST['wheelchair']."', ";
             $query .= "'".$_POST['city']."', ";
             $query .= "'".$_POST['state']."', ";
             $query .= $_POST['zip'].", ";
@@ -149,6 +152,42 @@
                 echo "<input class='form-check-input' type='radio' name='genderRadioOptions' id='inlineRadio2' value='Female'>";
                 echo "<label class='form-check-label' for='inlineRadio2'>Female</label>";
                 echo "</div>";
+                echo "</div>";
+
+                // Continuation, number of years, wheelchair access
+                echo "<div class='form-row'>";
+
+                echo "<div class='form-group col-2'";
+                echo "<label>Continuation: </label>";
+                echo "<br />";
+                echo "<div class='form-check form-check-inline'>";
+                echo "<input class='form-check-input' type='radio' name='continuation' id='cRadio1' value='Yes'>";
+                echo "<label class='form-check-label' for='cRadio1'>Yes</label>";
+                echo "</div>";
+                echo "<div class='form-check form-check-inline'>";
+                echo "<input class='form-check-input' type='radio' name='continuation' id='cRadio2' value='Yes'>";
+                echo "<label class='form-check-label' for='cRadio2'>No</label>";
+                echo "</div>";
+                echo "</div>";
+
+                echo "<div class='form-group col-4'";
+                echo "<label>Years of Work: </label>";
+                echo "<input type='number' class='form-control' value='0' id='work' name='work'>";
+                echo "</div>";
+
+                echo "<div class='form-group col-3'";
+                echo "<label>Wheelchair Access Needed: </label>";
+                echo "<br />";
+                echo "<div class='form-check form-check-inline'>";
+                echo "<input class='form-check-input' type='radio' name='wheelchair' id='wRadio1' value='Yes'>";
+                echo "<label class='form-check-label' for='wRadio1'>Yes</label>";
+                echo "</div>";
+                echo "<div class='form-check form-check-inline'>";
+                echo "<input class='form-check-input' type='radio' name='wheelchair' id='wRadio2' value='Yes'>";
+                echo "<label class='form-check-label' for='wRadio2'>No</label>";
+                echo "</div>";
+                echo "</div>";
+
                 echo "</div>";
 
                 // city, state, and zip code
