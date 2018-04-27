@@ -13,7 +13,7 @@
 	}
 	
 	if (isset($_POST["submit"])) {
-	  	if ( (isset($_POST["projTitle"]) && $_POST["projTitle"] !== "") && (isset($_POST["fname"]) && $_POST["fname"] !== "") && (isset($_POST["lname"]) && $_POST["lname"] !== "") && (isset($_POST["age"]) && $_POST["age"] !== "") && (isset($_POST["genderRadioOptions"]) && $_POST["genderRadioOptions"] !== "") && (isset($_POST["city"]) && $_POST["city"] !== "") && (isset($_POST["state"]) && $_POST["state"] !== "") && (isset($_POST["zip"]) && $_POST["zip"] !== "") && (isset($_POST["school"]) && $_POST["school"] !== "") && (isset($_POST["adultSponsor"]) && $_POST["adultSponsor"] !== "") ) {
+	  	if ( (isset($_POST["projTitle"]) && $_POST["projTitle"] !== "") && (isset($_POST["fname"]) && $_POST["fname"] !== "") && (isset($_POST["lname"]) && $_POST["lname"] !== "") && (isset($_POST["age"]) && $_POST["age"] !== "") && (isset($_POST["genderRadioOptions"]) && $_POST["genderRadioOptions"] !== "") && (isset($_POST["city"]) && $_POST["city"] !== "") && (isset($_POST["state"]) && $_POST["state"] !== "") && (isset($_POST["zip"]) && $_POST["zip"] !== "") && (isset($_POST["school"]) && $_POST["school"] !== "") && (isset($_POST["adultSponsor"]) && $_POST["adultSponsor"] !== "") && (isset($_POST["continuation"]) && $_POST["continuation"] !== "") && (isset($_POST["work"]) && $_POST["work"] !== "") && (isset($_POST["wheelchair"]) && $_POST["wheelchair"] !== "") ) {
 
 	  		$ID = $_GET['id'];
 	  		$SID = $_GET['sid'];
@@ -25,6 +25,9 @@
         	$query .= "ProjTitle = '".$_POST['projTitle']."', ";
         	$query .= "Age = ".$_POST['age'].", ";
         	$query .= "Gender = '".$_POST['genderRadioOptions']."', ";
+            $query .= "Continuation = '".$_POST['continuation']."', ";
+            $query .= "NumYears = ".$_POST['work'].", ";
+            $query .= "WheelchairAccess = '".$_POST['wheelchair']."', ";
         	$query .= "City = '".$_POST['city']."', ";
         	$query .= "State = '".$_POST['state']."', ";
         	$query .= "Zip = ".$_POST['zip'].", ";
@@ -38,7 +41,7 @@
 
         	if($result && $mysqli->affected_rows === 1) {
 
-          		$_SESSION["message"] = $_POST["fname"]." ".$_POST["lname"]." has been updated";
+          		$_SESSION["message"] = $_POST["fname"]." ".$_POST["lname"]." has been updated".mysql_errno($mysqli).mysql_error($mysqli);
           		header("Location: FairHome.php?id=".$ID);
           		exit;
 
@@ -66,14 +69,14 @@
 				new_header($row['FairName']." ".$row['Year'], $ID);
 				$fairNameYear = $row['FairName']." ".$row['Year'];
 			
-      	echo "<br /><br />";
+      	        echo "<br /><br />";
 
         
 				echo "<div class='row justify-content-center'";
 				echo "<head>";
 				echo "<h3 class='d-none d-md-block'>Edit Student: <i>".$fairNameYear."</i></h3>";
-        echo "<h5 class='d-md-none'>Edit Student: <i>".$fairNameYear."</i></h5>";
-        echo "</head>";
+                echo "<h5 class='d-md-none'>Edit Student: <i>".$fairNameYear."</i></h5>";
+                echo "</head>";
 				echo "</div>";
         
 
@@ -138,6 +141,68 @@
   			
   					echo "</div>";
 
+                    // Continuation, number of years, wheelchair access
+                    echo "<div class='form-row'>";
+                    if ($row['Continuation'] === 'Yes') {
+                        echo "<div class='form-group col-2'";
+                        echo "<label>Continuation: </label>";
+                        echo "<br />";
+                        echo "<div class='form-check form-check-inline'>";
+                        echo "<input class='form-check-input' type='radio' checked='checked' name='continuation' id='cRadio1' value='Yes'>";
+                        echo "<label class='form-check-label' for='cRadio1'>Yes</label>";
+                        echo "</div>";
+                        echo "<div class='form-check form-check-inline'>";
+                        echo "<input class='form-check-input' type='radio' name='continuation' id='cRadio2' value='Yes'>";
+                        echo "<label class='form-check-label' for='cRadio2'>No</label>";
+                        echo "</div>";
+                    } else {
+                        echo "<div class='form-group col-2'";
+                        echo "<label>Continuation: </label>";
+                        echo "<br />";
+                        echo "<div class='form-check form-check-inline'>";
+                        echo "<input class='form-check-input' type='radio' name='continuation' id='cRadio1' value='Yes'>";
+                        echo "<label class='form-check-label' for='cRadio1'>Yes</label>";
+                        echo "</div>";
+                        echo "<div class='form-check form-check-inline'>";
+                        echo "<input class='form-check-input' type='radio' checked='checked' name='continuation' id='cRadio2' value='Yes'>";
+                        echo "<label class='form-check-label' for='cRadio2'>No</label>";
+                        echo "</div>";
+                    }
+                    echo "</div>";
+
+                    echo "<div class='form-group col-4'";
+                    echo "<label>Years of Work: </label>";
+                    echo "<input type='number' class='form-control' value='".$row['NumYears']."' id='work' name='work'>";
+                    echo "</div>";
+
+                    echo "<div class='form-group col-3'";
+                    if ($row['WheelchairAccess'] === 'Yes') {
+                        echo "<label>Wheelchair Access Needed: </label>";
+                        echo "<br />";
+                        echo "<div class='form-check form-check-inline'>";
+                        echo "<input class='form-check-input' type='radio' checked='checked' name='wheelchair' id='wRadio1' value='Yes'>";
+                        echo "<label class='form-check-label' for='wRadio1'>Yes</label>";
+                        echo "</div>";
+                        echo "<div class='form-check form-check-inline'>";
+                        echo "<input class='form-check-input' type='radio' name='wheelchair' id='wRadio2' value='Yes'>";
+                        echo "<label class='form-check-label' for='wRadio2'>No</label>";
+                        echo "</div>";
+                    } else {
+                        echo "<label>Wheelchair Access Needed: </label>";
+                        echo "<br />";
+                        echo "<div class='form-check form-check-inline'>";
+                        echo "<input class='form-check-input' type='radio' name='wheelchair' id='wRadio1' value='Yes'>";
+                        echo "<label class='form-check-label' for='wRadio1'>Yes</label>";
+                        echo "</div>";
+                        echo "<div class='form-check form-check-inline'>";
+                        echo "<input class='form-check-input' type='radio' checked='checked' name='wheelchair' id='wRadio2' value='Yes'>";
+                        echo "<label class='form-check-label' for='wRadio2'>No</label>";
+                        echo "</div>";
+                    }
+                    echo "</div>";
+
+                    echo "</div>";
+
   					// city, state, and zip code
   					echo "<div class='form-row'>";
   					echo "<div class='form-group col'>";
@@ -171,7 +236,7 @@
   						echo "<div class='form-group col'>";
   						echo "<label>School:</label>";
   						echo "<select class='form-control' id='school' name='school'>";
-              echo "<option>Choose Option</option>";
+                        echo "<option>Choose Option</option>";
   						while ($row2 = $result2->fetch_assoc()) {
   							if ($row2['SchoolID'] === $row['FKSchoolID']) {
   								echo "<option value='".$row2['SchoolID']."'>".$row2['SName']." (Current School)</option>";
@@ -197,7 +262,7 @@
           				echo "<div class='form-group col'>";
           				echo "<label>Category:</label>";
           				echo "<select class='form-control' id='category' name='category'>";
-                  echo "<option>Choose Option</option>";
+                        echo "<option>Choose Option</option>";
           				while ($row2 = $result2->fetch_assoc()) {
           					if ($row2['CategoryID'] === $row['FKCategoryID']) {
           						echo "<option value='".$row2['CategoryID']."'>".$row2['Description']." (Current Category)</option>";
@@ -223,7 +288,7 @@
           				echo "<div class='form-group col'>";
           				echo "<label>Class and Grade:</label>";
           				echo "<select class='form-control' id='class' name='class'>";
-                  echo "<option>Choose Option</option>";
+                        echo "<option>Choose Option</option>";
           				while ($row2 = $result2->fetch_assoc()) {
           					if ($row2['ClassID'] === $row['FKClassID']) {
           						echo "<option value='".$row2['ClassID']."'>Class ".$row2['Class'].", Grade ".$row2['Grade']." (Current Class and Grade)</option>";
