@@ -99,8 +99,8 @@
                 echo "<br /><br />";
                 echo "<div class='row justify-content-center'";
                 echo "<head>";
-                echo "<h3 class='d-none d-md-block'>Add Student: <i>".$fairNameYear."</i></h3>";
-                echo "<h5 class='d-md-none'>Add Student: <i>".$fairNameYear."</i></h5>";
+                echo "<h3 class='d-none d-md-block'>Add Project: <i>".$fairNameYear."</i></h3>";
+                echo "<h5 class='d-md-none'>Add Project: <i>".$fairNameYear."</i></h5>";
 
                 echo "<script type='text/javascript'>";
 
