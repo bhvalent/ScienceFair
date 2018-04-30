@@ -64,8 +64,9 @@ CREATE TABLE Registration (
     Score1 int NULL,
     Score2 int NULL,
     Total decimal(4,1) NULL,
-    StanDev1 decimal(10,8) NULL,
-    StanDev2 decimal(10,8) NULL,
+    ZScore1 decimal(10,8) NULL,
+    ZScore2 decimal(10,8) NULL,
+    AverageZ decimal(10,8) NULL,
     Rank int NULL,
     CONSTRAINT Registration_pk PRIMARY KEY (RegistrationID)
 );
