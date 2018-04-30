@@ -107,14 +107,14 @@
 
 
 								$query = "Select RegistrationID, concat(FName, ' ', LName) as `Name`, ProjTitle, Continuation, ";
-								$query .= "NumYears, Age, Gender, AdultSponsor, Grade, SName, Score1, Score2, Total, Rank ";
+								$query .= "NumYears, Age, Gender, AdultSponsor, Grade, SName, Score1, Score2, Total, ZScore1, ZScore2, AverageZ, Rank ";
 								$query .= "from Registration ";
 								$query .= "inner join Fair on FKFairID = FairID ";
 								$query .= "inner join School on FKSchoolID = SchoolID ";
 								$query .= "inner join Category on FKCategoryID = CategoryID ";
 								$query .= "inner join Class on FKClassID = ClassID ";
 								$query .= "where FKFairID = ".$ID." and Description = '".$catArray[$i]."' and Class = ".$classArray[$j]." ";
-								$query .= "order by Total DESC, Rank ASC";
+								$query .= "order by AverageZ DESC, Rank ASC";
 
 								$result = $mysqli->query($query);
 								if ($result && $result->num_rows > 0) {
@@ -145,6 +145,9 @@
 									echo "<th scope='col'>Score 1</th>";
 									echo "<th scope='col'>Score 2</th>";
 									echo "<th scope='col'>Total</th>";
+									echo "<th scope='col'>Z-Score 1</th>";
+									echo "<th scope='col'>Z-Score 2</th>";
+									echo "<th scope='col'>Average</th>";
 									echo "</tr>";
 									echo "</thead>";
 									echo "<tbody>";
@@ -166,6 +169,9 @@
 											echo "<td class='text-center'>".$row['Score1']."</td>";
 											echo "<td class='text-center'>".$row['Score2']."</td>";
 											echo "<td class='text-center'>".$row['Total']."</td>";
+											echo "<td class='text-center'>".$row['ZScore1']."</td>";
+											echo "<td class='text-center'>".$row['ZScore2']."</td>";
+											echo "<td class='text-center'>".$row['AverageZ']."</td>";
 											echo "</tr>";
 										} else {
 											echo "<tr>";
@@ -183,6 +189,9 @@
 											echo "<td class='text-center'>".$row['Score1']."</td>";
 											echo "<td class='text-center'>".$row['Score2']."</td>";
 											echo "<td class='text-center'>".$row['Total']."</td>";
+											echo "<td class='text-center'>".$row['ZScore1']."</td>";
+											echo "<td class='text-center'>".$row['ZScore2']."</td>";
+											echo "<td class='text-center'>".$row['AverageZ']."</td>";
 											echo "</tr>";
 										}
 									}
@@ -319,7 +328,7 @@
 
 
 								$query = "Select RegistrationID, concat(FName, ' ', LName) as `Name`, ProjTitle, Continuation, ";
-								$query .= "NumYears, Age, Gender, AdultSponsor, Grade, SName, Score1, Score2, Total, Rank ";
+								$query .= "NumYears, Age, Gender, AdultSponsor, Grade, SName, Score1, Score2, Total, ZScore1, ZScore2, AverageZ, Rank ";
 								$query .= "from Registration ";
 								$query .= "inner join Fair on FKFairID = FairID ";
 								$query .= "inner join School on FKSchoolID = SchoolID ";
@@ -357,6 +366,9 @@
 									echo "<th scope='col'>Score 1</th>";
 									echo "<th scope='col'>Score 2</th>";
 									echo "<th scope='col'>Total</th>";
+									echo "<th scope='col'>Z-Score 1</th>";
+									echo "<th scope='col'>Z-Score 2</th>";
+									echo "<th scope='col'>Average</th>";
 									echo "</tr>";
 									echo "</thead>";
 									echo "<tbody>";
@@ -378,6 +390,9 @@
 											echo "<td class='text-center'>".$row['Score1']."</td>";
 											echo "<td class='text-center'>".$row['Score2']."</td>";
 											echo "<td class='text-center'>".$row['Total']."</td>";
+											echo "<td class='text-center'>".$row['ZScore1']."</td>";
+											echo "<td class='text-center'>".$row['ZScore2']."</td>";
+											echo "<td class='text-center'>".$row['AverageZ']."</td>";
 											echo "</tr>";
 										} else {
 											echo "<tr>";
@@ -395,6 +410,9 @@
 											echo "<td class='text-center'>".$row['Score1']."</td>";
 											echo "<td class='text-center'>".$row['Score2']."</td>";
 											echo "<td class='text-center'>".$row['Total']."</td>";
+											echo "<td class='text-center'>".$row['ZScore1']."</td>";
+											echo "<td class='text-center'>".$row['ZScore2']."</td>";
+											echo "<td class='text-center'>".$row['AverageZ']."</td>";
 											echo "</tr>";
 										}
 									}
