@@ -183,7 +183,8 @@
 
                     echo "<div class='form-group col-4'";
                     echo "<label>Years of Work: </label>";
-                    echo "<input type='number' class='form-control' value='".$row['NumYears']."' id='work' name='work'>";
+                    echo "<input type='number' class='form-control' value='".$row['NumYears']."' id='work' name='work' required>";
+                    echo "<div class='invalid-feedback'>Put Number of Years!</div>";
                     echo "</div>";
 
                     echo "<div class='form-group col-3'";
