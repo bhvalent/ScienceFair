@@ -127,23 +127,23 @@
   						echo "<div class='form-check form-check-inline'>";
   						echo "<input class='form-check-input' type='radio' checked='checked' name='genderRadioOptions' id='inlineRadio1' value='Male' required>";
   						echo "<label class='form-check-label' for='inlineRadio1'>Male</label>";
-                        echo "<div class='invalid-feedback'>nbsp;Choose Option!</div>";
+                        echo "<div class='invalid-feedback'>&nbsp;Choose Option!</div>";
   						echo "</div>";
   						echo "<div class='form-check form-check-inline'>";
   						echo "<input class='form-check-input' type='radio' name='genderRadioOptions' id='inlineRadio2' value='Female' required>";
   						echo "<label class='form-check-label' for='inlineRadio2'>Female</label>";
-                        echo "<div class='invalid-feedback'>nbsp;Choose Option!</div>";
+                        echo "<div class='invalid-feedback'>&nbsp;Choose Option!</div>";
   						echo "</div>";
   					} else {
   						echo "<div class='form-check form-check-inline'>";
   						echo "<input class='form-check-input' type='radio' name='genderRadioOptions' id='inlineRadio1' value='Male' required>";
   						echo "<label class='form-check-label active' for='inlineRadio1'>Male</label>";
-                        echo "<div class='invalid-feedback'>nbsp;Choose Option!</div>";
+                        echo "<div class='invalid-feedback'>&nbsp;Choose Option!</div>";
   						echo "</div>";
   						echo "<div class='form-check form-check-inline'>";
   						echo "<input class='form-check-input' type='radio' checked='checked' name='genderRadioOptions' id='inlineRadio2' value='Female' required>";
   						echo "<label class='form-check-label' for='inlineRadio2'>Female</label>";
-                        echo "<div class='invalid-feedback'>nbsp;Choose Option!</div>";
+                        echo "<div class='invalid-feedback'>&nbsp;Choose Option!</div>";
   						echo "</div>";
   					}
   			
@@ -158,25 +158,26 @@
                         echo "<div class='form-check form-check-inline'>";
                         echo "<input class='form-check-input' type='radio' checked='checked' name='continuation' id='cRadio1' value='Yes' required>";
                         echo "<label class='form-check-label' for='cRadio1'>Yes</label>";
-                        echo "<div class='invalid-feedback'>nbsp;Choose Option!</div>";
+                        echo "<div class='invalid-feedback'>&nbsp;Choose Option!</div>";
                         echo "</div>";
                         echo "<div class='form-check form-check-inline'>";
                         echo "<input class='form-check-input' type='radio' name='continuation' id='cRadio2' value='No' required>";
                         echo "<label class='form-check-label' for='cRadio2'>No</label>";
-                        echo "<div class='invalid-feedback'>nbsp;Choose Option!</div>";
+                        echo "<div class='invalid-feedback'>&nbsp;Choose Option!</div>";
                         echo "</div>";
                     } else {
                         echo "<div class='form-group col-2'";
                         echo "<label>Continuation: </label>";
                         echo "<br />";
                         echo "<div class='form-check form-check-inline'>";
-                        echo "<input class='form-check-input' type='radio' name='continuation' id='cRadio1' value='Yes'>";
+                        echo "<input class='form-check-input' type='radio' name='continuation' id='cRadio1' value='Yes' required>";
                         echo "<label class='form-check-label' for='cRadio1'>Yes</label>";
+                        echo "<div class='invalid-feedback'>&nbsp;Choose Option!</div>";
                         echo "</div>";
                         echo "<div class='form-check form-check-inline'>";
                         echo "<input class='form-check-input' type='radio' checked='checked' name='continuation' id='cRadio2' value='No' required>";
                         echo "<label class='form-check-label' for='cRadio2'>No</label>";
-                        echo "<div class='invalid-feedback'>nbsp;Choose Option!</div>";
+                        echo "<div class='invalid-feedback'>&nbsp;Choose Option!</div>";
                         echo "</div>";
                     }
                     echo "</div>";
@@ -194,12 +195,12 @@
                         echo "<div class='form-check form-check-inline'>";
                         echo "<input class='form-check-input' type='radio' checked='checked' name='wheelchair' id='wRadio1' value='Yes' required>";
                         echo "<label class='form-check-label' for='wRadio1'>Yes</label>";
-                        echo "<div class='invalid-feedback'>nbsp;Choose Option!</div>";
+                        echo "<div class='invalid-feedback'>&nbsp;Choose Option!</div>";
                         echo "</div>";
                         echo "<div class='form-check form-check-inline'>";
                         echo "<input class='form-check-input' type='radio' name='wheelchair' id='wRadio2' value='No' required>";
                         echo "<label class='form-check-label' for='wRadio2'>No</label>";
-                        echo "<div class='invalid-feedback'>nbsp;Choose Option!</div>";
+                        echo "<div class='invalid-feedback'>&nbsp;Choose Option!</div>";
                         echo "</div>";
                     } else {
                         echo "<label>Wheelchair Access Needed: </label>";
@@ -207,12 +208,12 @@
                         echo "<div class='form-check form-check-inline'>";
                         echo "<input class='form-check-input' type='radio' name='wheelchair' id='wRadio1' value='Yes' required>";
                         echo "<label class='form-check-label' for='wRadio1'>Yes</label>";
-                        echo "<div class='invalid-feedback'>nbsp;Choose Opiton!</div>";
+                        echo "<div class='invalid-feedback'>&nbsp;Choose Opiton!</div>";
                         echo "</div>";
                         echo "<div class='form-check form-check-inline'>";
                         echo "<input class='form-check-input' type='radio' checked='checked' name='wheelchair' id='wRadio2' value='No' required>";
                         echo "<label class='form-check-label' for='wRadio2'>No</label>";
-                        echo "<div class='invalid-feedback'>nbsp;Choose Option!</div>";
+                        echo "<div class='invalid-feedback'>&nbsp;Choose Option!</div>";
                         echo "</div>";
                     }
                     echo "</div>";
