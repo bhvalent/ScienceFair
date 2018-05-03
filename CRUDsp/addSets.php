@@ -169,7 +169,7 @@
 
 
 				echo "<div class='col-4'>";
-				echo "<form name='addform' method='POST' action='addSets.php?id=".$ID."&cid=".$CID."'>";
+				echo "<form name='addform' method='POST' class='needs-validation' action='addSets.php?id=".$ID."&cid=".$CID."' novalidate>";
                 
                 // Judge
                 $query = "Select SetJudgeID, LName, FName, Description from SetJudge ";
@@ -183,8 +183,8 @@
                     echo "<div class='form-row'>";
                     echo "<div class='form-group col'>";
                     echo "<label>Judge:</label>";
-                    echo "<select class='form-control' id='judge' name='judge'>";
-                    echo "<option>Choose Option</option>";
+                    echo "<select class='form-control' id='judge' name='judge' required>";
+                    echo "<option value=''>Choose Option</option>";
                     while ($row = $result->fetch_assoc()) {
                         echo "<option value='".$row['SetJudgeID']."'>".$row['FName']." ".$row['LName'].", ".$row['Description']."</option>";
                     }
@@ -208,8 +208,8 @@
                     echo "<div class='form-row'>";
                     echo "<div class='form-group col'>";
                     echo "<label>Student:</label>";
-                    echo "<select class='form-control' id='student' name='student'>";
-                    echo "<option>Choose Option</option>";
+                    echo "<select class='form-control' id='student' name='student' required>";
+                    echo "<option value=''>Choose Option</option>";
                     while ($row = $result->fetch_assoc()) {
                         echo "<option value='".$row['RegistrationID']."'>".$row['FName']." ".$row['LName'].", Class: ".$row['Class'].", ".$row['Description']."</option>";
                     }
@@ -225,12 +225,41 @@
                 echo "<div class='form-row'>";
                 echo "<div class='form-group col'>";
                 echo "<label>Set Number:</label>";
-                echo "<input type='number' class='form-control' id='setNumber' name='setNumber' placeholder='0'>";
+                echo "<input type='number' class='form-control' id='setNumber' name='setNumber' placeholder='0' required>";
+                echo "<div class='invalid-feedback'>Put Set Number!</div>";
                 echo "</div>";
                 echo "</div>";
 
                 echo "<br />";
                 echo "<button type='submit' name='submit' class='btn btn-primary btn-block'>Submit</button>";
+
+
+
+                echo "<script>
+                   
+                    (function() {
+                        'use strict';
+                        window.addEventListener('load', function() {
+                            var forms = document.getElementsByClassName('needs-validation');
+                            var validation = Array.prototype.filter.call(forms, function(form) {
+                                form.addEventListener('submit', function(event) {
+                                    if (form.checkValidity() === false) {
+                                        event.preventDefault();
+                                        event.stopPropagation();
+                                    }
+                                    form.classList.add('was-validated');
+                                }, false);
+                            });
+                        }, false);
+                    })();
+                
+
+
+            
+                </script>";
+
+
+
                 echo "</form>";
                 echo "</div>";
 
