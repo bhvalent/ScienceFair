@@ -114,7 +114,7 @@
                 echo "<div class='container'>";
         
                 
-                echo "<form method='POST' action='addStudent.php?id=".$ID."'>";
+                echo "<form method='POST' name='addForm' class='needs-validation' action='addStudent.php?id=".$ID."' novalidate>";
 
                 
 
@@ -122,7 +122,8 @@
                 echo "<div class='form-row'>";
                 echo "<div class='form-group col'>";
                 echo "<label>Project Title</label>";
-                echo "<input type='text' class='form-control' id='projTitle' name='projTitle' placeholder='Project Title'>";
+                echo "<input type='text' class='form-control' id='projTitle' name='projTitle' placeholder='Project Title' required>";
+                echo "<div class='invalid-feedback'>Put Project Title!</div>";
                 echo "</div>";
                 echo "</div>";
 
@@ -130,11 +131,13 @@
                 echo "<div class='form-row'>";
                 echo "<div class='form-group col'>";
                 echo "<label>First Name:</label>";
-                echo "<input type='text' class='form-control' id='fname' name='fname' placeholder='First name'>";
+                echo "<input type='text' class='form-control' id='fname' name='fname' placeholder='First name' required>";
+                echo "<div class='invalid-feedback'>Put First Name!</div>";
                 echo "</div>";
                 echo "<div class='form-group col'>";
                 echo "<label>Last Name:</label>";
-                echo "<input type='text' class='form-control' id='lname' name='lname' placeholder='Last name'>";
+                echo "<input type='text' class='form-control' id='lname' name='lname' placeholder='Last name' required>";
+                echo "<div class='invalid-feedback'>Put Last Name!</div>";
                 echo "</div>";
                 echo "</div>";
 
@@ -142,15 +145,20 @@
                 echo "<div class='form-row'>";
                 echo "<div class='form-group col-6'";
                 echo "<label>Age:</label>";
-                echo "<input type='number' class='form-control' value='12' id='age' name='age'>";
+                echo "<input type='number' class='form-control' placeholder='12' id='age' name='age' required>";
+                echo "<div class='invalid-feedback'>Put Age!</div>";
                 echo "</div>";
+
                 echo "<div class='form-check form-check-inline'>";
-                echo "<input class='form-check-input' type='radio' name='genderRadioOptions' id='inlineRadio1' value='Male'>";
+                echo "<input class='form-check-input' type='radio' name='genderRadioOptions' id='inlineRadio1' value='Male' required>";
                 echo "<label class='form-check-label' for='inlineRadio1'>Male</label>";
+                echo "<div class='invalid-feedback'>&nbsp;Choose Gender!</div>";
                 echo "</div>";
+
                 echo "<div class='form-check form-check-inline'>";
-                echo "<input class='form-check-input' type='radio' name='genderRadioOptions' id='inlineRadio2' value='Female'>";
+                echo "<input class='form-check-input' type='radio' name='genderRadioOptions' id='inlineRadio2' value='Female' required>";
                 echo "<label class='form-check-label' for='inlineRadio2'>Female</label>";
+                echo "<div class='invalid-feedback'>&nbsp;Choose Gender!</div>";
                 echo "</div>";
                 echo "</div>";
 
@@ -161,30 +169,35 @@
                 echo "<label>Continuation: </label>";
                 echo "<br />";
                 echo "<div class='form-check form-check-inline'>";
-                echo "<input class='form-check-input' type='radio' name='continuation' id='cRadio1' value='Yes'>";
+                echo "<input class='form-check-input' type='radio' name='continuation' id='cRadio1' value='Yes' required>";
                 echo "<label class='form-check-label' for='cRadio1'>Yes</label>";
+                echo "<div class='invalid-feedback'>&nbsp;Choose Option!</div>";
                 echo "</div>";
                 echo "<div class='form-check form-check-inline'>";
-                echo "<input class='form-check-input' type='radio' name='continuation' id='cRadio2' value='Yes'>";
+                echo "<input class='form-check-input' type='radio' name='continuation' id='cRadio2' value='No' required>";
                 echo "<label class='form-check-label' for='cRadio2'>No</label>";
+                echo "<div class='invalid-feedback'>&nbsp;Choose Option!</div>";
                 echo "</div>";
                 echo "</div>";
 
                 echo "<div class='form-group col-4'";
                 echo "<label>Years of Work: </label>";
-                echo "<input type='number' class='form-control' value='0' id='work' name='work'>";
+                echo "<input type='number' class='form-control' placeholder='0' id='work' name='work' required>";
+                echo "<div class='invalid-feedback'>Put Number of Years!</div>";
                 echo "</div>";
 
                 echo "<div class='form-group col-3'";
                 echo "<label>Wheelchair Access Needed: </label>";
                 echo "<br />";
                 echo "<div class='form-check form-check-inline'>";
-                echo "<input class='form-check-input' type='radio' name='wheelchair' id='wRadio1' value='Yes'>";
+                echo "<input class='form-check-input' type='radio' name='wheelchair' id='wRadio1' value='Yes' required>";
                 echo "<label class='form-check-label' for='wRadio1'>Yes</label>";
+                echo "<div class='invalid-feedback'>&nbsp;Choose Option!</div>";
                 echo "</div>";
                 echo "<div class='form-check form-check-inline'>";
-                echo "<input class='form-check-input' type='radio' name='wheelchair' id='wRadio2' value='Yes'>";
+                echo "<input class='form-check-input' type='radio' name='wheelchair' id='wRadio2' value='No' required>";
                 echo "<label class='form-check-label' for='wRadio2'>No</label>";
+                echo "<div class='invalid-feedback'>&nbsp;Choose Option!</div>";
                 echo "</div>";
                 echo "</div>";
 
@@ -194,15 +207,18 @@
                 echo "<div class='form-row'>";
                 echo "<div class='form-group col'>";
                 echo "<label>City:</label>";
-                echo "<input type='text' class='form-control' id='city' name='city' placeholder='City'>";
+                echo "<input type='text' class='form-control' id='city' name='city' placeholder='City' required>";
+                echo "<div class='invalid-feedback'>Put City!</div>";
                 echo "</div>";
                 echo "<div class='form-group col'>";
                 echo "<label>State Abbreviation (e.g. MS):</label>";
-                echo "<input type='text' class='form-control' id='state' name='state' placeholder='State'>";
+                echo "<input type='text' class='form-control' id='state' name='state' placeholder='State' required>";
+                echo "<div class='invalid-feedback'>Put State!</div>";
                 echo "</div>";
                 echo "<div class='form-group col'>";
                 echo "<label>Zip Code:</label>";
-                echo "<input type='number' class='form-control' id='zip' name='zip' placeholder='12345'>";
+                echo "<input type='number' class='form-control' id='zip' name='zip' placeholder='12345' required>";
+                echo "<div class='invalid-feedback'>Put Zip!</div>";
                 echo "</div>";
                 echo "</div>";
 
@@ -210,7 +226,8 @@
                 echo "<div class='form-row'>";
                 echo "<div class='form-group col'>";
                 echo "<label>Adult Sponsor Name</label>";
-                echo "<input type='text' class='form-control' id='adultSponsor' name='adultSponsor' placeholder='Name'>";
+                echo "<input type='text' class='form-control' id='adultSponsor' name='adultSponsor' placeholder='Name' required>";
+                echo "<div class='invalid-feedback'>Put Sponsor Name!</div>";
                 echo "</div>";
                 echo "</div>";
         
@@ -223,8 +240,8 @@
                     echo "<div class='form-row'>";
                     echo "<div class='form-group col'>";
                     echo "<label>School:</label>";
-                    echo "<select class='form-control' id='school' name='school'>";
-                    echo "<option>Choose Option</option>";
+                    echo "<select class='form-control' id='school' name='school' required>";
+                    echo "<option value=''>Choose Option</option>";
                     while ($row = $result->fetch_assoc()) {
                         echo "<option value='".$row['SchoolID']."'>".$row['SName']."</option>";
                     }
@@ -244,8 +261,8 @@
                     echo "<div class='form-row'>";
                     echo "<div class='form-group col'>";
                     echo "<label>Category:</label>";
-                    echo "<select class='form-control' id='category' name='category'>";
-                    echo "<option>Choose Option</option>";
+                    echo "<select class='form-control' id='category' name='category' required>";
+                    echo "<option value=''>Choose Option</option>";
                     while ($row = $result->fetch_assoc()) {
                         echo "<option value='".$row['CategoryID']."'>".$row['Description']."</option>";
                     }
@@ -265,8 +282,8 @@
                     echo "<div class='form-row'>";
                     echo "<div class='form-group col'>";
                     echo "<label>Class and Grade:</label>";
-                    echo "<select class='form-control' id='class' name='class'>";
-                    echo "<option>Choose Option</option>";
+                    echo "<select class='form-control' id='class' name='class' required>";
+                    echo "<option value=''>Choose Option</option>";
                     while ($row = $result->fetch_assoc()) {
                         echo "<option value='".$row['ClassID']."'>Class ".$row['Class'].", Grade ".$row['Grade']."</option>";
                     }
@@ -281,6 +298,45 @@
                 echo "<br />";
                 echo "<button type='submit' name='submit' class='btn btn-primary btn-block'>Submit</button>";
                 echo "</form>";
+
+
+
+                echo "<script>
+                   
+                    (function() {
+                        'use strict';
+                        window.addEventListener('load', function() {
+                            var forms = document.getElementsByClassName('needs-validation');
+                            var validation = Array.prototype.filter.call(forms, function(form) {
+                                form.addEventListener('submit', function(event) {
+                                    if (form.checkValidity() === false) {
+                                        event.preventDefault();
+                                        event.stopPropagation();
+                                    }
+                                    form.classList.add('was-validated');
+                                }, false);
+                            });
+                        }, false);
+                    })();
+                    
+
+
+                
+                </script>";
+
+                
+
+                // var a = forms.getElementsByName('age');
+                // if (!Number.isInteger(a)) {
+                //     event.preventDefault();
+                //     event.stopPropagation();
+                // }
+
+                // elseif (!Number.isInteger(form.getElementByName('age'))) {
+                //             event.preventDefault();
+                //             event.stopPropagation();
+                //         }
+
                 echo "</div>";
 
             } else {
