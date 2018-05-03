@@ -78,28 +78,31 @@
             				$row = $result->fetch_assoc();
             		
                   
-            				echo "<form method='POST' action='editSchool.php?id=".$ID."&sid=".$SID."'>";
+            				echo "<form method='POST' class='needs-validation' action='editSchool.php?id=".$ID."&sid=".$SID."' novalidate>";
             		
                     echo "<div class='form-row'>";
                     echo "<div class='form-group col'>";
                     echo "<label>School Name:</label>";
-                    echo "<input type='text' class='form-control' id='schoolName' name='schoolName' value='".$row['SName']."'>";
+                    echo "<input type='text' class='form-control' id='schoolName' name='schoolName' value='".$row['SName']."' required>";
+                    echo "<div class='invalid-feedback'>Put School Name!</div>";
                     echo "</div>";
                     echo "<div class='form-group col'>";
                     echo "<label>Key Teacher:</label>";
-                    echo "<input type='text' class='form-control' id='keyTeacher' name='keyTeacher' value='".$row['KeyTeacher']."'>";
+                    echo "<input type='text' class='form-control' id='keyTeacher' name='keyTeacher' value='".$row['KeyTeacher']."' required>";
+                    echo "<div class='invalid-feedback'>Put Teacher Name!</div>";
                     echo "</div>";
                     echo "</div>";
 
                     echo "<div class='form-row'>";
                     echo "<div class='form-group col'>";
                     echo "<label>City:</label>";
-                    echo "<input type='text' class='form-control' id='city' name='city' value='".$row['City']."'>";
+                    echo "<input type='text' class='form-control' id='city' name='city' value='".$row['City']."' required>";
+                    echo "<div class='invalid-feedback'>Put City!</div>";
                     echo "</div>";
                     echo "<div class='form-group col'>";
                     echo "<label>School:</label>";
-                    echo "<select class='form-control' id='type' name='type'>";
-                    echo "<option>Choose Option</option>";
+                    echo "<select class='form-control' id='type' name='type' required>";
+                    echo "<option value=''>Choose Option</option>";
                     
                     if ($row['Type'] === "Public") {
                         echo "<option value='Public'>Public (Current Type)</option>";
@@ -123,6 +126,33 @@
 
                     echo "<br />";
                     echo "<button type='submit' name='submit' class='btn btn-primary btn-block'>Submit</button>";
+
+
+
+                    echo "<script>
+                   
+                        (function() {
+                            'use strict';
+                            window.addEventListener('load', function() {
+                                var forms = document.getElementsByClassName('needs-validation');
+                                var validation = Array.prototype.filter.call(forms, function(form) {
+                                    form.addEventListener('submit', function(event) {
+                                        if (form.checkValidity() === false) {
+                                            event.preventDefault();
+                                            event.stopPropagation();
+                                        }
+                                        form.classList.add('was-validated');
+                                    }, false);
+                                });
+                            }, false);
+                        })();
+                    
+
+
+                
+                    </script>";
+
+
             					
             				echo "</form>";
             				echo "</div>";
