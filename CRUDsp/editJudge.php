@@ -98,18 +98,20 @@
 
                     echo "<div class='container'>";
                 
-                    echo "<form name='addform' method='POST' action='editJudge.php?id=".$ID."&sjid=".$_GET['sjid']."'>";
+                    echo "<form name='addform' method='POST' class='needs-validation' action='editJudge.php?id=".$ID."&sjid=".$_GET['sjid']."' novalidate>";
         
                     
                     // first and last name
                     echo "<div class='form-row'>";
                     echo "<div class='form-group col'>";
                     echo "<label>First Name:</label>";
-                    echo "<input type='text' class='form-control' id='fname' name='fname' value='".$row['FName']."'>";
+                    echo "<input type='text' class='form-control' id='fname' name='fname' value='".$row['FName']."' required>";
+                    echo "<div class='invalid-feedback'>Put First Name!</div>";
                     echo "</div>";
                     echo "<div class='form-group col'>";
                     echo "<label>Last Name:</label>";
-                    echo "<input type='text' class='form-control' id='lname' name='lname' value='".$row['LName']."'>";
+                    echo "<input type='text' class='form-control' id='lname' name='lname' value='".$row['LName']."' required>";
+                    echo "<div class='invalid-feedback'>Put Last Name!</div>";
                     echo "</div>";
                     echo "</div>";
 
@@ -117,7 +119,8 @@
                     echo "<div class='form-row'>";
                     echo "<div class='form-group col'>";
                     echo "<label>Email:</label>";
-                    echo "<input type='text' class='form-control' id='email' name='email' value='".$row['Email']."'>";
+                    echo "<input type='text' class='form-control' id='email' name='email' value='".$row['Email']."' required>";
+                    echo "<div class='invalid-feedback'>Put Email!</div>";
                     echo "</div>";
                     echo "</div>";
 
@@ -129,8 +132,8 @@
                         echo "<div class='form-row'>";
                         echo "<div class='form-group col'>";
                         echo "<label>Category:</label>";
-                        echo "<select class='form-control' id='category' name='category'>";
-                        echo "<option>Choose Option</option>";
+                        echo "<select class='form-control' id='category' name='category' required>";
+                        echo "<option value=''>Choose Option</option>";
                         while ($row2 = $result2->fetch_assoc()) {
                             if ($row2['CategoryID'] === $row['FKCategoryID']) {
                                 echo "<option value='".$row2['CategoryID']."'>".$row2['Description']." (Current Category)</option>";
@@ -150,6 +153,36 @@
 
                     echo "<br />";
                     echo "<button type='submit' name='submit' class='btn btn-primary btn-block'>Submit</button>";
+
+
+
+                    echo "<script>
+                   
+                        (function() {
+                            'use strict';
+                            window.addEventListener('load', function() {
+                                var forms = document.getElementsByClassName('needs-validation');
+                                var validation = Array.prototype.filter.call(forms, function(form) {
+                                    form.addEventListener('submit', function(event) {
+                                        if (form.checkValidity() === false) {
+                                            event.preventDefault();
+                                            event.stopPropagation();
+                                        }
+                                        form.classList.add('was-validated');
+                                    }, false);
+                                });
+                            }, false);
+                        })();
+                    
+
+
+                
+                    </script>";
+
+
+
+
+                    
                     echo "</form>";
                     echo "</div>";
                 } else {
