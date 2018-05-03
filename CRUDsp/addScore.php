@@ -172,12 +172,13 @@
                     echo "<div class='row justify-content-center'>";
                     echo "<div class='col-xs-12 col-sm-12 col-md-8 col-lg-6'>";
 
-                    echo "<form method='POST' action='addScore.php?id=".$ID."&rid=".$RID."&sjid=".$_GET['sjid']."&snum=".$_GET['snum']."'>";
+                    echo "<form method='POST' class='needs-validation' action='addScore.php?id=".$ID."&rid=".$RID."&sjid=".$_GET['sjid']."&snum=".$_GET['snum']."' novalidate>";
 
                     echo "<div class='form-row'>";
                     echo "<div class='form-group col'>";
                     echo "<label>Score:</label>";
-                    echo "<input type='number' class='form-control' id='score' name='score' placeholder='100'>";
+                    echo "<input type='number' class='form-control' id='score' name='score' placeholder='100' required>";
+                    echo "<div class='invalid-feedback'>Put Score!</div>";
                     //echo "<small id='cidHelp' class=form-text text-muted'>Make sure ID is unique compared to the other ID's</small>";
                     echo "</div>";
           //        echo "<div class='form-group col'>";
@@ -189,6 +190,34 @@
 
                     echo "<br />";
                     echo "<button type='submit' name='submit' class='btn btn-primary btn-block'>Submit</button>";
+
+
+                    echo "<script>
+                   
+                        (function() {
+                            'use strict';
+                            window.addEventListener('load', function() {
+                                var forms = document.getElementsByClassName('needs-validation');
+                                var validation = Array.prototype.filter.call(forms, function(form) {
+                                    form.addEventListener('submit', function(event) {
+                                        if (form.checkValidity() === false) {
+                                            event.preventDefault();
+                                            event.stopPropagation();
+                                        }
+                                        form.classList.add('was-validated');
+                                    }, false);
+                                });
+                            }, false);
+                        })();
+                    
+
+
+                
+                    </script>";
+
+
+
+
                     echo "</form>";
 
                     echo "</div>";
