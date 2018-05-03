@@ -69,23 +69,52 @@
                     $row = $result->fetch_assoc();
 
                     echo "<div class='container'>";
-                    echo "<form method='POST' action='editCategory.php?id=".$ID."&cid=".$row['CategoryID']."'>";
+                    echo "<form method='POST' class='needs-validation' action='editCategory.php?id=".$ID."&cid=".$row['CategoryID']."' novalidate>";
 
                     echo "<div class='form-row'>";
                     echo "<div class='form-group col'>";
                     echo "<label>Category ID:</label>";
-                    echo "<input type='number' class='form-control' id='cid' name='cid' value='".$row['CategoryID']."'>";
+                    echo "<input type='number' class='form-control' id='cid' name='cid' value='".$row['CategoryID']."' required>";
                     echo "<small id='cidHelp' class=form-text text-muted'>Make sure ID is unique compared to the other ID's</small>";
+                    echo "<div class='invalid-feedback'>Put CategoryID!</div>";
                     echo "</div>";
                     echo "<div class='form-group col'>";
                     echo "<label>Category Description:</label>";
-                    echo "<input type='text' class='form-control' id='description' name='description' value='".$row['Description']."'>";
+                    echo "<input type='text' class='form-control' id='description' name='description' value='".$row['Description']."' required>";
+                    echo "<div class='invalid-feedback'>Put Description!</div>";
                     echo "</div>";
                     echo "</div>";
 
 
                     echo "<br />";
                     echo "<button type='submit' name='submit' class='btn btn-primary btn-block'>Submit</button>";
+
+
+                    echo "<script>
+                   
+                          (function() {
+                              'use strict';
+                              window.addEventListener('load', function() {
+                                  var forms = document.getElementsByClassName('needs-validation');
+                                  var validation = Array.prototype.filter.call(forms, function(form) {
+                                      form.addEventListener('submit', function(event) {
+                                          if (form.checkValidity() === false) {
+                                              event.preventDefault();
+                                              event.stopPropagation();
+                                          }
+                                          form.classList.add('was-validated');
+                                      }, false);
+                                  });
+                              }, false);
+                          })();
+                      
+
+
+                  
+                      </script>";
+
+
+
                     echo "</form>";
                     echo "</div>";
                 } else {
