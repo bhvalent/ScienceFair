@@ -55,7 +55,7 @@
 					echo "<th scope='col'>Email</th>";
 					echo "<th scope='col'>Category</th>";
 					echo "<th scope='col'></th>";
-					//echo "<th scope='col'></th>";
+					echo "<th scope='col'></th>";
 					echo "</tr>";
 					echo "</thead>";
 					echo "<tbody>";
@@ -66,7 +66,7 @@
 						echo "<td class='text-center'>".$row['Email']."</td>";
 						echo "<td class='text-center'>".$row['Category']."</td>";
 						echo "<td class='text-center'><a href='editJudge.php?id=".urlencode($ID)."&sjid=".urlencode($row['SetJudgeID'])."' class='btn btn-outline-warning'>Edit</a></td>";
-						//echo "<td class='text-center'><a href='deleteStudent.php?id=".urlencode($ID)."&sid=".urlencode($row['RegistrationID'])."' class='btn btn-outline-danger'>Delete</a></td>";
+						echo "<td class='text-center'><a href='deleteJudge.php?id=".urlencode($ID)."&sjid=".urlencode($row['SetJudgeID'])."' class='btn btn-outline-danger'>Delete</a></td>";
 						echo "</tr>";
 					}		
 					echo "</tbody>";
@@ -135,7 +135,7 @@
 							echo "<th scope='col'>Email</th>";
 							echo "<th scope='col'>Category</th>";
 							echo "<th scope='col'></th>";
-							//echo "<th scope='col'></th>";
+							echo "<th scope='col'></th>";
 							echo "</tr>";
 							echo "</thead>";
 							echo "<tbody>";
@@ -146,7 +146,7 @@
 								echo "<td class='text-center'>".$row['Email']."</td>";
 								echo "<td class='text-center'>".$row['Category']."</td>";
 								echo "<td class='text-center'><a href='editJudge.php?id=".urlencode($ID)."&sjid=".urlencode($row['SetJudgeID'])."' class='btn btn-outline-warning'>Edit</a></td>";
-								//echo "<td class='text-center'><a href='deleteStudent.php?id=".urlencode($ID)."&sid=".urlencode($row['RegistrationID'])."' class='btn btn-outline-danger'>Delete</a></td>";
+								echo "<td class='text-center'><a href='deleteJudge.php?id=".urlencode($ID)."&sjid=".urlencode($row['SetJudgeID'])."' class='btn btn-outline-danger'>Delete</a></td>";
 								echo "</tr>";
 							}
 							echo "</tbody>";
