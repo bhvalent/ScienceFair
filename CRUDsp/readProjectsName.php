@@ -135,7 +135,7 @@
 						$query .= " order by LName";
 
 						$result = $mysqli->query($query);
-						if ($result) {
+						if ($result && $result->num_rows > 0) {
 							echo "<div class='table-responsive'>";
 							echo "<table class='table table-bordered table-hover'>";
 							echo "<thead class='thead-dark text-center'>";
@@ -245,11 +245,8 @@
 			           			exit;
 							}
 
-						} else {
-							$_SESSION["message"] = "Unable to view Teams";
-		           			header("Location: FairHome.php?id=".$ID);
-		           			exit;
-						}
+						} 
+						
 					}
 
 
