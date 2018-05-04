@@ -74,6 +74,7 @@
 					echo "<th scope='col'>Type</th>";
 					echo "<th scope='col'></th>";
 					echo "<th scope='col'></th>";
+					echo "<th scope='col'></th>";
 					echo "</tr>";
 					echo "</thead>";
 					echo "<tbody>";
@@ -105,6 +106,7 @@
 							echo "<td class='text-center'>".$row['SCity']."</td>";
 							echo "<td class='text-center'>".$row['Type']."</td>";
 							echo "<td class='text-center'><a href='editStudent.php?id=".urlencode($ID)."&sid=".urlencode($row['RegistrationID'])."' class='btn btn-outline-warning'>Edit</a></td>";
+							echo "<td class='text-center'><a href='addTeamMember.php?id=".urlencode($ID)."&rid=".urlencode($row['RegistrationID'])."' class='btn btn-primary'>Add Team Member</a></td>";
 							echo "<td class='text-center'><a href='deleteStudent.php?id=".urlencode($ID)."&sid=".urlencode($row['RegistrationID'])."' class='btn btn-outline-danger'>Delete</a></td>";
 							echo "</tr>";
 						}
@@ -161,6 +163,7 @@
 							echo "<th scope='col'>Type</th>";
 							echo "<th scope='col'></th>";
 							echo "<th scope='col'></th>";
+							echo "<th scope='col'></th>";
 							echo "</tr>";
 							echo "</thead>";
 							echo "<tbody>";
@@ -187,6 +190,7 @@
 								echo "<td class='text-center'>".$row['SCity']."</td>";
 								echo "<td class='text-center'>".$row['Type']."</td>";
 								echo "<td class='text-center'><a href='editStudent.php?id=".urlencode($ID)."&sid=".urlencode($row['RegistrationID'])."' class='btn btn-outline-warning'>Edit</a></td>";
+								echo "<td class='text-center'><a href='addTeamMember.php?id=".urlencode($ID)."&rid=".urlencode($row['RegistrationID'])."' class='btn btn-primary'>Add Team Member</a></td>";
 								echo "<td class='text-center'><a href='deleteStudent.php?id=".urlencode($ID)."&sid=".urlencode($row['RegistrationID'])."' class='btn btn-outline-danger'>Delete</a></td>";
 								echo "</tr>";
 							
@@ -232,6 +236,7 @@
 									echo "<td class='text-center'>".$SCity."</td>";
 									echo "<td class='text-center'>".$Type."</td>";
 									echo "<td class='text-center'><a href='editTeamMember.php?id=".urlencode($ID)."&tmid=".urlencode($row['TeamMemberID'])."' class='btn btn-outline-warning'>Edit</a></td>";
+									echo "<td class='text-center'></td>";
 									echo "<td class='text-center'><a href='deleteTeamMember.php?id=".urlencode($ID)."&tmid=".urlencode($row['TeamMemberID'])."' class='btn btn-outline-danger'>Delete</a></td>";
 									echo "</tr>";
 								}
@@ -246,7 +251,7 @@
 							}
 
 						} 
-						
+
 					}
 
 
@@ -306,6 +311,7 @@
 					echo "<th scope='col'>Type</th>";
 					echo "<th scope='col'></th>";
 					echo "<th scope='col'></th>";
+					echo "<th scope='col'></th>";
 					echo "</tr>";
 					echo "</thead>";
 					echo "<tbody>";
@@ -337,6 +343,7 @@
 							echo "<td class='text-center'>".$row['SCity']."</td>";
 							echo "<td class='text-center'>".$row['Type']."</td>";
 							echo "<td class='text-center'><a href='editStudent.php?id=".urlencode($ID)."&sid=".urlencode($row['RegistrationID'])."' class='btn btn-outline-warning'>Edit</a></td>";
+							echo "<td class='text-center'><a href='addTeamMember.php?id=".urlencode($ID)."&rid=".urlencode($row['RegistrationID'])."' class='btn btn-primary'>Add Team Member</a></td>";
 							echo "<td class='text-center'><a href='deleteStudent.php?id=".urlencode($ID)."&sid=".urlencode($row['RegistrationID'])."' class='btn btn-outline-danger'>Delete</a></td>";
 							echo "</tr>";
 						}
