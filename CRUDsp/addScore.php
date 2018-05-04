@@ -41,7 +41,7 @@
 
                 } elseif ($row['Score1'] !== null && $row['Score2'] === null) {
 
-                    $total = $row['Score1'] + $_POST['score'] / 2;
+                    $total = ($row['Score1'] + $_POST['score']) / 2;
 
                     $query = "Update Registration ";
                     $query .= "set Score2 = ".$_POST['score'].", ";
