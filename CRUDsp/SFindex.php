@@ -62,17 +62,19 @@
 
 <?php 
 
+	echo "<div class='container'>";
+	echo "<head><h2>&nbsp</h2></head>";
+	echo "<div class='row justify-content-center'";
+	
+	echo "<head>";
+	echo "<h2>Fairs</h2>";
+	echo "</head>";
+	echo "</div>";
+
 	$query = "Select * from Fair order by Year DESC";
 	$result = $mysqli->query($query);
 	if ($result && $result->num_rows > 0) {
-		echo "<div class='container'>";
-		echo "<head><h2>&nbsp</h2></head>";
-		echo "<div class='row justify-content-center'";
 		
-		echo "<head>";
-		echo "<h2>Fairs</h2>";
-		echo "</head>";
-		echo "</div>";
 
 		echo "<br /><br />";
 		echo "<div class='row justify-content-center'>";
@@ -84,6 +86,7 @@
 		echo "<th scope='col'>Name</th>";
 		echo "<th scope='col'>Year</th>";
 		echo "<th scope='col'></th>";
+		echo "<th scope='col'></th>";
 		echo "</tr>";
 		echo "</thead>";
 		echo "<tbody>";
@@ -92,6 +95,7 @@
 			echo "<td class='text-center'><a href='FairHome.php?id=".urlencode($row['FairID'])."'>".$row['FairName']."</a></td>";
 			echo "<td class='text-center'>".$row['Year']."</td>";
 			echo "<td class='text-center'><a href='editFair.php?id=".$row['FairID']."' class='btn btn-outline-warning'>Edit</a></td>";
+			echo "<td class='text-center'><a href='deleteFair.php?id=".$row['FairID']."' class='btn btn-outline-danger'>Delete</a></td>";
 			echo "</tr>";
 		}
 		echo "</tbody>";
@@ -99,17 +103,19 @@
 		echo "</div>";
 		echo "</div>";
 		echo "</div>";
-		echo "</div>";
-
-		echo "<div class='container'>";
-		echo "<br /><br />";
-		echo "<div class='row justify-content-center'>";
-		echo "<a href='addFair.php' class='btn btn-primary'>Add Fair</a>";
-		echo "</div>";
-		echo "</div>";
+		
+		
 		
 		
 	}
+	echo "</div>";
+
+	echo "<div class='container'>";
+	echo "<br /><br />";
+	echo "<div class='row justify-content-center'>";
+	echo "<a href='addFair.php' class='btn btn-primary'>Add Fair</a>";
+	echo "</div>";
+	echo "</div>";
 
 ?>
 
