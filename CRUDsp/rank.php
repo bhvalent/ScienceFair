@@ -17,7 +17,7 @@
 		
 		$ID = $_GET['id'];
 
-		$query = "Select distinct Description from Registration inner join Category on FKCategoryID = CategoryID inner join Fair on FKFairID = FairID order by Description";
+		$query = "Select distinct Description from Registration inner join Category on FKCategoryID = CategoryID inner join Fair on FKFairID = FairID where FKFairID = ".$ID." order by Description";
 		$result = $mysqli->query($query);
 		$catArray = array();
 		if ($result && $result->num_rows > 0) {
@@ -263,7 +263,7 @@
 
 					
 				} else {
-					$_SESSION["message"] = "Error! Unable to view Classes";
+					$_SESSION["message"] = "Error! Unable to view Classes".mysqli_error($mysqli);;
 		   			header("Location: FairHome.php?id=".$ID);
 		   			exit;
 				}
