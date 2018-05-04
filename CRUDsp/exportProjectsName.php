@@ -81,7 +81,7 @@
 					$query .= " order by LName";
 
 					$result = $mysqli->query($query);
-					if ($result) {
+					if ($result && $result->num_rows > 0) {
 
 						// line to separate individual from teams
 						echo "\n";
@@ -152,11 +152,7 @@
 		           			exit;
 						}
 
-					} else {
-						$_SESSION["message"] = "Unable to view Teams";
-	           			header("Location: FairHome.php?id=".$ID);
-	           			exit;
-					}
+					} 
 				}
 
 
