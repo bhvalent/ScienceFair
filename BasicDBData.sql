@@ -2,7 +2,7 @@
 USE bhvalent;
 
 -- Login Table
-INSERT INTO Login (Username, Password) VALUES('ScienceFair', 'olemiss2018');
+INSERT INTO Login (Username, Pword) VALUES('ScienceFair', 'olemiss2018');
 
 -- Category Table
 INSERT INTO Category VALUES(0100, 'Behavioral and Social Science');
