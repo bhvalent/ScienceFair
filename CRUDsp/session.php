@@ -41,9 +41,17 @@
 	function verifyLogIn() {
 		if ($_SESSION['login'] === false || !(isset($_SESSION['login']))) {
 			$_SESSION["message"] = "You are not Logged In!";
-   			header("Location: LogOut.php");
+   			header("Location: LogIn.php");
    			exit;
 		}
+	}
+
+	function Logout() {
+		session_unset();
+		session_destroy();
+		$_SESSION["message"] = "You are not Logged In!";
+		header("Location: LogIn.php");
+   		exit;
 	}
 	
 ?>
