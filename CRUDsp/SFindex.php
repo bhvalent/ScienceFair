@@ -19,6 +19,7 @@
 	<body>
 
 	<?php 
+		verifyLogIn();
 		require_once("included_functions.php");
 		$mysqli = db_connection();
 		if (($output = message()) !== null) {
@@ -45,6 +46,10 @@
 		 <div class="container-fluid">
 		 <div class="navbar-header">
 		 	<span class="navbar-brand mb-0 h1">Home</span>
+		 </div>
+
+		 <div class="col-xs-12 col-sm-12 col-md-9 col-lg-6">;
+		 	<a href='LogIn.php?id=1' class='btn btn-danger'>Logout</a>;
 		 </div>
 				
 		 </div>
