@@ -44,8 +44,8 @@ CREATE TABLE JudgeRegistrant (
 
 -- Table: Login
 CREATE TABLE Login (
-    Username int NOT NULL,
-    Passoword int NOT NULL,
+    Username varchar(25) NOT NULL,
+    Passoword varchar(100) NOT NULL,
     CONSTRAINT Login_pk PRIMARY KEY (Username,Passoword)
 );
 
