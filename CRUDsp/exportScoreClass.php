@@ -101,7 +101,7 @@
 
 
 						$query = "Select RegistrationID, concat(FName, ' ', LName) as `Name`, ProjTitle, Continuation, ";
-						$query .= "NumYears, Age, Gender, AdultSponsor, Grade, SName, Score1, Score2, Total, Rank ";
+						$query .= "NumYears, Age, Gender, AdultSponsor, Grade, SName, Score1, Score2, Total, ZScore1, ZScore2, AverageZ, Rank ";
 						$query .= "from Registration ";
 						$query .= "inner join Fair on FKFairID = FairID ";
 						$query .= "inner join School on FKSchoolID = SchoolID ";
@@ -123,7 +123,7 @@
 							$columns = 'Rank' . "\t" . 'Project Number' . "\t" . 'Name' . "\t" . 'Project Title' . "\t";
 							$columns .= 'Continuation' . "\t" . 'Years of Work' . "\t" . 'Age' . "\t" . 'Gender' . "\t";
 							$columns .= 'Adult Sponsor' . "\t" . 'Grade' . "\t" . 'School' . "\t";
-							$columns .= 'Score 1' . "\t" . 'Score 2' . "\t" . 'Total' . "\n";
+							$columns .= 'Score 1' . "\t" . 'Score 2' . "\t" . 'Total' . "\t" . 'Z-Score 1' . "\t" . 'Z-Score 2' . "\t" . 'Average' . "\n";
 
 							echo $columns;
 
@@ -138,7 +138,7 @@
 									$data = $row['Rank'] . "\t" . $row['RegistrationID'] . "\t" . $row['Name'] . "\t";
 									$data .= $row['ProjTitle'] . "\t" . $row['Continuation'] . "\t" . $row['Years of Work'] . "\t";
 									$data .= $row['Age'] . "\t" . $row['Gender'] . "\t" . $row['AdultSponsor'] . "\t" . $row['Grade'] . "\t";
-									$data .= $row['SName'] . "\t" . $row['Score1'] . "\t" . $row['Score2'] . "\t" . $row['Total'] . "\n";
+									$data .= $row['SName'] . "\t" . $row['Score1'] . "\t" . $row['Score2'] . "\t" . $row['Total'] . "\t" . $row['ZScore1'] . "\t" . $row['ZScore2'] . "\t" . $row['AverageZ'] . "\n";
 
 									echo $data;
 
@@ -149,11 +149,10 @@
 
 
 									// data
-									$data = $row['Rank'] . "\t" . $row['RegistrationID'] . "\t";
-									$data .= $row['Name'] . ", " . $tMems[array_search($row['RegistrationID'], $onTeam)] . "\t";
+									$data = $row['Rank'] . "\t" . $row['RegistrationID'] . "\t" . $row['Name'] . "\t";
 									$data .= $row['ProjTitle'] . "\t" . $row['Continuation'] . "\t" . $row['Years of Work'] . "\t";
 									$data .= $row['Age'] . "\t" . $row['Gender'] . "\t" . $row['AdultSponsor'] . "\t" . $row['Grade'] . "\t";
-									$data .= $row['SName'] . "\t" . $row['Score1'] . "\t" . $row['Score2'] . "\t" . $row['Total'] . "\n";
+									$data .= $row['SName'] . "\t" . $row['Score1'] . "\t" . $row['Score2'] . "\t" . $row['Total'] . "\t" . $row['ZScore1'] . "\t" . $row['ZScore2'] . "\t" . $row['AverageZ'] . "\n";
 
 									echo $data;
 
