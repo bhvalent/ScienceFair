@@ -50,7 +50,7 @@
 						<?php 
 						echo "<p class='card-text'></p>";
  						echo "<p class='card-text'>Add Project into ".$fair_name." ".$fair_year." </p>";
- 						echo "<a href='addStudent.php?id=".urlencode($ID)."' class='btn btn-primary'>Add Student</a>";
+ 						echo "<a href='addStudent.php?id=".urlencode($ID)."' class='btn btn-primary'>Add Project</a>";
  						?>
 
  					</div>
