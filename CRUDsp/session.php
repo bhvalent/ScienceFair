@@ -37,5 +37,13 @@
 			return $errors;
 		}
 	}
+
+	function verifyLogIn() {
+		if ($_SESSION['login'] === false || !(isset($_SESSION['login']))) {
+			$_SESSION["message"] = "You are not Logged In!";
+   			header("Location: LogOut.php");
+   			exit;
+		}
+	}
 	
 ?>
