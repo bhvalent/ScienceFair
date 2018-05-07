@@ -1,6 +1,9 @@
 -- Basic Table data for Categories, Class (Class, Grade), and School needs to be added
 USE bhvalent;
 
+-- Login Table
+INSERT INTO Login (Username, Password) VALUES('ScienceFair', 'olemiss2018');
+
 -- Category Table
 INSERT INTO Category VALUES(0100, 'Behavioral and Social Science');
 INSERT INTO Category VALUES(0200, 'Biochemistry');
