@@ -73,6 +73,10 @@
     	echo '</div>';
 		echo '</div>';
 
+		echo ' ';
+
+		echo "<a href='LogIn.php?id=1' class='btn btn-danger'>Logout</a>";
+
 		echo '</div>';
 					
     	//<!--</div>-->
