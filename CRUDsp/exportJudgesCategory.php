@@ -2,6 +2,7 @@
 	
 	require_once("included_functions.php");
 	require_once("session.php");
+	verifyLogIn();
 	$mysqli = db_connection_noMessage();
 
 	if (isset($_GET['id']) && $_GET['id'] != "") {
