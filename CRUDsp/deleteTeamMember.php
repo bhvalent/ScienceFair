@@ -13,18 +13,19 @@
 	}
 	if ((isset($_GET['id']) && $_GET['id'] != "") && (($_GET['tmid']) && $_GET['tmid'] != "") && (isset($_GET['del']) && $_GET['del'] != "")) {
 		$ID = $_GET['id'];
+		$TMID = $_GET['tmid'];
 		
 		if ($_GET['del'] === "1") {
 
-			$query = "Delete from TeamMembers where TeamMemberID = ".$_GET['tmid'];
-			$result = $mysqli->query($query);
-			if ($result && $mysqli->affected_rows === 1) {
+			$query1 = "Delete from TeamMembers where TeamMemberID = ".$TMID;
+			$result1 = $mysqli->query($query1);
+			if ($result1 && $mysqli->affected_rows === 1) {
 				$_SESSION["message"] = "Student was successfully deleted";
 				header("Location: FairHome.php?id=".$ID);
 				exit;
 			} else {
 				$num = $mysqli->affected_rows;
-				$_SESSION["message"] = $num." rows were deleted.";
+				$_SESSION["message"] = $num." rows were deleted.".$TMID;
 				header("Location: FairHome.php?id=".$ID);
 				exit;
 			}
@@ -65,9 +66,9 @@
  				echo "<p class='card-text'>Are you sure you want to delete ".$row['FName']." ".$row['LName']." from ".$FairName."?</p>";
 
  						
- 				echo "<a href='deleteStudent.php?id=".urldecode($ID)."&sid=".$_GET['tmid']."&del=1' class='btn btn-outline-danger btn-block'>Yes</a>";
+ 				echo "<a href='deleteTeamMember.php?id=".urldecode($ID)."&tmid=".$_GET['tmid']."&del=1' class='btn btn-outline-danger btn-block'>Yes</a>";
  				echo "<br /><br />";
- 				echo "<a href='deleteStudent.php?id=".urldecode($ID)."&sid=".$_GET['tmid']."&del=0' class='btn btn-primary btn-block'>No</a>";
+ 				echo "<a href='deleteTeamMember.php?id=".urldecode($ID)."&tmid=".$_GET['tmid']."&del=0' class='btn btn-primary btn-block'>No</a>";
  				
  				
  				echo "</div>";
