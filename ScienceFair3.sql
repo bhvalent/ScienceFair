@@ -42,6 +42,13 @@ CREATE TABLE JudgeRegistrant (
     CONSTRAINT JudgeRegistrant_pk PRIMARY KEY (FKSetJudgeID,FKRegistrationID)
 );
 
+-- Table: Login
+CREATE TABLE Login (
+    Username int NOT NULL,
+    Passoword int NOT NULL,
+    CONSTRAINT Login_pk PRIMARY KEY (Username,Passoword)
+);
+
 -- Table: Registration
 CREATE TABLE Registration (
     RegistrationID int NOT NULL AUTO_INCREMENT,
