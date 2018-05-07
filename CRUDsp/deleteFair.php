@@ -42,6 +42,7 @@
 
 
 <?php
+	verifyLogIn();
 	require_once("included_functions.php");
 	$mysqli = db_connection();
 	if (($output = message()) !== null) {
