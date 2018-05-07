@@ -2,6 +2,7 @@
 	require_once("session.php");
  	require('../fpdf.php');
 	require_once("included_functions.php");
+	verifyLogIn();
 	$mysqli = db_connection_noMessage();
 	
 	if ((isset($_GET['id']) && $_GET['id'] != "") && (isset($_GET['snum']) && $_GET['snum'] != "") && (isset($_GET['cid']) && $_GET['cid'] != "")) {
